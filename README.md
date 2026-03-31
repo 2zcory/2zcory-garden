@@ -27,5 +27,7 @@ Public source repository for `2zcory-garden`.
 
 ```bash
 npm install
+npm run lint
+npm run build
 npm run dev
 ```
