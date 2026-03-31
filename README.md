@@ -1,9 +1,31 @@
 # 2zcory Garden
 
-Fresh restart for the public source repository.
+Public source repository for `2zcory-garden`.
 
 ## Status
 
-- Source repository reset to a clean starting point.
+- Next.js App Router baseline for the public site is in place.
 - Product context, stories, and internal workflow live in the matching private repository: `~/wp/2zcory-garden-ctx`.
-- No implementation baseline has been re-established yet.
+- Initial content strategy is `file-based` and intentionally thin.
+
+## Current Baseline
+
+- Shared layout and primary navigation shell
+- Public routes:
+  - `/`
+  - `/about`
+  - `/projects`
+  - `/projects/[slug]`
+  - `/writing`
+  - `/writing/[slug]`
+  - `/garden`
+  - `/garden/[slug]`
+  - `/contact`
+- Domain types and file-based content loaders for `Profile`, `Project`, `Article`, and `Note`
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
