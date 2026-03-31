@@ -31,3 +31,17 @@ npm run lint
 npm run build
 npm run dev
 ```
+
+## Public Smoke Check
+
+Run the lightweight public smoke check against the live site:
+
+```bash
+npm run smoke:public
+```
+
+Override the default deployment URL when needed:
+
+```bash
+SMOKE_BASE_URL=https://example.com npm run smoke:public
+```
