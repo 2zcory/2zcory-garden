@@ -11,35 +11,112 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function ContactPage() {
   const profile = getProfile();
+  const hasDirectContact = Boolean(profile.contactEmail);
 
   return (
-    <section className="surface-card page-stack">
-      <div>
-        <p className="eyebrow">Contact</p>
-        <h1 className="page-title">A clear way to reach out.</h1>
-        <p className="page-copy">
-          Contact stays intentionally narrow: only channels that can actually be monitored and
-          replied to consistently belong here.
-        </p>
-      </div>
-      <div className="content-item">
-        <h2>Email</h2>
-        {profile.contactEmail ? (
-          <>
-            <p className="muted">
-              For collaboration, project discussion, or thoughtful replies, use the address below.
+    <div className="page-stack">
+      <section className="surface-card contact-hero-grid">
+        <div className="stack">
+          <div>
+            <p className="eyebrow">Contact</p>
+            <h1 className="page-title">A clear way to reach out.</h1>
+            <p className="page-copy">
+              Collaboration, project discussion, and thoughtful replies are welcome. This surface
+              is meant to clarify what kind of outreach fits the site before it exposes any channel
+              details.
             </p>
-            <Link href={`mailto:${profile.contactEmail}`} className="inline-link">
-              {profile.contactEmail}
-            </Link>
-          </>
-        ) : (
+          </div>
+          <div className="contact-chip-row">
+            <span className="badge">Thoughtful replies</span>
+            <span className="badge">Project discussion</span>
+            <span className="badge">Public-safe channel policy</span>
+          </div>
+        </div>
+        <aside className="surface-card contact-policy-card">
+          <p className="eyebrow">Channel Policy</p>
+          <h2 className="section-heading">Direct contact stays intentionally narrow.</h2>
           <p className="muted">
-            A direct contact channel is not published yet. For now, the site stays publication
-            first; contact details will be added once there is a reliable reply path to maintain.
+            A direct inbox should appear only when there is a reply path that can actually be
+            maintained. Until then, the page should stay honest about the constraint instead of
+            pretending a durable channel already exists.
           </p>
-        )}
-      </div>
-    </section>
+        </aside>
+      </section>
+
+      <section className="surface-card contact-stage-grid">
+        <article className="stack">
+          <div>
+            <p className="eyebrow">Good Fit</p>
+            <h2 className="section-heading">Reach out when the context already connects.</h2>
+            <p className="section-intro">
+              The strongest messages usually follow material that is already published here:
+              something in the garden, a writing piece, or a project that gives the conversation a
+              real starting point.
+            </p>
+          </div>
+          <div className="section-grid contact-intent-grid">
+            <article className="content-item">
+              <h3>Good reasons to contact</h3>
+              <p className="muted">
+                Collaboration, project discussion, responses to a specific piece of writing, or a
+                concrete follow-up to published work.
+              </p>
+            </article>
+            <article className="content-item">
+              <h3>What is not ready yet</h3>
+              <p className="muted">
+                A permanent direct inbox is not published right now, so this page should not imply
+                guaranteed replies through a hidden or temporary channel.
+              </p>
+            </article>
+          </div>
+        </article>
+
+        <aside className="contact-cta-stack">
+          {hasDirectContact ? (
+            <article className="content-item contact-primary-card">
+              <p className="eyebrow">Direct Channel</p>
+              <h2 className="section-heading">Email is open for thoughtful outreach.</h2>
+              <p className="muted">
+                For collaboration, project discussion, or careful replies, use the address below.
+              </p>
+              <Link href={`mailto:${profile.contactEmail}`} className="button-link contact-action-link">
+                {profile.contactEmail}
+              </Link>
+            </article>
+          ) : (
+            <article className="content-item contact-primary-card">
+              <p className="eyebrow">Best Next Move</p>
+              <h2 className="section-heading">Return with context first.</h2>
+              <p className="muted">
+                If a direct message is not possible yet, the most useful next step is to follow the
+                material that explains what kind of work, thinking, or collaboration you want to
+                discuss.
+              </p>
+              <div className="contact-link-list">
+                <Link href="/writing" className="button-link secondary contact-action-link">
+                  Read writing
+                </Link>
+                <Link href="/projects" className="button-link secondary contact-action-link">
+                  View projects
+                </Link>
+                <Link href="/garden" className="button-link secondary contact-action-link">
+                  Browse garden notes
+                </Link>
+              </div>
+            </article>
+          )}
+
+          <article className="content-item">
+            <p className="eyebrow">Expectation</p>
+            <h2 className="section-heading">The page should filter intent, not fake availability.</h2>
+            <p className="muted">
+              This site is publication-first for now. Contact details will expand only when there
+              is a reliable response path worth publishing.
+            </p>
+          </article>
+        </aside>
+      </section>
+    </div>
   );
 }

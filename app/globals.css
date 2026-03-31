@@ -289,9 +289,57 @@ main {
   color: var(--accent);
 }
 
+.contact-hero-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.85fr);
+}
+
+.contact-stage-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  align-items: start;
+}
+
+.contact-policy-card {
+  align-self: stretch;
+  background:
+    radial-gradient(circle at top right, rgba(30, 92, 74, 0.12), transparent 36%),
+    var(--surface-strong);
+}
+
+.contact-chip-row,
+.contact-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.contact-intent-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.contact-cta-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-primary-card {
+  background:
+    radial-gradient(circle at top right, rgba(30, 92, 74, 0.12), transparent 34%),
+    rgba(255, 251, 245, 0.86);
+}
+
+.contact-action-link {
+  width: fit-content;
+}
+
 @media (max-width: 900px) {
   .hero-grid,
-  .detail-grid {
+  .detail-grid,
+  .contact-hero-grid,
+  .contact-stage-grid {
     grid-template-columns: 1fr;
   }
 
