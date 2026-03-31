@@ -456,3 +456,194 @@ main {
     font-size: 0.76rem;
   }
 }
+
+/* Home atlas implementation: keep the split reading order stable before adding flourish. */
+.home-atlas-shell {
+  padding: 2rem;
+  background:
+    radial-gradient(circle at 16% 14%, rgba(255, 255, 255, 0.72), transparent 34%),
+    radial-gradient(circle at 84% 12%, rgba(30, 92, 74, 0.08), transparent 24%),
+    linear-gradient(180deg, rgba(255, 251, 245, 0.96), rgba(247, 240, 229, 0.88));
+}
+
+.home-atlas-grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.home-atlas-copy {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.home-atlas-title {
+  max-width: 7ch;
+  font-size: clamp(3rem, 6vw, 5.1rem);
+}
+
+.home-atlas-lead {
+  max-width: 34rem;
+}
+
+.home-rule-card {
+  max-width: 28rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 251, 245, 0.76);
+}
+
+.home-rule-card .section-heading,
+.home-route-card h2 {
+  font-size: clamp(1.75rem, 3vw, 2.85rem);
+  line-height: 0.98;
+}
+
+.home-atlas-board {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-route-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.45rem 1.35rem 1.25rem;
+  border-radius: 28px;
+  border: 1px solid rgba(31, 26, 20, 0.12);
+  box-shadow: var(--shadow);
+}
+
+.home-route-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 42%),
+    linear-gradient(180deg, transparent, rgba(31, 26, 20, 0.04));
+}
+
+.home-route-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.route-label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 26, 20, 0.08);
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-route-card p {
+  margin: 0;
+  max-width: 30ch;
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.home-route-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.route-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.8rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.route-pill-muted {
+  opacity: 0.92;
+}
+
+.home-route-garden {
+  background: linear-gradient(155deg, rgba(42, 100, 85, 0.92), rgba(25, 58, 50, 0.95));
+  color: #eff6f2;
+}
+
+.home-route-writing {
+  background: linear-gradient(155deg, rgba(141, 62, 49, 0.92), rgba(96, 34, 25, 0.96));
+  color: #fff1ec;
+}
+
+.home-route-projects {
+  background: linear-gradient(155deg, rgba(214, 177, 131, 0.9), rgba(180, 139, 65, 0.94));
+  color: #2c2117;
+}
+
+.home-route-projects .route-label,
+.home-route-projects .route-pill {
+  background: rgba(255, 252, 247, 0.34);
+}
+
+.home-board-caption {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 18rem;
+  padding-top: 0.9rem;
+  color: var(--muted);
+  border-top: 1px solid rgba(31, 26, 20, 0.16);
+}
+
+.home-board-caption strong {
+  color: var(--text);
+}
+
+@media (min-width: 980px) {
+  .home-atlas-grid {
+    grid-template-columns: minmax(320px, 0.88fr) minmax(0, 1.12fr);
+  }
+
+  .home-atlas-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-route-garden {
+    grid-column: 1 / -1;
+  }
+
+  .home-route-writing {
+    transform: translateY(-0.8rem);
+  }
+
+  .home-route-projects {
+    transform: translateY(0.8rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .home-atlas-board {
+    grid-template-columns: 1fr;
+  }
+
+  .home-route-writing,
+  .home-route-projects {
+    transform: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-atlas-shell {
+    padding: 1.25rem;
+  }
+
+  .home-route-card,
+  .home-rule-card {
+    border-radius: 24px;
+  }
+}

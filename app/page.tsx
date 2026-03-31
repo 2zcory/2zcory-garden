@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { getFeaturedContent, getProfile } from "@/lib/content";
+import { getFeaturedContent } from "@/lib/content";
 import { buildPageMetadata, formatDate } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -11,75 +11,94 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function HomePage() {
-  const profile = getProfile();
   const featured = getFeaturedContent();
 
   return (
     <div className="page-stack">
-      <section className="hero-card hero-grid">
-        <div>
-          <p className="eyebrow">Public home for thought and execution</p>
-          <h1 className="hero-title">A living site for notes, writing, and proof of work.</h1>
-          <p className="hero-copy">
-            2zcory Garden is not a portfolio shell and not just a blog. It is a public place
-            where exploratory notes, shaped writing, and selected projects can point to each
-            other, accumulate over time, and make the larger direction of the work easier to read.
-          </p>
-          <div className="cta-row">
-            <Link href="/garden" className="button-link">
-              Enter the garden
-            </Link>
-            <Link href="/writing" className="button-link secondary">
-              Read the writing
-            </Link>
-          </div>
-        </div>
-        <div className="surface-card stack">
-          <p className="eyebrow">Current focus</p>
-          <h2 className="section-heading">{profile.descriptor}</h2>
-          <ul className="list-reset stack">
-            {profile.currentFocus.map((item) => (
-              <li key={item} className="muted">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <section className="hero-card home-atlas-shell">
+        <div className="home-atlas-grid">
+          <section className="home-atlas-copy">
+            <div>
+              <p className="eyebrow">Public home for thought and execution</p>
+              <h1 className="hero-title home-atlas-title">A map for thought that turns into public work.</h1>
+              <p className="hero-copy home-atlas-lead">
+                2zcory Garden should open like a territory, not like a summary page. The first
+                screen should explain the place quickly, then make three routes legible: thinking
+                still in motion, writing already shaped, and work already made concrete.
+              </p>
+            </div>
 
-      <section className="section-grid">
-        <article className="surface-card">
-          <p className="eyebrow">Garden</p>
-          <h2 className="section-heading">Thought in motion</h2>
-          <p className="section-intro">
-            Notes, fragments, and trails that show how ideas evolve before they harden into essays
-            or project decisions.
-          </p>
-          <Link href="/garden" className="inline-link">
-            Browse notes
-          </Link>
-        </article>
-        <article className="surface-card">
-          <p className="eyebrow">Writing</p>
-          <h2 className="section-heading">Deliberate output</h2>
-          <p className="section-intro">
-            More self-contained arguments, essays, and positions shaped out of the ongoing note
-            stream.
-          </p>
-          <Link href="/writing" className="inline-link">
-            Open essays
-          </Link>
-        </article>
-        <article className="surface-card">
-          <p className="eyebrow">Projects</p>
-          <h2 className="section-heading">Execution evidence</h2>
-          <p className="section-intro">
-            Selected builds and systems that show how ideas turn into concrete work.
-          </p>
-          <Link href="/projects" className="inline-link">
-            View projects
-          </Link>
-        </article>
+            <div className="cta-row">
+              <Link href="/garden" className="button-link">
+                Read the routes
+              </Link>
+              <Link href="/about" className="button-link secondary">
+                Review intent
+              </Link>
+            </div>
+
+            <section className="home-rule-card">
+              <p className="eyebrow">Orientation rule</p>
+              <h2 className="section-heading">One site, three ways in.</h2>
+              <p className="muted">
+                The homepage should orient first. It does not need to explain every content type
+                equally, only give visitors a strong first read and an obvious way inward.
+              </p>
+            </section>
+          </section>
+
+          <section className="home-atlas-board">
+            <article className="home-route-card home-route-garden">
+              <div className="route-label">Route 01 / Garden</div>
+              <h2>Notes, fragments, and trails still moving.</h2>
+              <p>
+                Start at the live edge of ideas. This route holds the unfinished, the connective
+                tissue, and the threads that may later harden into essays or project decisions.
+              </p>
+              <div className="home-route-actions">
+                <Link href="/garden" className="route-pill">
+                  Open route
+                </Link>
+                <span className="route-pill route-pill-muted">thought in motion</span>
+              </div>
+            </article>
+
+            <article className="home-route-card home-route-writing">
+              <div className="route-label">Route 02 / Writing</div>
+              <h2>Essays and clearer positions after the trail.</h2>
+              <p>
+                This layer is for visitors who want shaped arguments, clearer conclusions, and the
+                more deliberate editorial surface of the site.
+              </p>
+              <div className="home-route-actions">
+                <Link href="/writing" className="route-pill">
+                  Open route
+                </Link>
+                <span className="route-pill route-pill-muted">deliberate pieces</span>
+              </div>
+            </article>
+
+            <article className="home-route-card home-route-projects">
+              <div className="route-label">Route 03 / Projects</div>
+              <h2>Builds that prove the thinking can land.</h2>
+              <p>
+                This route carries execution evidence without flattening the whole site into a
+                portfolio wall.
+              </p>
+              <div className="home-route-actions">
+                <Link href="/projects" className="route-pill">
+                  Open route
+                </Link>
+                <span className="route-pill route-pill-muted">proof of work</span>
+              </div>
+            </article>
+
+            <div className="home-board-caption">
+              <strong>Atlas reading rule</strong>
+              <span>Read the surface as connected terrain, not as a stack of unrelated modules.</span>
+            </div>
+          </section>
+        </div>
       </section>
 
       <section className="surface-card">
