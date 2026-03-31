@@ -1,7 +1,7 @@
 const DEFAULT_BASE_URL = "https://2zcory-garden.vercel.app";
 
 const checks = [
-  { path: "/", marker: "A living site for notes, writing, and proof of work." },
+  { path: "/", marker: "A map for thought that turns into public work." },
   { path: "/about", marker: "What this site is for" },
   { path: "/projects", marker: "Execution evidence." },
   { path: "/projects/context-os", marker: "Context OS" },
