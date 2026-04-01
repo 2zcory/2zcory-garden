@@ -89,6 +89,46 @@ const COPY = {
     expectationTitle: "Page này nên lọc ý định, không giả vờ sẵn sàng.",
     expectationBody:
       "Site này hiện vẫn publication-first. Thông tin liên hệ sẽ chỉ mở rộng khi có một đường phản hồi đủ đáng tin để công khai."
+  },
+  ja: {
+    title: "連絡",
+    description: "慎重な返信、協業、プロジェクト相談のための連絡面。",
+    eyebrow: "連絡",
+    heroTitle: "明確な連絡のしかた。",
+    heroBody:
+      "協業、プロジェクト相談、考え抜かれた返信は歓迎します。この面は、どの種類の outreach がこのサイトに合うかを、連絡先を出す前に明確にするためのものです。",
+    thoughtfulReplies: "思慮ある返信",
+    projectDiscussion: "プロジェクト相談",
+    channelPolicyChip: "公開向けチャネル方針",
+    policyEyebrow: "チャネル方針",
+    policyTitle: "直接連絡は意図的に狭く保つ。",
+    policyBody:
+      "直接の inbox は、実際に維持できる返信経路があるときにだけ現れるべきです。それまでは、すでに持続的なチャネルがあるかのように見せるのではなく、この制約を正直に示すべきです。",
+    fitEyebrow: "向いている連絡",
+    fitTitle: "すでに文脈がつながっているときに連絡する。",
+    fitBody:
+      "いちばん強いメッセージは、すでにここで公開されている素材のあとに来ます。たとえばガーデンのノート、文章、あるいは会話の出発点になるプロジェクトです。",
+    goodReasons: "連絡する良い理由",
+    goodReasonsBody:
+      "協業、プロジェクト相談、特定の文章への返信、または公開済みの仕事への具体的な follow-up。",
+    notReady: "まだ整っていないこと",
+    notReadyBody:
+      "恒久的な直接 inbox はまだ公開されていないので、このページは隠れた一時的チャネルを通じた確実な返信を示唆するべきではありません。",
+    directChannel: "直接チャネル",
+    directTitle: "メールは慎重な outreach のために開かれています。",
+    directBody:
+      "協業、プロジェクト相談、または丁寧な返信のためには、以下のアドレスを使ってください。",
+    nextMove: "最適な次の一歩",
+    nextMoveTitle: "まず文脈を持って戻る。",
+    nextMoveBody:
+      "もしまだ直接メッセージができないなら、次に役立つのは、どんな仕事や思考や協業について話したいのかを説明している素材をたどることです。",
+    readWriting: "文章を読む",
+    viewProjects: "プロジェクトを見る",
+    browseGarden: "ガーデンノートを見る",
+    expectationEyebrow: "期待値",
+    expectationTitle: "このページは意図を絞るべきで、空きがあるふりをしてはいけない。",
+    expectationBody:
+      "このサイトは今のところ publication-first です。連絡先は、公に出す価値のある信頼できる返信経路があるときだけ広がります。"
   }
 } as const;
 

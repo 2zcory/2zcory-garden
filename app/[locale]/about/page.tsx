@@ -28,6 +28,16 @@ const COPY = {
     siteBody:
       "Đây là một ngôi nhà công khai bền vững nơi suy nghĩ khám phá, bài viết có chủ đích và một số project work được chọn có thể ở lại cùng nhau thay vì bị tách thành các bề mặt nhận diện rời rạc. Mục tiêu không phải tự trình diễn liên tục. Mục tiêu là để lại một body of work đủ rõ để đọc.",
     currentFocus: "Trọng tâm hiện tại"
+  },
+  ja: {
+    title: "概要",
+    description:
+      "2zcory Garden を、思考と実装のための公開ホームとして位置づける背景と意図。",
+    eyebrow: "概要",
+    sitePurpose: "このサイトの役割",
+    siteBody:
+      "ここは、探索中の思考、意図的に整えた文章、選ばれた project work を、分断された自己紹介面へ切り離さずにつなぎとめておくための持続的な公開ホームです。目的は絶え間ない自己演出ではありません。読める body of work を残すことです。",
+    currentFocus: "現在の焦点"
   }
 } as const;
 

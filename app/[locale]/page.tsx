@@ -119,6 +119,60 @@ const COPY = {
     noWritingBody: "Các bài viết đã được gọt sẽ hiện ở đây khi đợt writing đầu tiên sẵn sàng cho homepage.",
     noProjects: "Chưa có dự án được chọn.",
     noProjectsBody: "Khu vực này sẽ trỏ tới các bằng chứng thực thi công khai khi các project entry đã sẵn sàng."
+  },
+  ja: {
+    title: "ホーム",
+    description: "2zcory Garden の公開入口。ノート、文章、選ばれたプロジェクトをつなぐ。",
+    eyebrow: "思考と実装のための公開ホーム",
+    refined: "ファーストビューの整理パス",
+    heroTitle: "思考が公開された仕事へ変わるための地図。",
+    heroLead:
+      "2zcory Garden は要約ページではなく、ひとつの地形のように開くべきです。最初の画面ではこの場所をすばやく説明し、まだ動いている思考、形を整えた文章、具体的な仕事という三つの入口を見えるようにする必要があります。",
+    chips: ["分割構造は維持する", "ファーストビューのリズムを整える", "広いリデザインはしない"],
+    goalLabel: "調整目標",
+    goalText: "ヒーローを説明的なものではなく、より決断のある印象にする。",
+    ctaPrimary: "入口を見る",
+    ctaSecondary: "意図を確認する",
+    ruleEyebrow: "オリエンテーションの原則",
+    ruleTitle: "ひとつのサイト、三つの入り口。",
+    ruleBodyA:
+      "ホームページはまず案内役であるべきです。すべての内容タイプを同じ重さで説明する必要はなく、強い第一読と、内側へ進む明確な道があればよいのです。",
+    ruleBodyB:
+      "このパスは cadence と emphasis と calm のためのものです。基礎の route logic を変えずに、最初の画面をより研ぎ澄ませます。",
+    boardEyebrow: "調整対象",
+    boardTitle: "アトラスの感触を保ちつつ、余分なノイズを減らす。",
+    boardBody:
+      "このボードはつながった地形として読めるべきですが、第一印象が単に並べられたものではなく、意図を持って構成されたものに見えるよう、構図のリズムをより整える必要があります。",
+    routeGardenTitle: "まだ動いているノート、断片、トレイル。",
+    routeGardenBody:
+      "アイデアの生きた端から始めます。この route には未完成のもの、つなぎの組織、そして後に essay や project decision へ固まっていく糸が置かれます。",
+    routeWritingTitle: "トレイルの後に残る、より明確な文章と立場。",
+    routeWritingBody:
+      "この層は、整えられた議論、より明快な結論、そしてより意図的な編集面を求める人のためのものです。",
+    routeProjectsTitle: "思考が着地できると証明するビルド。",
+    routeProjectsBody:
+      "この route は、サイト全体を portfolio wall に平板化することなく、実行の証拠を運びます。",
+    routeOpen: "route を開く",
+    routeGarden: "動いている思考",
+    routeWriting: "整えられた文章",
+    routeProjects: "実行の証拠",
+    boardCaptionStrong: "リーディングルール",
+    boardCaptionText: "非対称性と route の緊張は保ちつつ、最初の画面はもっと落ち着いて着地させる。",
+    featuredTrails: "注目のトレイル",
+    readNote: "ノートを読む",
+    visitGarden: "ガーデンへ",
+    featuredWriting: "注目の文章",
+    readArticle: "記事を読む",
+    browseWriting: "文章を見る",
+    selectedProjects: "選ばれたプロジェクト",
+    openProject: "プロジェクトを開く",
+    viewAllProjects: "すべてのプロジェクトを見る",
+    noNotes: "まだ注目ノートはありません。",
+    noNotesBody: "最初のノートがホーム用に選ばれたら、ここにガーデンが現れます。",
+    noWriting: "まだ注目の文章はありません。",
+    noWritingBody: "最初の整えられた文章がホームに用意できたら、ここに現れます。",
+    noProjects: "まだ選ばれたプロジェクトはありません。",
+    noProjectsBody: "プロジェクトの entry が整えば、ここから公開された実行の証拠へ進めるようになります。"
   }
 } as const;
 
@@ -240,7 +294,7 @@ export default async function LocaleHomePage({params}: PageProps) {
           {featured.notes.length > 0 ? (
             featured.notes.map((note) => (
               <article key={note.slug} className="content-item">
-                {locale === "vi" && !note.availableLocales.includes("vi") ? (
+                {locale !== "en" && !note.availableLocales.includes(locale) ? (
                   <p className="locale-note">{tCommon("englishOnly")}</p>
                 ) : null}
                 <div className="meta-row">
@@ -276,7 +330,7 @@ export default async function LocaleHomePage({params}: PageProps) {
           {featured.articles.length > 0 ? (
             featured.articles.map((article) => (
               <div key={article.slug}>
-                {locale === "vi" && !article.availableLocales.includes("vi") ? (
+                {locale !== "en" && !article.availableLocales.includes(locale) ? (
                   <p className="locale-note">{tCommon("englishOnly")}</p>
                 ) : null}
                 <h3>{article.title}</h3>
@@ -301,7 +355,7 @@ export default async function LocaleHomePage({params}: PageProps) {
           {featured.projects.length > 0 ? (
             featured.projects.map((project) => (
               <div key={project.slug}>
-                {locale === "vi" && !project.availableLocales.includes("vi") ? (
+                {locale !== "en" && !project.availableLocales.includes(locale) ? (
                   <p className="locale-note">{tCommon("englishOnly")}</p>
                 ) : null}
                 <h3>{project.name}</h3>

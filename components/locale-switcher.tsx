@@ -4,7 +4,7 @@ import {useLocale, useTranslations} from "next-intl";
 
 import {usePathname, useRouter} from "@/i18n/routing";
 
-const LOCALES = ["vi", "en"] as const;
+const LOCALES = ["vi", "en", "ja"] as const;
 
 export function LocaleSwitcher() {
   const t = useTranslations("Locale");

@@ -35,6 +35,18 @@ const COPY = {
     viewProject: "Xem dự án",
     emptyTitle: "Chưa có dự án nào được liệt kê.",
     emptyBody: "Khu vực này sẽ xuất bản các phần execution work được chọn khi những project entry đầu tiên sẵn sàng."
+  },
+  ja: {
+    title: "プロジェクト",
+    description:
+      "2zcory Garden の選ばれたプロジェクト。ビルドの判断、tradeoff、結果に焦点を当てる。",
+    eyebrow: "プロジェクト",
+    heroTitle: "実行の証拠。",
+    heroBody:
+      "単なる portfolio thumbnail の束ではなく、ビルドの判断、tradeoff、結果を見せるために選ばれたプロジェクトです。重要なのは演出ではなく証拠です。",
+    viewProject: "プロジェクトを見る",
+    emptyTitle: "まだ掲載されたプロジェクトはありません。",
+    emptyBody: "最初の project entry が整えば、このセクションに選ばれた execution work が公開されます。"
   }
 } as const;
 
@@ -71,7 +83,7 @@ export default async function LocalizedProjectsPage({params}: PageProps) {
               </div>
               <h2>{project.name}</h2>
               <p className="muted">{project.summary}</p>
-              {locale === "vi" && !project.availableLocales.includes("vi") ? (
+              {locale !== "en" && !project.availableLocales.includes(locale) ? (
                 <p className="locale-note">{tCommon("englishOnly")}</p>
               ) : null}
               <Link href={`/projects/${project.slug}`} className="inline-link">

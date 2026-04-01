@@ -4,6 +4,7 @@ import {getTranslations} from "next-intl/server";
 import {notFound} from "next/navigation";
 
 import {Link} from "@/i18n/routing";
+import {routing} from "@/i18n/routing";
 import type {AppLocale} from "@/i18n/routing";
 import {getNote, getNotes} from "@/lib/content";
 import {buildPageMetadata, formatDate} from "@/lib/metadata";
@@ -26,14 +27,20 @@ const COPY = {
     eyebrow: "Garden note",
     related: "Các note liên quan",
     noRelated: "Chưa có linked note nào."
+  },
+  ja: {
+    fallbackTitle: "ガーデンノート",
+    fallbackDescription: "2zcory Garden の探索ノート。",
+    eyebrow: "ガーデンノート",
+    related: "関連ノート",
+    noRelated: "まだ関連ノートはありません。"
   }
 } as const;
 
 export function generateStaticParams() {
-  return getNotes().flatMap((note) => [
-    {locale: "vi", slug: note.slug},
-    {locale: "en", slug: note.slug}
-  ]);
+  return getNotes().flatMap((note) =>
+    routing.locales.map((locale) => ({locale, slug: note.slug}))
+  );
 }
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
@@ -83,7 +90,7 @@ export default async function LocalizedGardenDetailPage({params}: PageProps) {
                 </span>
               ))}
             </div>
-            {locale === "vi" && !note.availableLocales.includes("vi") ? (
+            {locale !== "en" && !note.availableLocales.includes(locale) ? (
               <p className="locale-note">{tCommon("englishOnly")}</p>
             ) : null}
           </div>

@@ -18,7 +18,8 @@
   "Locale": {
     "label": "Language",
     "vi": "VI",
-    "en": "EN"
+    "en": "EN",
+    "ja": "JA"
   },
   "Common": {
     "englishOnly": "This entry is currently published in English only."

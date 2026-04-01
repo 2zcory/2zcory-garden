@@ -18,7 +18,8 @@
   "Locale": {
     "label": "Ngôn ngữ",
     "vi": "VI",
-    "en": "EN"
+    "en": "EN",
+    "ja": "JA"
   },
   "Common": {
     "englishOnly": "Nội dung này hiện mới được xuất bản bằng tiếng Anh."

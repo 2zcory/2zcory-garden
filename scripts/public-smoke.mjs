@@ -4,14 +4,17 @@ const checks = [
   { path: "/", marker: "Một bản đồ cho suy nghĩ có thể trở thành sản phẩm công khai." },
   { path: "/vi", marker: "Một bản đồ cho suy nghĩ có thể trở thành sản phẩm công khai." },
   { path: "/en", marker: "A map for thought that turns into public work." },
+  { path: "/ja", marker: "思考が公開された仕事へ変わるための地図。" },
   { path: "/vi/about", marker: "Site này dùng để làm gì" },
   { path: "/en/about", marker: "What this site is for" },
+  { path: "/ja/about", marker: "このサイトの役割" },
   { path: "/vi/projects", marker: "Bằng chứng thực thi." },
   { path: "/en/projects", marker: "Execution evidence." },
   { path: "/vi/projects/context-os", marker: "Context OS" },
   { path: "/en/projects/2zcory-garden", marker: "2zcory Garden" },
   { path: "/vi/writing", marker: "Đầu ra có chủ đích." },
   { path: "/en/writing", marker: "Deliberate output." },
+  { path: "/ja/writing", marker: "意図を持った出力。" },
   {
     path: "/vi/writing/building-a-personal-site-as-an-operating-system",
     marker: "Xây Một Personal Site Như Một Operating System"
@@ -19,6 +22,10 @@ const checks = [
   {
     path: "/en/writing/building-a-personal-site-as-an-operating-system",
     marker: "Building A Personal Site As An Operating System"
+  },
+  {
+    path: "/ja/writing/building-a-personal-site-as-an-operating-system",
+    marker: "Operating System として個人サイトを作る"
   },
   {
     path: "/en/writing/when-writing-should-not-start-as-an-essay",
@@ -47,7 +54,8 @@ const checks = [
     marker: "Một personal operating site được xây như ngôi nhà công khai cho note, bài viết và bằng chứng thực thi."
   },
   { path: "/vi/contact", marker: "Một cách liên hệ rõ ràng." },
-  { path: "/en/contact", marker: "A clear way to reach out." }
+  { path: "/en/contact", marker: "A clear way to reach out." },
+  { path: "/ja/contact", marker: "明確な連絡のしかた。" }
 ];
 
 function getBaseUrl() {

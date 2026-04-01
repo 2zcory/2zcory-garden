@@ -11,7 +11,10 @@ type PageMetadataInput = {
 };
 
 export function formatDate(date: string, locale: AppLocale = "en") {
-  return new Intl.DateTimeFormat(locale === "vi" ? "vi-VN" : "en-US", {
+  const formatterLocale =
+    locale === "vi" ? "vi-VN" : locale === "ja" ? "ja-JP" : "en-US";
+
+  return new Intl.DateTimeFormat(formatterLocale, {
     day: "numeric",
     month: "short",
     year: "numeric"

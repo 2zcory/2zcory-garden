@@ -33,6 +33,17 @@ const COPY = {
     openNote: "Mở note",
     emptyTitle: "Chưa có note nào được publish.",
     emptyBody: "Bề mặt garden đã sẵn sàng, nhưng những note khám phá đầu tiên vẫn chưa được publish."
+  },
+  ja: {
+    title: "ガーデン",
+    description: "2zcory Garden の探索ノート、つながった断片、動いている思考。",
+    eyebrow: "ガーデン",
+    heroTitle: "動いている思考。",
+    heroBody:
+      "この面には、探索ノート、つながった断片、そしてまだ最終形を獲得しつつある途中のアイデアが置かれます。",
+    openNote: "ノートを開く",
+    emptyTitle: "まだ公開されたノートはありません。",
+    emptyBody: "ガーデン面は用意されていますが、最初の探索ノートはまだ公開されていません。"
   }
 } as const;
 
@@ -73,7 +84,7 @@ export default async function LocalizedGardenPage({params}: PageProps) {
               </div>
               <h2>{note.title}</h2>
               <p className="muted">{note.summary}</p>
-              {locale === "vi" && !note.availableLocales.includes("vi") ? (
+              {locale !== "en" && !note.availableLocales.includes(locale) ? (
                 <p className="locale-note">{tCommon("englishOnly")}</p>
               ) : null}
               <Link href={`/garden/${note.slug}`} className="inline-link">

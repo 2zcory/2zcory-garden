@@ -3,6 +3,7 @@ import type {Metadata} from "next";
 import {getTranslations} from "next-intl/server";
 import {notFound} from "next/navigation";
 
+import {routing} from "@/i18n/routing";
 import type {AppLocale} from "@/i18n/routing";
 import {getArticle, getArticles} from "@/lib/content";
 import {buildPageMetadata, formatDate} from "@/lib/metadata";
@@ -21,14 +22,18 @@ const COPY = {
     fallbackTitle: "Bài viết",
     fallbackDescription: "Bài viết có chủ đích từ 2zcory Garden.",
     eyebrow: "Bài viết"
+  },
+  ja: {
+    fallbackTitle: "文章",
+    fallbackDescription: "2zcory Garden の整えられた文章。",
+    eyebrow: "文章"
   }
 } as const;
 
 export function generateStaticParams() {
-  return getArticles().flatMap((article) => [
-    {locale: "vi", slug: article.slug},
-    {locale: "en", slug: article.slug}
-  ]);
+  return getArticles().flatMap((article) =>
+    routing.locales.map((locale) => ({locale, slug: article.slug}))
+  );
 }
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
@@ -68,7 +73,7 @@ export default async function LocalizedArticleDetailPage({params}: PageProps) {
           <span>{formatDate(article.publishedAt, locale)}</span>
           <span className="badge">{article.theme}</span>
         </div>
-        {locale === "vi" && !article.availableLocales.includes("vi") ? (
+        {locale !== "en" && !article.availableLocales.includes(locale) ? (
           <p className="locale-note">{tCommon("englishOnly")}</p>
         ) : null}
       </div>

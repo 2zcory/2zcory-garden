@@ -33,6 +33,17 @@ const COPY = {
     readArticle: "Đọc bài viết",
     emptyTitle: "Chưa có bài viết nào được publish.",
     emptyBody: "Khu vực này đã sẵn cho essay, nhưng những bài đã được gọt đầu tiên vẫn chưa được thêm vào."
+  },
+  ja: {
+    title: "文章",
+    description: "2zcory Garden のエッセイと整えられた文章。",
+    eyebrow: "文章",
+    heroTitle: "意図を持った出力。",
+    heroBody:
+      "ガーデンの trail から育ったかもしれない素材を、より強い主張、結論、編集の形へ整えた文章のための面です。",
+    readArticle: "記事を読む",
+    emptyTitle: "まだ公開された文章はありません。",
+    emptyBody: "このセクションはエッセイのために用意されていますが、最初の整えられた文章はまだ追加されていません。"
   }
 } as const;
 
@@ -69,7 +80,7 @@ export default async function LocalizedWritingPage({params}: PageProps) {
               </div>
               <h2>{article.title}</h2>
               <p className="muted">{article.excerpt}</p>
-              {locale === "vi" && !article.availableLocales.includes("vi") ? (
+              {locale !== "en" && !article.availableLocales.includes(locale) ? (
                 <p className="locale-note">{tCommon("englishOnly")}</p>
               ) : null}
               <Link href={`/writing/${article.slug}`} className="inline-link">

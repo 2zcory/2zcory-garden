@@ -114,6 +114,18 @@ const profileCopy: Record<AppLocale, LocalizedProfileFields> = {
       "Showing proof of execution without collapsing into portfolio theater"
     ]
   },
+  ja: {
+    descriptor: "思考と文章と実装のための公開ホームを形にしているソフトウェアエンジニア。",
+    bio: [
+      "2zcory Garden は、探索中のノート、形を整えた文章、選ばれたプロジェクトを、ばらばらの自己紹介面に分断せず一つにつなぎとめるための personal operating site です。",
+      "立ち上げ時の基準は意図的に小さく保たれています。プロダクトの輪郭が読めるだけの実在する内容、時間とともに伸ばせるだけの構造、そして仕事そのものを埋もれさせる余計な仕組みを持ち込まないことが条件です。"
+    ],
+    currentFocus: [
+      "公開の出版モデルを持つ、持続可能な個人ウェブプロダクトを作ること",
+      "散らばったノートを、後に文章へ固まっていく public trail に変えること",
+      "すべてを portfolio theater にせず、実行の証拠を見せること"
+    ]
+  },
   vi: {
     descriptor: "Software engineer đang tạo một ngôi nhà công khai cho suy nghĩ, bài viết và thực thi.",
     bio: [
@@ -136,7 +148,7 @@ const profile = {
     {label: "Garden", href: "/garden"}
   ],
   contactEmail: "",
-  availableLocales: ["vi", "en"]
+  availableLocales: ["vi", "en", "ja"]
 } satisfies Omit<Profile, "descriptor" | "bio" | "currentFocus">;
 
 const notes: NoteEntry[] = [
@@ -227,12 +239,22 @@ const articles: ArticleEntry[] = [
           "Một mô hình mạnh hơn là operating site: một nơi để ý tưởng trưởng thành, bằng chứng công khai tích lũy, và hướng đi hiện tại của người làm vẫn hiện ra mà không cần tự tái phát minh liên tục."
         ],
         theme: "định hướng sản phẩm"
+      },
+      ja: {
+        title: "Operating System として個人サイトを作る",
+        excerpt:
+          "個人サイトは identity と thought と execution を分断された見せ方にせず、ひとつにつなぐべきだという話。",
+        body: [
+          "多くの個人サイトは identity、writing、project work を別々の見せ方へ切り分けます。読みやすくはなりますが、各要素が互いを補強しないため、全体としては薄く感じられがちです。",
+          "より強いモデルは operating site です。そこでアイデアは成熟し、公開された証拠は積み上がり、作り手の現在地も、何度も自分を作り直さなくても見えるままに保たれます。"
+        ],
+        theme: "プロダクト方向"
       }
     },
     status: "published",
     publishedAt: "2026-03-29",
     featured: true,
-    availableLocales: ["vi", "en"]
+    availableLocales: ["vi", "en", "ja"]
   },
   {
     slug: "when-writing-should-not-start-as-an-essay",

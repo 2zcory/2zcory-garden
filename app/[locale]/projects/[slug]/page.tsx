@@ -4,6 +4,7 @@ import {getTranslations} from "next-intl/server";
 import {notFound} from "next/navigation";
 
 import {Link} from "@/i18n/routing";
+import {routing} from "@/i18n/routing";
 import type {AppLocale} from "@/i18n/routing";
 import {getProject, getProjects} from "@/lib/content";
 import {buildPageMetadata} from "@/lib/metadata";
@@ -32,14 +33,23 @@ const COPY = {
     outcomes: "Kết quả",
     relatedLinks: "Liên kết liên quan",
     noLinks: "Chưa có liên kết liên quan nào được publish."
+  },
+  ja: {
+    fallbackTitle: "プロジェクト",
+    fallbackDescription: "2zcory Garden の選ばれたプロジェクト。",
+    eyebrow: "プロジェクト",
+    problem: "課題",
+    approach: "アプローチ",
+    outcomes: "結果",
+    relatedLinks: "関連リンク",
+    noLinks: "まだ関連リンクは公開されていません。"
   }
 } as const;
 
 export function generateStaticParams() {
-  return getProjects().flatMap((project) => [
-    {locale: "vi", slug: project.slug},
-    {locale: "en", slug: project.slug}
-  ]);
+  return getProjects().flatMap((project) =>
+    routing.locales.map((locale) => ({locale, slug: project.slug}))
+  );
 }
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
@@ -80,7 +90,7 @@ export default async function LocalizedProjectDetailPage({params}: PageProps) {
             <span className="badge">{project.status}</span>
             <span>{project.role}</span>
           </div>
-          {locale === "vi" && !project.availableLocales.includes("vi") ? (
+          {locale !== "en" && !project.availableLocales.includes(locale) ? (
             <p className="locale-note">{tCommon("englishOnly")}</p>
           ) : null}
         </div>

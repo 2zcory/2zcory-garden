@@ -1,0 +1,27 @@
+{
+  "Nav": {
+    "label": "主要ナビゲーション",
+    "home": "ホーム",
+    "about": "概要",
+    "projects": "プロジェクト",
+    "writing": "文章",
+    "garden": "ガーデン",
+    "contact": "連絡"
+  },
+  "Theme": {
+    "label": "テーマ",
+    "system": "システム",
+    "light": "ライト",
+    "dark": "ダーク",
+    "forest": "フォレスト"
+  },
+  "Locale": {
+    "label": "言語",
+    "vi": "VI",
+    "en": "EN",
+    "ja": "JA"
+  },
+  "Common": {
+    "englishOnly": "このエントリは現在英語版のみ公開されています。"
+  }
+}
