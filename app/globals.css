@@ -1,5 +1,7 @@
 :root {
   --bg: #f3eee2;
+  --bg-top-glow: rgba(255, 255, 255, 0.72);
+  --bg-bottom: #efe6d7;
   --surface: rgba(255, 251, 245, 0.86);
   --surface-strong: #fffaf1;
   --text: #1f1a14;
@@ -7,7 +9,89 @@
   --line: rgba(31, 26, 20, 0.12);
   --accent: #1e5c4a;
   --accent-soft: #d8eadf;
+  --accent-strong: #143b31;
+  --header-surface: rgba(243, 238, 226, 0.72);
+  --button-text: #fffdf8;
+  --input-surface: rgba(255, 251, 245, 0.82);
+  --seed-start: #1e5c4a;
+  --seed-end: #7ca882;
+  --home-shell-highlight: rgba(255, 255, 255, 0.72);
+  --home-shell-accent: rgba(30, 92, 74, 0.08);
+  --home-shell-start: rgba(255, 251, 245, 0.96);
+  --home-shell-end: rgba(247, 240, 229, 0.88);
+  --home-chip-surface: rgba(255, 252, 247, 0.72);
+  --home-chip-border: rgba(31, 26, 20, 0.1);
+  --home-chip-text: #4b433b;
+  --home-note-line: rgba(184, 139, 65, 0.42);
+  --home-note-text: #4b433b;
+  --home-note-strong: #66584b;
+  --home-rule-surface: rgba(255, 251, 245, 0.76);
   --shadow: 0 18px 50px rgba(74, 53, 34, 0.08);
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --bg: #11161b;
+  --bg-top-glow: rgba(85, 122, 135, 0.18);
+  --bg-bottom: #161d23;
+  --surface: rgba(18, 27, 33, 0.88);
+  --surface-strong: rgba(22, 33, 40, 0.96);
+  --text: #ecf2f4;
+  --muted: #9daab0;
+  --line: rgba(236, 242, 244, 0.12);
+  --accent: #8ec7b0;
+  --accent-soft: rgba(57, 96, 82, 0.32);
+  --accent-strong: #d8efe4;
+  --header-surface: rgba(10, 15, 19, 0.74);
+  --button-text: #0d1216;
+  --input-surface: rgba(20, 29, 35, 0.94);
+  --seed-start: #78b89e;
+  --seed-end: #315b4d;
+  --home-shell-highlight: rgba(115, 164, 182, 0.12);
+  --home-shell-accent: rgba(142, 199, 176, 0.12);
+  --home-shell-start: rgba(21, 32, 39, 0.94);
+  --home-shell-end: rgba(15, 23, 28, 0.92);
+  --home-chip-surface: rgba(23, 35, 41, 0.84);
+  --home-chip-border: rgba(236, 242, 244, 0.1);
+  --home-chip-text: #d4e0e4;
+  --home-note-line: rgba(142, 199, 176, 0.32);
+  --home-note-text: #cfdade;
+  --home-note-strong: #8ec7b0;
+  --home-rule-surface: rgba(18, 27, 33, 0.84);
+  --shadow: 0 22px 56px rgba(0, 0, 0, 0.28);
+  color-scheme: dark;
+}
+
+html[data-theme="forest"] {
+  --bg: #dfe8df;
+  --bg-top-glow: rgba(243, 251, 239, 0.62);
+  --bg-bottom: #d2decf;
+  --surface: rgba(242, 248, 240, 0.86);
+  --surface-strong: rgba(248, 252, 247, 0.95);
+  --text: #1d2d23;
+  --muted: #526459;
+  --line: rgba(29, 45, 35, 0.14);
+  --accent: #2a6a53;
+  --accent-soft: rgba(126, 171, 140, 0.24);
+  --accent-strong: #163f31;
+  --header-surface: rgba(223, 232, 223, 0.78);
+  --button-text: #f7fbf7;
+  --input-surface: rgba(244, 249, 242, 0.88);
+  --seed-start: #2a6a53;
+  --seed-end: #8cb287;
+  --home-shell-highlight: rgba(247, 252, 246, 0.66);
+  --home-shell-accent: rgba(42, 106, 83, 0.12);
+  --home-shell-start: rgba(245, 250, 243, 0.95);
+  --home-shell-end: rgba(229, 239, 226, 0.88);
+  --home-chip-surface: rgba(244, 249, 242, 0.74);
+  --home-chip-border: rgba(29, 45, 35, 0.11);
+  --home-chip-text: #385244;
+  --home-note-line: rgba(42, 106, 83, 0.28);
+  --home-note-text: #395245;
+  --home-note-strong: #2a6a53;
+  --home-rule-surface: rgba(244, 249, 242, 0.8);
+  --shadow: 0 18px 48px rgba(47, 69, 55, 0.12);
+  color-scheme: light;
 }
 
 * {
@@ -17,14 +101,16 @@
 html {
   font-family: Georgia, "Times New Roman", serif;
   background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.72), transparent 38%),
-    linear-gradient(180deg, #f6f1e7 0%, #efe6d7 100%);
+    radial-gradient(circle at top, var(--bg-top-glow), transparent 38%),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg) 68%, white) 0%, var(--bg-bottom) 100%);
   color: var(--text);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  background: transparent;
+  color: var(--text);
 }
 
 body,
@@ -63,7 +149,15 @@ main {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem 0 1.5rem;
+  background: linear-gradient(180deg, var(--header-surface), transparent 92%);
   backdrop-filter: blur(16px);
+}
+
+.site-header-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.7rem;
 }
 
 .brand-mark {
@@ -82,9 +176,10 @@ main {
   border-radius: 999px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #1e5c4a, #7ca882);
+  background: linear-gradient(135deg, var(--seed-start), var(--seed-end));
   color: white;
   font-size: 0.95rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
 .site-nav {
@@ -92,6 +187,39 @@ main {
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: flex-end;
+}
+
+.theme-switcher {
+  display: inline-grid;
+  gap: 0.45rem;
+  color: var(--muted);
+}
+
+.theme-switcher-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.theme-switcher-options {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.theme-switcher-option {
+  border: 1px solid var(--line);
+  background: var(--input-surface);
+  color: var(--muted);
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.theme-switcher-option.active {
+  background: var(--accent-strong);
+  color: var(--button-text);
+  border-color: color-mix(in srgb, var(--accent-strong) 58%, transparent);
 }
 
 .nav-link {
@@ -214,7 +342,7 @@ main {
   padding: 1.2rem;
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: rgba(255, 251, 245, 0.74);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
 }
 
 .content-item h2,
@@ -247,8 +375,8 @@ main {
   justify-content: center;
   padding: 0.9rem 1.1rem;
   border-radius: 999px;
-  background: var(--text);
-  color: white;
+  background: var(--accent-strong);
+  color: var(--button-text);
 }
 
 .button-link.secondary {
@@ -328,7 +456,7 @@ main {
 .contact-primary-card {
   background:
     radial-gradient(circle at top right, rgba(30, 92, 74, 0.12), transparent 34%),
-    rgba(255, 251, 245, 0.86);
+    var(--surface);
 }
 
 .contact-action-link {
@@ -347,6 +475,11 @@ main {
     position: static;
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .site-header-controls {
+    width: 100%;
+    align-items: flex-start;
   }
 
   .site-nav {
@@ -390,6 +523,20 @@ main {
 
   .site-nav::-webkit-scrollbar {
     display: none;
+  }
+
+  .theme-switcher {
+    width: 100%;
+  }
+
+  .theme-switcher-options {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .theme-switcher-option {
+    justify-content: center;
   }
 
   .nav-link {
@@ -482,6 +629,14 @@ main {
     padding: 0.6rem 0.82rem;
   }
 
+  .theme-switcher {
+    gap: 0.5rem;
+  }
+
+  .theme-switcher-option {
+    padding: 0.5rem 0.72rem;
+  }
+
   .hero-card {
     padding: 1.1rem;
   }
@@ -510,9 +665,9 @@ main {
 .home-atlas-shell {
   padding: 2rem;
   background:
-    radial-gradient(circle at 16% 14%, rgba(255, 255, 255, 0.72), transparent 34%),
-    radial-gradient(circle at 84% 12%, rgba(30, 92, 74, 0.08), transparent 24%),
-    linear-gradient(180deg, rgba(255, 251, 245, 0.96), rgba(247, 240, 229, 0.88));
+    radial-gradient(circle at 16% 14%, var(--home-shell-highlight), transparent 34%),
+    radial-gradient(circle at 84% 12%, var(--home-shell-accent), transparent 24%),
+    linear-gradient(180deg, var(--home-shell-start), var(--home-shell-end));
 }
 
 .home-atlas-grid {
@@ -538,9 +693,9 @@ main {
   align-items: center;
   padding: 0.5rem 0.8rem;
   border-radius: 999px;
-  border: 1px solid rgba(30, 92, 74, 0.14);
-  background: rgba(30, 92, 74, 0.1);
-  color: #1f5245;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  color: var(--accent-strong);
   font-size: 0.78rem;
   letter-spacing: 0.02em;
 }
@@ -565,9 +720,9 @@ main {
   align-items: center;
   padding: 0.55rem 0.85rem;
   border-radius: 999px;
-  border: 1px solid rgba(31, 26, 20, 0.1);
-  background: rgba(255, 252, 247, 0.72);
-  color: #4b433b;
+  border: 1px solid var(--home-chip-border);
+  background: var(--home-chip-surface);
+  color: var(--home-chip-text);
   font-size: 0.82rem;
 }
 
@@ -576,15 +731,15 @@ main {
   gap: 0.3rem;
   max-width: 24rem;
   padding-left: 1rem;
-  border-left: 3px solid rgba(184, 139, 65, 0.42);
-  color: #4b433b;
+  border-left: 3px solid var(--home-note-line);
+  color: var(--home-note-text);
 }
 
 .home-rhythm-note strong {
   font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #66584b;
+  color: var(--home-note-strong);
 }
 
 .home-rule-card {
@@ -592,7 +747,7 @@ main {
   padding: 1.25rem 1.35rem;
   border-radius: 24px;
   border: 1px solid var(--line);
-  background: rgba(255, 251, 245, 0.76);
+  background: var(--home-rule-surface);
 }
 
 .home-rule-card p + p {
