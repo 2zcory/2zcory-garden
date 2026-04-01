@@ -145,33 +145,18 @@ main {
   top: 0;
   z-index: 10;
   display: grid;
-  gap: 0.95rem;
-  padding: 1rem 0 1.35rem;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  grid-template-areas:
+    "brand nav"
+    "locale theme";
+  gap: 0.8rem 1rem;
+  padding: 1rem 0 1.15rem;
   background: linear-gradient(180deg, var(--header-surface), transparent 92%);
   backdrop-filter: blur(16px);
 }
 
-.site-header-top {
-  display: grid;
-  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-  align-items: start;
-  gap: 1rem;
-}
-
-.site-header-controls {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-
-.site-header-utility {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(220px, max-content));
-  justify-content: end;
-  gap: 0.8rem;
-}
-
-.site-header-panel,
+.site-header-locale-panel,
+.site-header-theme-panel,
 .site-header-nav-row {
   border: 1px solid var(--line);
   background: color-mix(in srgb, var(--surface) 84%, transparent);
@@ -179,41 +164,74 @@ main {
   border-radius: 22px;
 }
 
-.site-header-panel {
-  padding: 0.8rem 0.9rem 0.85rem;
+.site-header-locale-panel,
+.site-header-theme-panel {
+  padding: 0.65rem 0.8rem 0.72rem;
 }
 
 .site-header-nav-row {
-  padding: 0.45rem;
+  grid-area: nav;
+  align-self: start;
+  padding: 0.35rem;
+}
+
+.site-header-locale-panel {
+  grid-area: locale;
+  justify-self: start;
+  min-width: min(100%, 280px);
+}
+
+.site-header-theme-panel {
+  grid-area: theme;
+  justify-self: end;
+  min-width: min(100%, 360px);
 }
 
 .brand-mark {
+  grid-area: brand;
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  gap: 0.78rem;
   min-width: 0;
-  padding-top: 0.55rem;
+  padding: 0.35rem 0;
 }
 
 .brand-seed {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 999px;
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, var(--seed-start), var(--seed-end));
   color: white;
-  font-size: 0.95rem;
+  font-size: 1rem;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.brand-copy {
+  display: grid;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.brand-copy strong {
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.brand-copy span {
+  color: var(--muted);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .site-nav {
   display: flex;
   flex-wrap: nowrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
   align-items: center;
   overflow-x: auto;
   scrollbar-width: none;
@@ -225,58 +243,65 @@ main {
 
 .theme-switcher {
   display: inline-grid;
-  gap: 0.55rem;
+  gap: 0.42rem;
   color: var(--muted);
 }
 
 .locale-switcher {
   display: inline-grid;
-  gap: 0.55rem;
+  gap: 0.32rem;
   color: var(--muted);
 }
 
 .theme-switcher-label {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .locale-switcher-label {
-  font-size: 0.65rem;
+  font-size: 0.58rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .theme-switcher-options {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
 }
 
 .locale-switcher-options {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22rem;
+  padding: 0.14rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--input-surface) 76%, transparent);
+  border: 1px solid var(--line);
 }
 
 .theme-switcher-option {
   border: 1px solid var(--line);
   background: var(--input-surface);
   color: var(--muted);
-  min-height: 2.5rem;
-  padding: 0.55rem 0.75rem;
+  min-height: 2rem;
+  padding: 0.36rem 0.7rem;
   border-radius: 999px;
   text-align: center;
 }
 
 .locale-switcher-option {
-  border: 1px solid var(--line);
-  background: var(--input-surface);
+  border: 1px solid transparent;
+  background: transparent;
   color: var(--muted);
-  min-height: 2.5rem;
-  padding: 0.55rem 0.75rem;
+  min-height: 1.95rem;
+  min-width: 2.5rem;
+  padding: 0.18rem 0.48rem;
   border-radius: 999px;
   text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
 }
 
 .theme-switcher-option.active {
@@ -293,12 +318,13 @@ main {
 
 .nav-link {
   flex: 0 0 auto;
-  padding: 0.72rem 1rem;
+  padding: 0.52rem 0.88rem;
   border-radius: 999px;
   color: var(--muted);
   background: transparent;
   border: 1px solid transparent;
-  transition: background-color 180ms ease, color 180ms ease;
+  font-size: 0.95rem;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .nav-link:hover,
@@ -544,6 +570,10 @@ main {
 }
 
 @media (max-width: 900px) {
+  .site-shell {
+    width: min(1120px, calc(100% - 1rem));
+  }
+
   .hero-grid,
   .detail-grid,
   .contact-hero-grid,
@@ -552,24 +582,118 @@ main {
   }
 
   .site-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand locale"
+      "nav nav"
+      "theme theme";
+    gap: 0.62rem 0.5rem;
     position: static;
   }
 
-  .site-header-top {
-    grid-template-columns: 1fr;
+  .brand-mark,
+  .site-header-locale-panel,
+  .site-header-theme-panel,
+  .site-header-nav-row {
+    min-width: 0;
   }
 
   .brand-mark {
-    padding-top: 0;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.15rem 0;
   }
 
-  .site-header-controls {
-    width: 100%;
+  .brand-seed {
+    width: 2.15rem;
+    height: 2.15rem;
+    font-size: 0.92rem;
   }
 
-  .site-header-utility {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    justify-content: stretch;
+  .brand-copy strong {
+    font-size: 0.88rem;
+    letter-spacing: 0.1em;
+  }
+
+  .brand-copy span {
+    font-size: 0.56rem;
+  }
+
+  .site-header-locale-panel,
+  .site-header-theme-panel,
+  .site-header-nav-row {
+    border-radius: 18px;
+  }
+
+  .site-header-locale-panel {
+    justify-self: end;
+    padding: 0.35rem;
+    min-width: auto;
+    background: color-mix(in srgb, var(--surface) 76%, transparent);
+  }
+
+  .site-header-nav-row {
+    padding: 0.2rem;
+  }
+
+  .site-header-theme-panel {
+    justify-self: stretch;
+    padding: 0.42rem 0.55rem 0.5rem;
+    box-shadow: none;
+    background: color-mix(in srgb, var(--surface) 62%, transparent);
+  }
+
+  .locale-switcher {
+    gap: 0;
+  }
+
+  .locale-switcher-label {
+    display: none;
+  }
+
+  .locale-switcher-options {
+    padding: 0.12rem;
+    gap: 0.16rem;
+  }
+
+  .locale-switcher-option {
+    min-width: 2.15rem;
+    min-height: 1.8rem;
+    padding: 0.12rem 0.38rem;
+    font-size: 0.74rem;
+  }
+
+  .site-nav {
+    gap: 0.3rem;
+  }
+
+  .nav-link {
+    padding: 0.42rem 0.76rem;
+    font-size: 0.88rem;
+  }
+
+  .theme-switcher {
+    gap: 0.28rem;
+  }
+
+  .theme-switcher-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+  }
+
+  .theme-switcher-options {
+    gap: 0.28rem;
+  }
+
+  .theme-switcher-option {
+    min-height: 1.8rem;
+    padding: 0.24rem 0.58rem;
+    font-size: 0.78rem;
+    opacity: 0.84;
+  }
+
+  .theme-switcher-option.active {
+    opacity: 1;
   }
 }
 
@@ -580,56 +704,41 @@ main {
   }
 
   .site-header {
-    gap: 0.75rem;
-    padding: 0.85rem 0 1rem;
+    gap: 0.55rem 0.45rem;
+    padding: 0.7rem 0 0.9rem;
   }
 
   .brand-mark {
-    font-size: 0.8rem;
-    letter-spacing: 0.06em;
+    gap: 0.48rem;
   }
 
-  .brand-seed {
-    width: 2rem;
-    height: 2rem;
+  .brand-copy strong {
     font-size: 0.82rem;
   }
 
-  .site-header-utility {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-  }
-
-  .site-header-panel {
-    padding: 0.72rem 0.78rem 0.78rem;
+  .site-header-theme-panel {
+    padding: 0.36rem 0.45rem 0.42rem;
   }
 
   .site-header-nav-row {
     width: 100%;
-    padding: 0.35rem;
-  }
-
-  .theme-switcher-options {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .locale-switcher-options {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0.18rem;
   }
 
   .theme-switcher-option {
-    min-height: 2.35rem;
-    padding-inline: 0.65rem;
+    min-height: 1.7rem;
+    padding-inline: 0.5rem;
   }
 
   .locale-switcher-option {
-    min-height: 2.35rem;
-    padding-inline: 0.65rem;
+    min-height: 1.72rem;
+    min-width: 2rem;
+    padding-inline: 0.34rem;
   }
 
   .nav-link {
-    min-height: 2.45rem;
-    padding: 0.62rem 0.86rem;
+    min-height: 2rem;
+    padding: 0.36rem 0.68rem;
     background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
     border-color: var(--line);
   }
@@ -698,31 +807,42 @@ main {
   }
 
   .site-header {
-    gap: 0.7rem;
+    gap: 0.5rem 0.4rem;
   }
 
   .brand-mark {
-    gap: 0.55rem;
+    gap: 0.42rem;
+  }
+
+  .brand-copy strong {
     font-size: 0.76rem;
   }
 
-  .site-header-panel {
-    padding: 0.65rem 0.7rem 0.72rem;
+  .brand-copy span {
+    font-size: 0.52rem;
+  }
+
+  .site-header-locale-panel {
+    padding: 0.28rem;
+  }
+
+  .site-header-theme-panel {
+    padding: 0.32rem 0.4rem 0.38rem;
   }
 
   .nav-link {
-    min-height: 2.35rem;
-    padding: 0.58rem 0.78rem;
+    min-height: 1.92rem;
+    padding: 0.32rem 0.6rem;
   }
 
   .theme-switcher-option {
-    padding: 0.48rem 0.62rem;
-    font-size: 0.94rem;
+    padding: 0.2rem 0.46rem;
+    font-size: 0.74rem;
   }
 
   .locale-switcher-option {
-    padding: 0.48rem 0.62rem;
-    font-size: 0.94rem;
+    padding: 0.14rem 0.3rem;
+    font-size: 0.7rem;
   }
 
   .hero-card {
