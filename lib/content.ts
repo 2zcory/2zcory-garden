@@ -1,3 +1,5 @@
+import type {AppLocale} from "@/i18n/routing";
+
 export type Profile = {
   name: string;
   descriptor: string;
@@ -5,6 +7,7 @@ export type Profile = {
   currentFocus: string[];
   links: Array<{ label: string; href: string }>;
   contactEmail: string;
+  availableLocales: AppLocale[];
 };
 
 export type Note = {
@@ -17,6 +20,7 @@ export type Note = {
   status: "published";
   publishedAt: string;
   featured: boolean;
+  availableLocales: AppLocale[];
 };
 
 export type Article = {
@@ -28,6 +32,7 @@ export type Article = {
   status: "published";
   publishedAt: string;
   featured: boolean;
+  availableLocales: AppLocale[];
 };
 
 export type Project = {
@@ -41,27 +46,53 @@ export type Project = {
   links: Array<{ label: string; href: string }>;
   status: "active" | "shipped";
   featured: boolean;
+  availableLocales: AppLocale[];
 };
 
-const profile: Profile = {
+const profileCopy: Record<
+  AppLocale,
+  {
+    descriptor: string;
+    bio: string[];
+    currentFocus: string[];
+  }
+> = {
+  en: {
+    descriptor: "Software engineer shaping a public home for thought, writing, and execution.",
+    bio: [
+      "2zcory Garden is a personal operating site where exploratory notes, shaped writing, and selected projects can remain connected instead of being split across disconnected identity surfaces.",
+      "The launch baseline stays intentionally small: enough real content to make the product legible, enough structure to grow over time, and no extra machinery that would bury the work itself."
+    ],
+    currentFocus: [
+      "Building a durable personal web product with a clear publishing model",
+      "Turning scattered notes into public trails that can later harden into writing",
+      "Showing proof of execution without collapsing into portfolio theater"
+    ]
+  },
+  vi: {
+    descriptor: "Software engineer đang tạo một ngôi nhà công khai cho suy nghĩ, bài viết và thực thi.",
+    bio: [
+      "2zcory Garden là một personal operating site nơi các note khám phá, bài viết đã được gọt và những dự án được chọn có thể ở lại cùng nhau thay vì bị tách ra thành các bề mặt nhận diện rời rạc.",
+      "Baseline ra mắt được giữ nhỏ có chủ đích: đủ nội dung thật để sản phẩm dễ đọc, đủ cấu trúc để lớn dần theo thời gian, và không thêm máy móc thừa che khuất chính phần công việc."
+    ],
+    currentFocus: [
+      "Xây một web product cá nhân bền vững với mô hình xuất bản rõ ràng",
+      "Biến các mảnh note rời rạc thành public trails có thể cứng dần thành writing",
+      "Cho thấy bằng chứng thực thi mà không biến mọi thứ thành portfolio theater"
+    ]
+  }
+};
+
+const profile = {
   name: "Tri",
-  descriptor: "Software engineer shaping a public home for thought, writing, and execution.",
-  bio: [
-    "2zcory Garden is a personal operating site where exploratory notes, shaped writing, and selected projects can remain connected instead of being split across disconnected identity surfaces.",
-    "The launch baseline stays intentionally small: enough real content to make the product legible, enough structure to grow over time, and no extra machinery that would bury the work itself."
-  ],
-  currentFocus: [
-    "Building a durable personal web product with a clear publishing model",
-    "Turning scattered notes into public trails that can later harden into writing",
-    "Showing proof of execution without collapsing into portfolio theater"
-  ],
   links: [
     { label: "Projects", href: "/projects" },
     { label: "Writing", href: "/writing" },
     { label: "Garden", href: "/garden" }
   ],
-  contactEmail: ""
-};
+  contactEmail: "",
+  availableLocales: ["vi", "en"]
+} satisfies Omit<Profile, "descriptor" | "bio" | "currentFocus">;
 
 const notes: Note[] = [
   {
@@ -76,7 +107,8 @@ const notes: Note[] = [
     relatedNoteSlugs: ["public-proof-without-portfolio-noise"],
     status: "published",
     publishedAt: "2026-03-30",
-    featured: true
+    featured: true,
+    availableLocales: ["en"]
   },
   {
     slug: "public-proof-without-portfolio-noise",
@@ -90,7 +122,8 @@ const notes: Note[] = [
     relatedNoteSlugs: ["notes-that-grow-into-products"],
     status: "published",
     publishedAt: "2026-03-28",
-    featured: true
+    featured: true,
+    availableLocales: ["en"]
   },
   {
     slug: "a-homepage-should-orient-not-perform",
@@ -104,7 +137,8 @@ const notes: Note[] = [
     relatedNoteSlugs: [],
     status: "published",
     publishedAt: "2026-03-27",
-    featured: false
+    featured: false,
+    availableLocales: ["en"]
   }
 ];
 
@@ -120,7 +154,8 @@ const articles: Article[] = [
     theme: "product-direction",
     status: "published",
     publishedAt: "2026-03-29",
-    featured: true
+    featured: true,
+    availableLocales: ["en"]
   },
   {
     slug: "when-writing-should-not-start-as-an-essay",
@@ -133,7 +168,8 @@ const articles: Article[] = [
     theme: "writing",
     status: "published",
     publishedAt: "2026-03-26",
-    featured: true
+    featured: true,
+    availableLocales: ["en"]
   }
 ];
 
@@ -157,7 +193,8 @@ const projects: Project[] = [
       { label: "Related essay", href: "/writing/building-a-personal-site-as-an-operating-system" }
     ],
     status: "active",
-    featured: true
+    featured: true,
+    availableLocales: ["en"]
   },
   {
     slug: "2zcory-garden",
@@ -178,12 +215,20 @@ const projects: Project[] = [
       { label: "See the related note", href: "/garden/notes-that-grow-into-products" }
     ],
     status: "active",
-    featured: true
+    featured: true,
+    availableLocales: ["en"]
   }
 ];
 
-export function getProfile() {
-  return profile;
+export function getProfile(locale: AppLocale = "en"): Profile {
+  const localizedProfile = profileCopy[locale];
+
+  return {
+    ...profile,
+    descriptor: localizedProfile.descriptor,
+    bio: localizedProfile.bio,
+    currentFocus: localizedProfile.currentFocus
+  };
 }
 
 export function getNotes() {

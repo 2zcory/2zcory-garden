@@ -1,0 +1,26 @@
+{
+  "Nav": {
+    "label": "Điều hướng chính",
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "projects": "Dự án",
+    "writing": "Bài viết",
+    "garden": "Garden",
+    "contact": "Liên hệ"
+  },
+  "Theme": {
+    "label": "Giao diện",
+    "system": "Hệ thống",
+    "light": "Sáng",
+    "dark": "Tối",
+    "forest": "Rừng"
+  },
+  "Locale": {
+    "label": "Ngôn ngữ",
+    "vi": "VI",
+    "en": "EN"
+  },
+  "Common": {
+    "englishOnly": "Nội dung này hiện mới được xuất bản bằng tiếng Anh."
+  }
+}

@@ -160,6 +160,13 @@ main {
   gap: 0.7rem;
 }
 
+.site-header-utility {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
 .brand-mark {
   display: inline-flex;
   align-items: center;
@@ -195,13 +202,31 @@ main {
   color: var(--muted);
 }
 
+.locale-switcher {
+  display: inline-grid;
+  gap: 0.45rem;
+  color: var(--muted);
+}
+
 .theme-switcher-label {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
+.locale-switcher-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .theme-switcher-options {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.locale-switcher-options {
   display: inline-flex;
   flex-wrap: wrap;
   gap: 0.45rem;
@@ -216,7 +241,22 @@ main {
   box-shadow: var(--shadow);
 }
 
+.locale-switcher-option {
+  border: 1px solid var(--line);
+  background: var(--input-surface);
+  color: var(--muted);
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
 .theme-switcher-option.active {
+  background: var(--accent-strong);
+  color: var(--button-text);
+  border-color: color-mix(in srgb, var(--accent-strong) 58%, transparent);
+}
+
+.locale-switcher-option.active {
   background: var(--accent-strong);
   color: var(--button-text);
   border-color: color-mix(in srgb, var(--accent-strong) 58%, transparent);
@@ -389,6 +429,13 @@ main {
   color: var(--accent);
 }
 
+.locale-note {
+  margin: 0 0 0.85rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
 .divider {
   height: 1px;
   background: var(--line);
@@ -482,6 +529,10 @@ main {
     align-items: flex-start;
   }
 
+  .site-header-utility {
+    justify-content: flex-start;
+  }
+
   .site-nav {
     justify-content: flex-start;
   }
@@ -529,13 +580,27 @@ main {
     width: 100%;
   }
 
+  .locale-switcher {
+    width: 100%;
+  }
+
   .theme-switcher-options {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .locale-switcher-options {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .theme-switcher-option {
+    justify-content: center;
+  }
+
+  .locale-switcher-option {
     justify-content: center;
   }
 
@@ -633,7 +698,15 @@ main {
     gap: 0.5rem;
   }
 
+  .locale-switcher {
+    gap: 0.5rem;
+  }
+
   .theme-switcher-option {
+    padding: 0.5rem 0.72rem;
+  }
+
+  .locale-switcher-option {
     padding: 0.5rem 0.72rem;
   }
 

@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
+import {useTranslations} from "next-intl";
 
 const OPTIONS = [
   { value: "system", label: "System" },
@@ -11,6 +12,7 @@ const OPTIONS = [
 ] as const;
 
 export function ThemeSwitcher() {
+  const t = useTranslations("Theme");
   const { theme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(
     () => () => {},
@@ -20,8 +22,8 @@ export function ThemeSwitcher() {
   const activeTheme = mounted ? theme ?? "system" : "system";
 
   return (
-    <div className="theme-switcher" role="group" aria-label="Theme">
-      <span className="theme-switcher-label">Theme</span>
+    <div className="theme-switcher" role="group" aria-label={t("label")}>
+      <span className="theme-switcher-label">{t("label")}</span>
       <div className="theme-switcher-options">
         {OPTIONS.map((option) => (
           <button
@@ -31,7 +33,7 @@ export function ThemeSwitcher() {
             aria-pressed={activeTheme === option.value}
             onClick={() => setTheme(option.value)}
           >
-            {option.label}
+            {t(option.value)}
           </button>
         ))}
       </div>

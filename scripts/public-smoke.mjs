@@ -1,34 +1,49 @@
 const DEFAULT_BASE_URL = "https://2zcory-garden.vercel.app";
 
 const checks = [
-  { path: "/", marker: "A map for thought that turns into public work." },
-  { path: "/about", marker: "What this site is for" },
-  { path: "/projects", marker: "Execution evidence." },
-  { path: "/projects/context-os", marker: "Context OS" },
-  { path: "/projects/2zcory-garden", marker: "2zcory Garden" },
-  { path: "/writing", marker: "Deliberate output." },
+  { path: "/", marker: "Một bản đồ cho suy nghĩ có thể trở thành sản phẩm công khai." },
+  { path: "/vi", marker: "Một bản đồ cho suy nghĩ có thể trở thành sản phẩm công khai." },
+  { path: "/en", marker: "A map for thought that turns into public work." },
+  { path: "/vi/about", marker: "Site này dùng để làm gì" },
+  { path: "/en/about", marker: "What this site is for" },
+  { path: "/vi/projects", marker: "Bằng chứng thực thi." },
+  { path: "/en/projects", marker: "Execution evidence." },
+  { path: "/vi/projects/context-os", marker: "Context OS" },
+  { path: "/en/projects/2zcory-garden", marker: "2zcory Garden" },
+  { path: "/vi/writing", marker: "Đầu ra có chủ đích." },
+  { path: "/en/writing", marker: "Deliberate output." },
   {
-    path: "/writing/building-a-personal-site-as-an-operating-system",
+    path: "/vi/writing/building-a-personal-site-as-an-operating-system",
+    marker: "Nội dung này hiện mới được xuất bản bằng tiếng Anh."
+  },
+  {
+    path: "/en/writing/building-a-personal-site-as-an-operating-system",
     marker: "Building A Personal Site As An Operating System"
   },
   {
-    path: "/writing/when-writing-should-not-start-as-an-essay",
+    path: "/en/writing/when-writing-should-not-start-as-an-essay",
     marker: "When Writing Should Not Start As An Essay"
   },
-  { path: "/garden", marker: "Thought in motion." },
+  { path: "/vi/garden", marker: "Suy nghĩ đang chuyển động." },
+  { path: "/en/garden", marker: "Thought in motion." },
   {
-    path: "/garden/notes-that-grow-into-products",
+    path: "/vi/garden/notes-that-grow-into-products",
+    marker: "Nội dung này hiện mới được xuất bản bằng tiếng Anh."
+  },
+  {
+    path: "/en/garden/notes-that-grow-into-products",
     marker: "Notes That Grow Into Products"
   },
   {
-    path: "/garden/public-proof-without-portfolio-noise",
+    path: "/en/garden/public-proof-without-portfolio-noise",
     marker: "Public Proof Without Portfolio Noise"
   },
   {
-    path: "/garden/a-homepage-should-orient-not-perform",
+    path: "/en/garden/a-homepage-should-orient-not-perform",
     marker: "A Homepage Should Orient, Not Perform"
   },
-  { path: "/contact", marker: "A clear way to reach out." }
+  { path: "/vi/contact", marker: "Một cách liên hệ rõ ràng." },
+  { path: "/en/contact", marker: "A clear way to reach out." }
 ];
 
 function getBaseUrl() {

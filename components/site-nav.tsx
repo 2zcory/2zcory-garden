@@ -1,22 +1,24 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import {useTranslations} from "next-intl";
+
+import {Link, usePathname} from "@/i18n/routing";
 
 const navigation = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/writing", label: "Writing" },
-  { href: "/garden", label: "Garden" },
-  { href: "/contact", label: "Contact" }
+  { href: "/", label: "home" },
+  { href: "/about", label: "about" },
+  { href: "/projects", label: "projects" },
+  { href: "/writing", label: "writing" },
+  { href: "/garden", label: "garden" },
+  { href: "/contact", label: "contact" }
 ];
 
 export function SiteNav() {
+  const t = useTranslations("Nav");
   const pathname = usePathname();
 
   return (
-    <nav className="site-nav" aria-label="Primary">
+    <nav className="site-nav" aria-label={t("label")}>
       {navigation.map((item) => {
         const isActive =
           item.href === "/"
@@ -25,7 +27,7 @@ export function SiteNav() {
 
         return (
           <Link key={item.href} href={item.href} className={`nav-link${isActive ? " active" : ""}`}>
-            {item.label}
+            {t(item.label)}
           </Link>
         );
       })}

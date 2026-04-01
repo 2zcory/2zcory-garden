@@ -1,0 +1,26 @@
+{
+  "Nav": {
+    "label": "Primary",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "writing": "Writing",
+    "garden": "Garden",
+    "contact": "Contact"
+  },
+  "Theme": {
+    "label": "Theme",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark",
+    "forest": "Forest"
+  },
+  "Locale": {
+    "label": "Language",
+    "vi": "VI",
+    "en": "EN"
+  },
+  "Common": {
+    "englishOnly": "This entry is currently published in English only."
+  }
+}

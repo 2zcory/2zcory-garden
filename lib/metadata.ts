@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import type {AppLocale} from "@/i18n/routing";
+
 const SITE_NAME = "2zcory Garden";
 const DEFAULT_DESCRIPTION = "A public home for thought, writing, and proof of work.";
 
@@ -8,8 +10,8 @@ type PageMetadataInput = {
   description: string;
 };
 
-export function formatDate(date: string) {
-  return new Intl.DateTimeFormat("en", {
+export function formatDate(date: string, locale: AppLocale = "en") {
+  return new Intl.DateTimeFormat(locale === "vi" ? "vi-VN" : "en-US", {
     day: "numeric",
     month: "short",
     year: "numeric"
