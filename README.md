@@ -45,3 +45,16 @@ Override the default deployment URL when needed:
 ```bash
 SMOKE_BASE_URL=https://example.com npm run smoke:public
 ```
+
+## CI/CD
+
+- `CI`: runs `npm ci`, `npm run lint`, and `npm run build` on every push and pull request.
+- `Preview Deploy`: runs from GitHub Actions on every push and creates a Vercel preview deployment from the remote branch state.
+- `Production Release`: manual GitHub Actions workflow only. Production is not meant to auto-release on push.
+
+### Required GitHub configuration
+
+- Repository secret: `VERCEL_TOKEN`
+- Repository variables:
+  - `VERCEL_ORG_ID`
+  - `VERCEL_PROJECT_ID`

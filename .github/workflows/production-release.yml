@@ -1,0 +1,68 @@
+name: Production Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      git_ref:
+        description: Git ref to release to production
+        required: true
+        default: main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-release
+  cancel-in-progress: false
+
+jobs:
+  release-production:
+    runs-on: ubuntu-latest
+    environment: production
+
+    env:
+      VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.git_ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Pull Vercel production settings
+        run: npx vercel@latest pull --yes --environment=production --token="$VERCEL_TOKEN"
+
+      - name: Build production artifact
+        run: npx vercel@latest build --prod --token="$VERCEL_TOKEN"
+
+      - name: Deploy production
+        id: deploy
+        run: |
+          url="$(npx vercel@latest deploy --prebuilt --prod --token="$VERCEL_TOKEN")"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Summary
+        run: |
+          {
+            echo "## Production Release"
+            echo
+            echo "- Ref: \`${{ inputs.git_ref }}\`"
+            echo "- Production URL: ${{ steps.deploy.outputs.url }}"
+          } >> "$GITHUB_STEP_SUMMARY"
