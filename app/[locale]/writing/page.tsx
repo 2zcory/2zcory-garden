@@ -49,7 +49,7 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 export default async function LocalizedWritingPage({params}: PageProps) {
   const {locale} = await params;
   const copy = COPY[locale];
-  const articles = getArticles();
+  const articles = getArticles(locale);
   const tCommon = await getTranslations({locale, namespace: "Common"});
 
   return (

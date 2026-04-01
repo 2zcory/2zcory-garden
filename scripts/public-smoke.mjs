@@ -14,7 +14,7 @@ const checks = [
   { path: "/en/writing", marker: "Deliberate output." },
   {
     path: "/vi/writing/building-a-personal-site-as-an-operating-system",
-    marker: "Nội dung này hiện mới được xuất bản bằng tiếng Anh."
+    marker: "Xây Một Personal Site Như Một Operating System"
   },
   {
     path: "/en/writing/building-a-personal-site-as-an-operating-system",
@@ -28,7 +28,7 @@ const checks = [
   { path: "/en/garden", marker: "Thought in motion." },
   {
     path: "/vi/garden/notes-that-grow-into-products",
-    marker: "Nội dung này hiện mới được xuất bản bằng tiếng Anh."
+    marker: "Những Note Lớn Dần Thành Sản Phẩm"
   },
   {
     path: "/en/garden/notes-that-grow-into-products",
@@ -41,6 +41,10 @@ const checks = [
   {
     path: "/en/garden/a-homepage-should-orient-not-perform",
     marker: "A Homepage Should Orient, Not Perform"
+  },
+  {
+    path: "/vi/projects/2zcory-garden",
+    marker: "Một personal operating site được xây như ngôi nhà công khai cho note, bài viết và bằng chứng thực thi."
   },
   { path: "/vi/contact", marker: "Một cách liên hệ rõ ràng." },
   { path: "/en/contact", marker: "A clear way to reach out." }

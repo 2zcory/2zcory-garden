@@ -38,7 +38,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
   const {locale, slug} = await params;
-  const note = getNote(slug);
+  const note = getNote(slug, locale);
   const copy = COPY[locale];
 
   if (!note) {
@@ -56,7 +56,7 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 
 export default async function LocalizedGardenDetailPage({params}: PageProps) {
   const {locale, slug} = await params;
-  const note = getNote(slug);
+  const note = getNote(slug, locale);
   const copy = COPY[locale];
   const tCommon = await getTranslations({locale, namespace: "Common"});
 
@@ -65,7 +65,7 @@ export default async function LocalizedGardenDetailPage({params}: PageProps) {
   }
 
   const related = note.relatedNoteSlugs
-    .map((relatedSlug) => getNote(relatedSlug))
+    .map((relatedSlug) => getNote(relatedSlug, locale))
     .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry));
 
   return (

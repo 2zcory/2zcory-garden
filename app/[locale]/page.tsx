@@ -135,7 +135,7 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 export default async function LocaleHomePage({params}: PageProps) {
   const {locale} = await params;
   const copy = COPY[locale];
-  const featured = getFeaturedContent();
+  const featured = getFeaturedContent(locale);
   const tCommon = await getTranslations({locale, namespace: "Common"});
 
   return (

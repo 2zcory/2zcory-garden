@@ -44,7 +44,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
   const {locale, slug} = await params;
-  const project = getProject(slug);
+  const project = getProject(slug, locale);
   const copy = COPY[locale];
 
   if (!project) {
@@ -62,7 +62,7 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 
 export default async function LocalizedProjectDetailPage({params}: PageProps) {
   const {locale, slug} = await params;
-  const project = getProject(slug);
+  const project = getProject(slug, locale);
   const copy = COPY[locale];
   const tCommon = await getTranslations({locale, namespace: "Common"});
 

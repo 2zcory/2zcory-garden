@@ -1,11 +1,48 @@
 import type {AppLocale} from "@/i18n/routing";
 
+type LocalizedLink = {
+  label: string;
+  href: string;
+};
+
+type LocalizedProfileFields = {
+  descriptor: string;
+  bio: string[];
+  currentFocus: string[];
+};
+
+type LocalizedNoteFields = {
+  title: string;
+  summary: string;
+  body: string[];
+  topicLabels: string[];
+};
+
+type LocalizedArticleFields = {
+  title: string;
+  excerpt: string;
+  body: string[];
+  theme: string;
+};
+
+type LocalizedProjectFields = {
+  name: string;
+  summary: string;
+  role: string;
+  problem: string;
+  approach: string;
+  outcomes: string[];
+  links: LocalizedLink[];
+};
+
+type TranslationMap<T> = Partial<Record<AppLocale, T>>;
+
 export type Profile = {
   name: string;
   descriptor: string;
   bio: string[];
   currentFocus: string[];
-  links: Array<{ label: string; href: string }>;
+  links: LocalizedLink[];
   contactEmail: string;
   availableLocales: AppLocale[];
 };
@@ -43,20 +80,28 @@ export type Project = {
   problem: string;
   approach: string;
   outcomes: string[];
-  links: Array<{ label: string; href: string }>;
+  links: LocalizedLink[];
   status: "active" | "shipped";
   featured: boolean;
   availableLocales: AppLocale[];
 };
 
-const profileCopy: Record<
-  AppLocale,
-  {
-    descriptor: string;
-    bio: string[];
-    currentFocus: string[];
-  }
-> = {
+type NoteEntry = Omit<Note, "title" | "summary" | "body" | "topicLabels"> & {
+  content: LocalizedNoteFields;
+  translations?: TranslationMap<LocalizedNoteFields>;
+};
+
+type ArticleEntry = Omit<Article, "title" | "excerpt" | "body" | "theme"> & {
+  content: LocalizedArticleFields;
+  translations?: TranslationMap<LocalizedArticleFields>;
+};
+
+type ProjectEntry = Omit<Project, "name" | "summary" | "role" | "problem" | "approach" | "outcomes" | "links"> & {
+  content: LocalizedProjectFields;
+  translations?: TranslationMap<LocalizedProjectFields>;
+};
+
+const profileCopy: Record<AppLocale, LocalizedProfileFields> = {
   en: {
     descriptor: "Software engineer shaping a public home for thought, writing, and execution.",
     bio: [
@@ -86,39 +131,54 @@ const profileCopy: Record<
 const profile = {
   name: "Tri",
   links: [
-    { label: "Projects", href: "/projects" },
-    { label: "Writing", href: "/writing" },
-    { label: "Garden", href: "/garden" }
+    {label: "Projects", href: "/projects"},
+    {label: "Writing", href: "/writing"},
+    {label: "Garden", href: "/garden"}
   ],
   contactEmail: "",
   availableLocales: ["vi", "en"]
 } satisfies Omit<Profile, "descriptor" | "bio" | "currentFocus">;
 
-const notes: Note[] = [
+const notes: NoteEntry[] = [
   {
     slug: "notes-that-grow-into-products",
-    title: "Notes That Grow Into Products",
-    summary: "When recurring fragments stop being scraps and start asking for a public home.",
-    body: [
-      "Some ideas do not begin as essays. They begin as recurring fragments: a phrase, a model, a project lesson that keeps resurfacing until it becomes hard to ignore.",
-      "A garden note earns its place when it preserves that movement instead of pretending the answer arrived fully formed. The value is not polish alone. The value is the visible path."
-    ],
-    topicLabels: ["knowledge-garden", "product-shaping"],
+    content: {
+      title: "Notes That Grow Into Products",
+      summary: "When recurring fragments stop being scraps and start asking for a public home.",
+      body: [
+        "Some ideas do not begin as essays. They begin as recurring fragments: a phrase, a model, a project lesson that keeps resurfacing until it becomes hard to ignore.",
+        "A garden note earns its place when it preserves that movement instead of pretending the answer arrived fully formed. The value is not polish alone. The value is the visible path."
+      ],
+      topicLabels: ["knowledge-garden", "product-shaping"]
+    },
+    translations: {
+      vi: {
+        title: "Những Note Lớn Dần Thành Sản Phẩm",
+        summary: "Khi những mảnh lặp lại ngừng là mẩu nháp và bắt đầu đòi một ngôi nhà công khai.",
+        body: [
+          "Có những ý tưởng không bắt đầu như essay. Chúng bắt đầu như các mảnh lặp lại: một cụm từ, một mô hình, một bài học dự án cứ quay về cho tới khi trở nên khó có thể bỏ qua.",
+          "Một garden note xứng đáng tồn tại khi nó giữ lại được chuyển động đó thay vì giả vờ câu trả lời đã đến trong hình dạng hoàn chỉnh. Giá trị không chỉ nằm ở độ bóng. Giá trị nằm ở con đường còn nhìn thấy được."
+        ],
+        topicLabels: ["knowledge-garden", "product-shaping"]
+      }
+    },
     relatedNoteSlugs: ["public-proof-without-portfolio-noise"],
     status: "published",
     publishedAt: "2026-03-30",
     featured: true,
-    availableLocales: ["en"]
+    availableLocales: ["vi", "en"]
   },
   {
     slug: "public-proof-without-portfolio-noise",
-    title: "Public Proof Without Portfolio Noise",
-    summary: "How to show execution without flattening every project into a sales card or generic case study.",
-    body: [
-      "Proof of work becomes weak when it is reduced to outcomes alone. The stronger signal is often the tradeoff, the constraint, or the failure avoided before it became expensive.",
-      "A project surface should leave room for execution evidence without letting that evidence replace the larger body of thinking around it."
-    ],
-    topicLabels: ["projects", "positioning"],
+    content: {
+      title: "Public Proof Without Portfolio Noise",
+      summary: "How to show execution without flattening every project into a sales card or generic case study.",
+      body: [
+        "Proof of work becomes weak when it is reduced to outcomes alone. The stronger signal is often the tradeoff, the constraint, or the failure avoided before it became expensive.",
+        "A project surface should leave room for execution evidence without letting that evidence replace the larger body of thinking around it."
+      ],
+      topicLabels: ["projects", "positioning"]
+    },
     relatedNoteSlugs: ["notes-that-grow-into-products"],
     status: "published",
     publishedAt: "2026-03-28",
@@ -127,13 +187,15 @@ const notes: Note[] = [
   },
   {
     slug: "a-homepage-should-orient-not-perform",
-    title: "A Homepage Should Orient, Not Perform",
-    summary: "Why the home surface should orient visitors instead of trying to impersonate every other page at once.",
-    body: [
-      "When the homepage tries to be biography, archive, and showcase all at once, visitors leave with noise rather than direction.",
-      "Its stronger job is orientation: explain what this place is, show what kinds of material live here, and offer a few real paths inward."
-    ],
-    topicLabels: ["ux", "home"],
+    content: {
+      title: "A Homepage Should Orient, Not Perform",
+      summary: "Why the home surface should orient visitors instead of trying to impersonate every other page at once.",
+      body: [
+        "When the homepage tries to be biography, archive, and showcase all at once, visitors leave with noise rather than direction.",
+        "Its stronger job is orientation: explain what this place is, show what kinds of material live here, and offer a few real paths inward."
+      ],
+      topicLabels: ["ux", "home"]
+    },
     relatedNoteSlugs: [],
     status: "published",
     publishedAt: "2026-03-27",
@@ -142,30 +204,48 @@ const notes: Note[] = [
   }
 ];
 
-const articles: Article[] = [
+const articles: ArticleEntry[] = [
   {
     slug: "building-a-personal-site-as-an-operating-system",
-    title: "Building A Personal Site As An Operating System",
-    excerpt: "Why a personal site should connect identity, thought, and execution instead of splitting them into isolated presentation layers.",
-    body: [
-      "Most personal sites split identity, writing, and project work into separate performance layers. The result is legible, but it often feels thin because the pieces do not reinforce each other.",
-      "A stronger model is an operating site: one place where ideas can mature, public proof can accumulate, and the current direction of the builder remains visible without constant reinvention."
-    ],
-    theme: "product-direction",
+    content: {
+      title: "Building A Personal Site As An Operating System",
+      excerpt:
+        "Why a personal site should connect identity, thought, and execution instead of splitting them into isolated presentation layers.",
+      body: [
+        "Most personal sites split identity, writing, and project work into separate performance layers. The result is legible, but it often feels thin because the pieces do not reinforce each other.",
+        "A stronger model is an operating site: one place where ideas can mature, public proof can accumulate, and the current direction of the builder remains visible without constant reinvention."
+      ],
+      theme: "product-direction"
+    },
+    translations: {
+      vi: {
+        title: "Xây Một Personal Site Như Một Operating System",
+        excerpt:
+          "Vì sao một personal site nên nối identity, thought và execution thay vì tách chúng thành những lớp trình bày rời rạc.",
+        body: [
+          "Phần lớn personal site tách identity, writing và project work thành các lớp trình diễn riêng. Kết quả dễ đọc, nhưng thường mỏng vì các mảnh đó không thật sự gia cố cho nhau.",
+          "Một mô hình mạnh hơn là operating site: một nơi để ý tưởng trưởng thành, bằng chứng công khai tích lũy, và hướng đi hiện tại của người làm vẫn hiện ra mà không cần tự tái phát minh liên tục."
+        ],
+        theme: "định hướng sản phẩm"
+      }
+    },
     status: "published",
     publishedAt: "2026-03-29",
     featured: true,
-    availableLocales: ["en"]
+    availableLocales: ["vi", "en"]
   },
   {
     slug: "when-writing-should-not-start-as-an-essay",
-    title: "When Writing Should Not Start As An Essay",
-    excerpt: "Why some public thought should stay garden-like until the argument is ready to carry real editorial weight.",
-    body: [
-      "An essay shape can create false clarity too early. Some material becomes better writing only after it has survived as notes for a while and proven that it wants to persist.",
-      "Keeping a visible garden is not a lack of editorial quality. It is an honest distinction between thinking in motion and thought that has already settled into a stronger claim."
-    ],
-    theme: "writing",
+    content: {
+      title: "When Writing Should Not Start As An Essay",
+      excerpt:
+        "Why some public thought should stay garden-like until the argument is ready to carry real editorial weight.",
+      body: [
+        "An essay shape can create false clarity too early. Some material becomes better writing only after it has survived as notes for a while and proven that it wants to persist.",
+        "Keeping a visible garden is not a lack of editorial quality. It is an honest distinction between thinking in motion and thought that has already settled into a stronger claim."
+      ],
+      theme: "writing"
+    },
     status: "published",
     publishedAt: "2026-03-26",
     featured: true,
@@ -173,52 +253,137 @@ const articles: Article[] = [
   }
 ];
 
-const projects: Project[] = [
+const projects: ProjectEntry[] = [
   {
     slug: "context-os",
-    name: "Context OS",
-    summary: "A system for durable assistant collaboration, workflow recovery, and disciplined private execution context.",
-    role: "Product shaping, workflow design, implementation",
-    problem:
-      "Long-running AI-assisted work tends to lose continuity, execution standards, and trust boundaries across sessions and repositories.",
-    approach:
-      "Build a layered context model with a startup baseline, private project repositories, explicit workflow playbooks, and repeatable trust checks that survive session resets.",
-    outcomes: [
-      "Durable startup and repo-execution workflows",
-      "Cleaner handoff between public code repos and private context repos",
-      "A repeatable way to move from planning to implementation without losing context"
-    ],
-    links: [
-      { label: "Related garden note", href: "/garden/public-proof-without-portfolio-noise" },
-      { label: "Related essay", href: "/writing/building-a-personal-site-as-an-operating-system" }
-    ],
+    content: {
+      name: "Context OS",
+      summary:
+        "A system for durable assistant collaboration, workflow recovery, and disciplined private execution context.",
+      role: "Product shaping, workflow design, implementation",
+      problem:
+        "Long-running AI-assisted work tends to lose continuity, execution standards, and trust boundaries across sessions and repositories.",
+      approach:
+        "Build a layered context model with a startup baseline, private project repositories, explicit workflow playbooks, and repeatable trust checks that survive session resets.",
+      outcomes: [
+        "Durable startup and repo-execution workflows",
+        "Cleaner handoff between public code repos and private context repos",
+        "A repeatable way to move from planning to implementation without losing context"
+      ],
+      links: [
+        {label: "Related garden note", href: "/garden/public-proof-without-portfolio-noise"},
+        {label: "Related essay", href: "/writing/building-a-personal-site-as-an-operating-system"}
+      ]
+    },
     status: "active",
     featured: true,
     availableLocales: ["en"]
   },
   {
     slug: "2zcory-garden",
-    name: "2zcory Garden",
-    summary: "A personal operating site built as a public home for notes, writing, and proof of work.",
-    role: "Product direction, IA, implementation baseline",
-    problem:
-      "Generic personal sites flatten evolving thought into static profile pages, portfolio summaries, or disconnected publishing surfaces.",
-    approach:
-      "Create distinct surfaces for garden notes, writing, projects, and identity while keeping the first release small enough for one-owner maintenance.",
-    outcomes: [
-      "Rebuilt product foundation from zero",
-      "A garden-led content model that differentiates notes, writing, and projects",
-      "A public-first Next.js baseline with route-level metadata, responsive behavior, and smoke-verified public routes"
-    ],
-    links: [
-      { label: "Read the essay", href: "/writing/building-a-personal-site-as-an-operating-system" },
-      { label: "See the related note", href: "/garden/notes-that-grow-into-products" }
-    ],
+    content: {
+      name: "2zcory Garden",
+      summary: "A personal operating site built as a public home for notes, writing, and proof of work.",
+      role: "Product direction, IA, implementation baseline",
+      problem:
+        "Generic personal sites flatten evolving thought into static profile pages, portfolio summaries, or disconnected publishing surfaces.",
+      approach:
+        "Create distinct surfaces for garden notes, writing, projects, and identity while keeping the first release small enough for one-owner maintenance.",
+      outcomes: [
+        "Rebuilt product foundation from zero",
+        "A garden-led content model that differentiates notes, writing, and projects",
+        "A public-first Next.js baseline with route-level metadata, responsive behavior, and smoke-verified public routes"
+      ],
+      links: [
+        {label: "Read the essay", href: "/writing/building-a-personal-site-as-an-operating-system"},
+        {label: "See the related note", href: "/garden/notes-that-grow-into-products"}
+      ]
+    },
+    translations: {
+      vi: {
+        name: "2zcory Garden",
+        summary:
+          "Một personal operating site được xây như ngôi nhà công khai cho note, bài viết và bằng chứng thực thi.",
+        role: "Định hướng sản phẩm, IA, baseline implementation",
+        problem:
+          "Các personal site dạng generic thường làm phẳng suy nghĩ đang phát triển thành profile page tĩnh, portfolio summary hoặc các bề mặt publish tách rời.",
+        approach:
+          "Tạo các bề mặt riêng cho garden notes, writing, projects và identity, đồng thời giữ release đầu đủ nhỏ để một người có thể tự duy trì.",
+        outcomes: [
+          "Xây lại nền sản phẩm từ con số không",
+          "Một content model dẫn bởi garden để phân biệt note, writing và projects",
+          "Một baseline Next.js public-first với metadata theo route, responsive behavior và smoke-verified public routes"
+        ],
+        links: [
+          {label: "Đọc bài essay", href: "/writing/building-a-personal-site-as-an-operating-system"},
+          {label: "Xem note liên quan", href: "/garden/notes-that-grow-into-products"}
+        ]
+      }
+    },
     status: "active",
     featured: true,
-    availableLocales: ["en"]
+    availableLocales: ["vi", "en"]
   }
 ];
+
+function localizeFields<T>(content: T, translations: TranslationMap<T> | undefined, locale: AppLocale) {
+  if (locale === "en") {
+    return content;
+  }
+
+  return translations?.[locale] ?? content;
+}
+
+function localizeNote(entry: NoteEntry, locale: AppLocale): Note {
+  const content = localizeFields(entry.content, entry.translations, locale);
+
+  return {
+    slug: entry.slug,
+    title: content.title,
+    summary: content.summary,
+    body: content.body,
+    topicLabels: content.topicLabels,
+    relatedNoteSlugs: entry.relatedNoteSlugs,
+    status: entry.status,
+    publishedAt: entry.publishedAt,
+    featured: entry.featured,
+    availableLocales: entry.availableLocales
+  };
+}
+
+function localizeArticle(entry: ArticleEntry, locale: AppLocale): Article {
+  const content = localizeFields(entry.content, entry.translations, locale);
+
+  return {
+    slug: entry.slug,
+    title: content.title,
+    excerpt: content.excerpt,
+    body: content.body,
+    theme: content.theme,
+    status: entry.status,
+    publishedAt: entry.publishedAt,
+    featured: entry.featured,
+    availableLocales: entry.availableLocales
+  };
+}
+
+function localizeProject(entry: ProjectEntry, locale: AppLocale): Project {
+  const content = localizeFields(entry.content, entry.translations, locale);
+
+  return {
+    slug: entry.slug,
+    name: content.name,
+    summary: content.summary,
+    role: content.role,
+    problem: content.problem,
+    approach: content.approach,
+    outcomes: content.outcomes,
+    links: content.links,
+    status: entry.status,
+    featured: entry.featured,
+    availableLocales: entry.availableLocales
+  };
+}
 
 export function getProfile(locale: AppLocale = "en"): Profile {
   const localizedProfile = profileCopy[locale];
@@ -231,34 +396,47 @@ export function getProfile(locale: AppLocale = "en"): Profile {
   };
 }
 
-export function getNotes() {
-  return [...notes].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+export function getNotes(locale: AppLocale = "en") {
+  return [...notes]
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+    .map((note) => localizeNote(note, locale));
 }
 
-export function getNote(slug: string) {
-  return notes.find((note) => note.slug === slug);
+export function getNote(slug: string, locale: AppLocale = "en") {
+  const note = notes.find((entry) => entry.slug === slug);
+  return note ? localizeNote(note, locale) : undefined;
 }
 
-export function getArticles() {
-  return [...articles].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+export function getArticles(locale: AppLocale = "en") {
+  return [...articles]
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+    .map((article) => localizeArticle(article, locale));
 }
 
-export function getArticle(slug: string) {
-  return articles.find((article) => article.slug === slug);
+export function getArticle(slug: string, locale: AppLocale = "en") {
+  const article = articles.find((entry) => entry.slug === slug);
+  return article ? localizeArticle(article, locale) : undefined;
 }
 
-export function getProjects() {
-  return [...projects];
+export function getProjects(locale: AppLocale = "en") {
+  return [...projects].map((project) => localizeProject(project, locale));
 }
 
-export function getProject(slug: string) {
-  return projects.find((project) => project.slug === slug);
+export function getProject(slug: string, locale: AppLocale = "en") {
+  const project = projects.find((entry) => entry.slug === slug);
+  return project ? localizeProject(project, locale) : undefined;
 }
 
-export function getFeaturedContent() {
+export function getFeaturedContent(locale: AppLocale = "en") {
   return {
-    notes: getNotes().filter((note) => note.featured).slice(0, 2),
-    articles: getArticles().filter((article) => article.featured).slice(0, 2),
-    projects: getProjects().filter((project) => project.featured).slice(0, 2)
+    notes: getNotes(locale)
+      .filter((note) => note.featured)
+      .slice(0, 2),
+    articles: getArticles(locale)
+      .filter((article) => article.featured)
+      .slice(0, 2),
+    projects: getProjects(locale)
+      .filter((project) => project.featured)
+      .slice(0, 2)
   };
 }
