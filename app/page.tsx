@@ -18,8 +18,12 @@ export default function HomePage() {
       <section className="hero-card home-atlas-shell">
         <div className="home-atlas-grid">
           <section className="home-atlas-copy">
-            <div>
+            <div className="home-atlas-kicker">
               <p className="eyebrow">Public home for thought and execution</p>
+              <span className="home-kicker-pill">Refined first-screen pass</span>
+            </div>
+
+            <div>
               <h1 className="hero-title home-atlas-title">A map for thought that turns into public work.</h1>
               <p className="hero-copy home-atlas-lead">
                 2zcory Garden should open like a territory, not like a summary page. The first
@@ -28,12 +32,23 @@ export default function HomePage() {
               </p>
             </div>
 
+            <div className="home-intent-row" aria-label="Refinement boundaries">
+              <span className="home-intent-chip">Keep the split structure</span>
+              <span className="home-intent-chip">Tighten first-screen rhythm</span>
+              <span className="home-intent-chip">No broad redesign</span>
+            </div>
+
+            <div className="home-rhythm-note">
+              <strong>Refinement goal</strong>
+              <span>Make the hero feel more decisive than descriptive.</span>
+            </div>
+
             <div className="cta-row">
               <Link href="/garden" className="button-link">
-                Read the routes
+                Review the routes
               </Link>
               <Link href="/about" className="button-link secondary">
-                Review intent
+                Check the intent
               </Link>
             </div>
 
@@ -44,10 +59,23 @@ export default function HomePage() {
                 The homepage should orient first. It does not need to explain every content type
                 equally, only give visitors a strong first read and an obvious way inward.
               </p>
+              <p className="muted">
+                This pass is about cadence, emphasis, and calm. It should sharpen the first screen
+                without changing the underlying route logic.
+              </p>
             </section>
           </section>
 
           <section className="home-atlas-board">
+            <div className="home-board-header">
+              <p className="eyebrow">Refinement target</p>
+              <h2>Keep the atlas feeling, reduce the leftover noise.</h2>
+              <p className="muted">
+                The board should still read as connected terrain, but the composition needs a
+                cleaner rhythm so the first impression feels authored rather than merely arranged.
+              </p>
+            </div>
+
             <article className="home-route-card home-route-garden">
               <div className="route-label">Route 01 / Garden</div>
               <h2>Notes, fragments, and trails still moving.</h2>
@@ -94,8 +122,8 @@ export default function HomePage() {
             </article>
 
             <div className="home-board-caption">
-              <strong>Atlas reading rule</strong>
-              <span>Read the surface as connected terrain, not as a stack of unrelated modules.</span>
+              <strong>Refinement reading rule</strong>
+              <span>Keep the asymmetry and route tension, but make the first screen land with more composure.</span>
             </div>
           </section>
         </div>
