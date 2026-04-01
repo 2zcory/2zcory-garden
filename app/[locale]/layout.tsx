@@ -34,15 +34,23 @@ export default async function LocaleLayout({children, params}: LocaleLayoutProps
     <NextIntlClientProvider messages={messages}>
       <div className="site-shell" lang={locale}>
         <header className="site-header">
-          <Link href="/" className="brand-mark">
-            <span className="brand-seed">2Z</span>
-            <span>2zcory Garden</span>
-          </Link>
-          <div className="site-header-controls">
-            <div className="site-header-utility">
-              <LocaleSwitcher />
-              <ThemeSwitcher />
+          <div className="site-header-top">
+            <Link href="/" className="brand-mark">
+              <span className="brand-seed">2Z</span>
+              <span>2zcory Garden</span>
+            </Link>
+            <div className="site-header-controls">
+              <div className="site-header-utility">
+                <div className="site-header-panel">
+                  <LocaleSwitcher />
+                </div>
+                <div className="site-header-panel">
+                  <ThemeSwitcher />
+                </div>
+              </div>
             </div>
+          </div>
+          <div className="site-header-nav-row">
             <SiteNav />
           </div>
         </header>
