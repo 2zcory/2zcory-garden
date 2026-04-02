@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">2zcory Garden icon</title>
+  <desc id="desc">Circular atlas-inspired mark with the letters 2Z.</desc>
+  <defs>
+    <linearGradient id="bg" x1="18" y1="16" x2="110" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2b725a" />
+      <stop offset="1" stop-color="#143b31" />
+    </linearGradient>
+    <linearGradient id="line" x1="32" y1="30" x2="96" y2="98" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f4e6c1" stop-opacity="0.95" />
+      <stop offset="1" stop-color="#d9b26f" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="url(#bg)" />
+  <path
+    d="M29 39c10-11 23-17 38-17 11 0 22 3 32 9M24 66c13-7 28-10 44-10 13 0 24 2 37 7M31 92c12 8 25 12 39 12 11 0 21-2 31-7"
+    fill="none"
+    stroke="url(#line)"
+    stroke-linecap="round"
+    stroke-width="5"
+  />
+  <path
+    d="M41 44h41v8L54 84h29v10H42v-8l28-32H41z"
+    fill="#fffaf1"
+  />
+  <path
+    d="M85 38h-8l-8 16 6 3 4-8h11L69 83v9h30V82H83l21-34v-10z"
+    fill="#f0c98d"
+  />
+</svg>

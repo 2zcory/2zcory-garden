@@ -3,6 +3,7 @@ import type {Metadata} from "next";
 import {getTranslations} from "next-intl/server";
 import {notFound} from "next/navigation";
 
+import {DetailHero} from "@/components/collection/detail-hero";
 import {routing} from "@/i18n/routing";
 import type {AppLocale} from "@/i18n/routing";
 import {getArticle, getArticles} from "@/lib/content";
@@ -16,17 +17,26 @@ const COPY = {
   en: {
     fallbackTitle: "Writing",
     fallbackDescription: "Deliberate writing from 2zcory Garden.",
-    eyebrow: "Writing"
+    eyebrow: "Writing",
+    signalEyebrow: "Route signal",
+    signalTitle: "An argument that has already tightened.",
+    signalBody: "Writing is the refined layer: less trail, more claim, clearer editorial weight."
   },
   vi: {
     fallbackTitle: "Bài viết",
     fallbackDescription: "Bài viết có chủ đích từ 2zcory Garden.",
-    eyebrow: "Bài viết"
+    eyebrow: "Bài viết",
+    signalEyebrow: "Tín hiệu route",
+    signalTitle: "Một lập luận đã được siết lại.",
+    signalBody: "Writing là lớp đã được gọt: ít trail hơn, nhiều claim hơn và trọng lượng biên tập rõ hơn."
   },
   ja: {
     fallbackTitle: "文章",
     fallbackDescription: "2zcory Garden の整えられた文章。",
-    eyebrow: "文章"
+    eyebrow: "文章",
+    signalEyebrow: "ルートの信号",
+    signalTitle: "すでに輪郭が締まった議論。",
+    signalBody: "Writing は refined layer です。trail は減り、claim と editorial weight が強くなります。"
   }
 } as const;
 
@@ -65,22 +75,37 @@ export default async function LocalizedArticleDetailPage({params}: PageProps) {
   }
 
   return (
-    <section className="surface-card page-stack">
-      <div>
-        <p className="eyebrow">{copy.eyebrow}</p>
-        <h1 className="page-title">{article.title}</h1>
-        <div className="meta-row">
-          <span>{formatDate(article.publishedAt, locale)}</span>
-          <span className="badge">{article.theme}</span>
+    <section className="page-stack detail-page detail-page-writing">
+      <DetailHero
+        accent="writing"
+        eyebrow={copy.eyebrow}
+        title={article.title}
+        summary={article.excerpt}
+        meta={
+          <>
+            <span>{formatDate(article.publishedAt, locale)}</span>
+            <span className="badge">{article.theme}</span>
+          </>
+        }
+        note={
+          locale !== "en" && !article.availableLocales.includes(locale) ? (
+            <p className="locale-note">{tCommon("englishOnly")}</p>
+          ) : undefined
+        }
+        aside={
+          <>
+            <p className="eyebrow">{copy.signalEyebrow}</p>
+            <h2 className="section-heading">{copy.signalTitle}</h2>
+            <p className="muted">{copy.signalBody}</p>
+          </>
+        }
+      />
+      <div className="surface-card detail-article-card">
+        <div className="detail-body stack">
+          {article.body.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
-        {locale !== "en" && !article.availableLocales.includes(locale) ? (
-          <p className="locale-note">{tCommon("englishOnly")}</p>
-        ) : null}
-      </div>
-      <div className="detail-body stack">
-        {article.body.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
       </div>
     </section>
   );

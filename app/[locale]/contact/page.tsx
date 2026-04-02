@@ -1,5 +1,6 @@
 import type {Metadata} from "next";
 
+import {RouteHero} from "@/components/collection/route-hero";
 import type {AppLocale} from "@/i18n/routing";
 import {Link} from "@/i18n/routing";
 import {getProfile} from "@/lib/content";
@@ -17,7 +18,14 @@ const COPY = {
     eyebrow: "Contact",
     heroTitle: "A clear way to reach out.",
     heroBody:
-      "Collaboration, project discussion, and thoughtful replies are welcome. This surface clarifies what kind of outreach fits the site before it exposes any channel details.",
+      "Collaboration, project discussion, and thoughtful replies are welcome. This page should filter intent before it promises access.",
+    signalEyebrow: "Channel policy",
+    signalTitle: "Direct contact stays intentionally narrow.",
+    signalBody:
+      "A direct inbox should appear only when there is a reply path that can actually be maintained.",
+    metricPaths: "next moves",
+    metricChannels: "open channels",
+    metricIntent: "contact mode",
     thoughtfulReplies: "Thoughtful replies",
     projectDiscussion: "Project discussion",
     channelPolicyChip: "Public-safe channel policy",
@@ -57,38 +65,45 @@ const COPY = {
     eyebrow: "Liên hệ",
     heroTitle: "Một cách liên hệ rõ ràng.",
     heroBody:
-      "Hợp tác, trao đổi dự án và những phản hồi có chiều sâu đều được hoan nghênh. Bề mặt này dùng để làm rõ kiểu outreach nào phù hợp với site trước khi công khai bất kỳ kênh nào.",
+      "Hợp tác, trao đổi dự án và phản hồi có chiều sâu đều được hoan nghênh. Trang này nên lọc ý định trước khi hứa hẹn quyền truy cập.",
+    signalEyebrow: "Chính sách kênh",
+    signalTitle: "Kênh liên hệ trực tiếp được giữ hẹp có chủ đích.",
+    signalBody:
+      "Một inbox trực tiếp chỉ nên xuất hiện khi thật sự có đường phản hồi có thể duy trì.",
+    metricPaths: "bước tiếp theo",
+    metricChannels: "kênh mở",
+    metricIntent: "chế độ liên hệ",
     thoughtfulReplies: "Phản hồi có chiều sâu",
     projectDiscussion: "Trao đổi dự án",
-    channelPolicyChip: "Chính sách kênh public-safe",
+    channelPolicyChip: "Chính sách kênh an toàn cho public",
     policyEyebrow: "Chính sách kênh",
     policyTitle: "Kênh liên hệ trực tiếp được giữ hẹp có chủ đích.",
     policyBody:
-      "Một inbox trực tiếp chỉ nên xuất hiện khi thật sự có đường phản hồi có thể duy trì. Cho tới lúc đó, page này nên trung thực về giới hạn đó thay vì giả vờ rằng đã có sẵn một channel bền vững.",
+      "Một inbox trực tiếp chỉ nên xuất hiện khi thật sự có đường phản hồi có thể duy trì. Cho tới lúc đó, trang này nên trung thực về giới hạn đó thay vì giả vờ rằng đã có sẵn một kênh bền vững.",
     fitEyebrow: "Phù hợp",
     fitTitle: "Liên hệ khi context đã nối vào được.",
     fitBody:
-      "Những tin nhắn mạnh nhất thường đi sau một thứ đã được publish ở đây: một note trong garden, một bài writing, hoặc một project đã cho cuộc trò chuyện một điểm bắt đầu thật.",
+      "Những tin nhắn mạnh nhất thường đi sau một thứ đã được xuất bản ở đây: một ghi chú trong Garden, một bài viết, hoặc một dự án đã cho cuộc trò chuyện một điểm bắt đầu thật.",
     goodReasons: "Những lý do phù hợp để liên hệ",
     goodReasonsBody:
-      "Hợp tác, trao đổi dự án, phản hồi về một bài viết cụ thể, hoặc một follow-up đủ cụ thể tới phần công việc đã được publish.",
+      "Hợp tác, trao đổi dự án, phản hồi về một bài viết cụ thể, hoặc một trao đổi tiếp nối đủ cụ thể tới phần công việc đã được xuất bản.",
     notReady: "Điều chưa sẵn sàng",
     notReadyBody:
-      "Một inbox trực tiếp lâu dài hiện chưa được publish, nên page này không nên ngụ ý rằng sẽ có phản hồi đảm bảo qua một kênh ẩn hoặc tạm thời.",
+      "Một inbox trực tiếp lâu dài hiện chưa được công khai, nên trang này không nên ngụ ý rằng sẽ có phản hồi đảm bảo qua một kênh ẩn hoặc tạm thời.",
     directChannel: "Kênh trực tiếp",
     directTitle: "Email đang mở cho outreach có chủ đích.",
     directBody: "Với hợp tác, trao đổi dự án hoặc phản hồi nghiêm túc, hãy dùng địa chỉ bên dưới.",
     nextMove: "Bước đi phù hợp nhất",
-    nextMoveTitle: "Quay lại với context trước.",
+    nextMoveTitle: "Quay lại với ngữ cảnh trước.",
     nextMoveBody:
       "Nếu chưa thể nhắn trực tiếp, bước tiếp theo hữu ích nhất là đi qua phần nội dung giải thích rõ loại công việc, suy nghĩ hoặc kiểu hợp tác mà bạn muốn bàn.",
-    readWriting: "Đọc writing",
-    viewProjects: "Xem projects",
-    browseGarden: "Xem garden notes",
+    readWriting: "Đọc bài viết",
+    viewProjects: "Xem dự án",
+    browseGarden: "Xem ghi chú Garden",
     expectationEyebrow: "Kỳ vọng",
-    expectationTitle: "Page này nên lọc ý định, không giả vờ sẵn sàng.",
+    expectationTitle: "Trang này nên lọc ý định, không giả vờ sẵn sàng.",
     expectationBody:
-      "Site này hiện vẫn publication-first. Thông tin liên hệ sẽ chỉ mở rộng khi có một đường phản hồi đủ đáng tin để công khai."
+      "Site này hiện vẫn ưu tiên xuất bản. Thông tin liên hệ sẽ chỉ mở rộng khi có một đường phản hồi đủ đáng tin để công khai."
   },
   ja: {
     title: "連絡",
@@ -96,7 +111,14 @@ const COPY = {
     eyebrow: "連絡",
     heroTitle: "明確な連絡のしかた。",
     heroBody:
-      "協業、プロジェクト相談、考え抜かれた返信は歓迎します。この面は、どの種類の outreach がこのサイトに合うかを、連絡先を出す前に明確にするためのものです。",
+      "協業、プロジェクト相談、考え抜かれた返信は歓迎します。このページは access を約束する前に intent を絞るためのものです。",
+    signalEyebrow: "チャネル方針",
+    signalTitle: "直接連絡は意図的に狭く保つ。",
+    signalBody:
+      "直接の inbox は、実際に維持できる返信経路があるときにだけ現れるべきです。",
+    metricPaths: "next moves",
+    metricChannels: "open channels",
+    metricIntent: "contact mode",
     thoughtfulReplies: "思慮ある返信",
     projectDiscussion: "プロジェクト相談",
     channelPolicyChip: "公開向けチャネル方針",
@@ -149,25 +171,32 @@ export default async function LocalizedContactPage({params}: PageProps) {
   const hasDirectContact = Boolean(profile.contactEmail);
 
   return (
-    <div className="page-stack">
-      <section className="surface-card contact-hero-grid">
-        <div className="stack">
-          <div>
-            <p className="eyebrow">{copy.eyebrow}</p>
-            <h1 className="page-title">{copy.heroTitle}</h1>
-            <p className="page-copy">{copy.heroBody}</p>
-          </div>
-          <div className="contact-chip-row">
-            <span className="badge">{copy.thoughtfulReplies}</span>
-            <span className="badge">{copy.projectDiscussion}</span>
-            <span className="badge">{copy.channelPolicyChip}</span>
-          </div>
+    <div className="page-stack contact-page">
+      <RouteHero
+        eyebrow={copy.eyebrow}
+        title={copy.heroTitle}
+        description={copy.heroBody}
+        accent="projects"
+        metrics={[
+          {label: copy.metricPaths, value: hasDirectContact ? "1" : "3"},
+          {label: copy.metricChannels, value: hasDirectContact ? "1" : "0"},
+          {label: copy.metricIntent, value: "clear"}
+        ]}
+        aside={
+          <>
+            <p className="eyebrow">{copy.signalEyebrow}</p>
+            <h2 className="section-heading">{copy.signalTitle}</h2>
+            <p className="muted">{copy.signalBody}</p>
+          </>
+        }
+      />
+
+      <section className="surface-card contact-chip-surface">
+        <div className="contact-chip-row">
+          <span className="badge">{copy.thoughtfulReplies}</span>
+          <span className="badge">{copy.projectDiscussion}</span>
+          <span className="badge">{copy.channelPolicyChip}</span>
         </div>
-        <aside className="surface-card contact-policy-card">
-          <p className="eyebrow">{copy.policyEyebrow}</p>
-          <h2 className="section-heading">{copy.policyTitle}</h2>
-          <p className="muted">{copy.policyBody}</p>
-        </aside>
       </section>
 
       <section className="surface-card contact-stage-grid">

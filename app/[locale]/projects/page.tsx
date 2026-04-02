@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 
 import {getTranslations} from "next-intl/server";
 
+import {RouteHero} from "@/components/collection/route-hero";
 import type {AppLocale} from "@/i18n/routing";
 import {Link} from "@/i18n/routing";
 import {getProjects} from "@/lib/content";
@@ -20,6 +21,13 @@ const COPY = {
     heroTitle: "Execution evidence.",
     heroBody:
       "Selected projects that show build decisions, tradeoffs, and outcomes rather than just a stack of portfolio thumbnails. The point is evidence, not performance.",
+    signalEyebrow: "Route signal",
+    signalTitle: "Selected builds, ranked by real weight.",
+    signalBody:
+      "Projects should read like evidence with hierarchy, not like every entry deserves identical spotlight.",
+    metricEntries: "projects",
+    metricShipped: "shipped",
+    metricActive: "active",
     ledgerEyebrow: "Current shape",
     ledgerTitle: "Two projects, different weights.",
     ledgerBody:
@@ -44,6 +52,13 @@ const COPY = {
     heroTitle: "Bằng chứng thực thi.",
     heroBody:
       "Các dự án được chọn để cho thấy quyết định build, tradeoff và kết quả, thay vì chỉ là một chồng portfolio thumbnail. Trọng tâm là bằng chứng, không phải trình diễn.",
+    signalEyebrow: "Tín hiệu lối vào",
+    signalTitle: "Các build được chọn, xếp theo trọng lượng thật.",
+    signalBody:
+      "Projects nên đọc như bằng chứng có thứ bậc, không phải như mọi mục đều xứng một mức spotlight ngang nhau.",
+    metricEntries: "dự án",
+    metricShipped: "đã ship",
+    metricActive: "đang active",
     ledgerEyebrow: "Trạng thái hiện tại",
     ledgerTitle: "Hai dự án, hai mức trọng lượng.",
     ledgerBody:
@@ -52,13 +67,13 @@ const COPY = {
     supportLabel: "Hỗ trợ",
     leadSummary: "Tóm tắt",
     leadEvidence: "Bằng chứng",
-    relatedRoutes: "Route liên quan",
-    routeNoteTitle: "Route đi tiếp",
+    relatedRoutes: "Lối vào liên quan",
+    routeNoteTitle: "Lối đi tiếp",
     routeNoteBody:
       "Writing và Garden chỉ nên xuất hiện như những cây cầu yên hơn bao quanh bằng chứng dự án, không phải như một hệ điều hướng thứ hai.",
     viewProject: "Xem dự án",
     emptyTitle: "Chưa có dự án nào được liệt kê.",
-    emptyBody: "Khu vực này sẽ xuất bản các phần execution work được chọn khi những project entry đầu tiên sẵn sàng."
+    emptyBody: "Khu vực này sẽ xuất bản các phần thực thi được chọn khi những mục dự án đầu tiên sẵn sàng."
   },
   ja: {
     title: "プロジェクト",
@@ -68,6 +83,13 @@ const COPY = {
     heroTitle: "実行の証拠。",
     heroBody:
       "単なる portfolio thumbnail の束ではなく、ビルドの判断、tradeoff、結果を見せるために選ばれたプロジェクトです。重要なのは演出ではなく証拠です。",
+    signalEyebrow: "ルートの信号",
+    signalTitle: "選ばれた build を、実際の重みで並べる。",
+    signalBody:
+      "Projects は同じ spotlight を配るのではなく、階層のある evidence として読めるべきです。",
+    metricEntries: "projects",
+    metricShipped: "shipped",
+    metricActive: "active",
     ledgerEyebrow: "現在の構造",
     ledgerTitle: "二つのプロジェクト、違う重み。",
     ledgerBody:
@@ -102,18 +124,33 @@ export default async function LocalizedProjectsPage({params}: PageProps) {
   const projects = getProjects(locale);
   const tCommon = await getTranslations({locale, namespace: "Common"});
   const [leadProject, ...supportProjects] = projects;
+  const shippedCount = projects.filter((project) => project.status === "shipped").length;
+  const activeCount = projects.filter((project) => project.status === "active").length;
 
   return (
-    <section className="surface-card page-stack projects-page">
-      <div className="projects-page-intro">
-        <p className="eyebrow">{copy.eyebrow}</p>
-        <h1 className="page-title">{copy.heroTitle}</h1>
-        <p className="page-copy">{copy.heroBody}</p>
-      </div>
+    <section className="page-stack projects-page route-page route-page-projects">
+      <RouteHero
+        eyebrow={copy.eyebrow}
+        title={copy.heroTitle}
+        description={copy.heroBody}
+        accent="projects"
+        metrics={[
+          {label: copy.metricEntries, value: String(projects.length)},
+          {label: copy.metricShipped, value: String(shippedCount)},
+          {label: copy.metricActive, value: String(activeCount)}
+        ]}
+        aside={
+          <>
+            <p className="eyebrow">{copy.signalEyebrow}</p>
+            <h2 className="section-heading">{copy.signalTitle}</h2>
+            <p className="muted">{copy.signalBody}</p>
+          </>
+        }
+      />
       <div className="projects-ledger-shell">
         {projects.length > 0 ? (
           <>
-            <div className="projects-ledger-head">
+            <div className="projects-ledger-head surface-card">
               <div>
                 <p className="eyebrow">{copy.ledgerEyebrow}</p>
                 <h2 className="section-heading">{copy.ledgerTitle}</h2>

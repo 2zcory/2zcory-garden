@@ -3,6 +3,7 @@ import type {Metadata} from "next";
 import {getTranslations} from "next-intl/server";
 import {notFound} from "next/navigation";
 
+import {DetailHero} from "@/components/collection/detail-hero";
 import {Link} from "@/i18n/routing";
 import {routing} from "@/i18n/routing";
 import type {AppLocale} from "@/i18n/routing";
@@ -18,6 +19,9 @@ const COPY = {
     fallbackTitle: "Projects",
     fallbackDescription: "Selected projects from 2zcory Garden.",
     eyebrow: "Project",
+    signalEyebrow: "Route signal",
+    signalTitle: "Execution first, theater second.",
+    signalBody: "A project page should foreground the real problem, the chosen approach, and the proof that the work actually landed.",
     problem: "Problem",
     approach: "Approach",
     outcomes: "Outcomes",
@@ -28,6 +32,9 @@ const COPY = {
     fallbackTitle: "Dự án",
     fallbackDescription: "Các dự án được chọn từ 2zcory Garden.",
     eyebrow: "Dự án",
+    signalEyebrow: "Tín hiệu route",
+    signalTitle: "Thực thi trước, theater sau.",
+    signalBody: "Một trang dự án nên đưa vấn đề thật, cách tiếp cận được chọn và bằng chứng rằng công việc đã hạ xuống lên trước.",
     problem: "Vấn đề",
     approach: "Cách tiếp cận",
     outcomes: "Kết quả",
@@ -38,6 +45,9 @@ const COPY = {
     fallbackTitle: "プロジェクト",
     fallbackDescription: "2zcory Garden の選ばれたプロジェクト。",
     eyebrow: "プロジェクト",
+    signalEyebrow: "ルートの信号",
+    signalTitle: "execution first, theater second。",
+    signalBody: "project page は、実際の problem、選ばれた approach、そして work が着地した証拠を前に出すべきです。",
     problem: "課題",
     approach: "アプローチ",
     outcomes: "結果",
@@ -81,33 +91,46 @@ export default async function LocalizedProjectDetailPage({params}: PageProps) {
   }
 
   return (
-    <section className="surface-card detail-grid">
-      <article className="stack">
-        <div>
-          <p className="eyebrow">{copy.eyebrow}</p>
-          <h1 className="page-title">{project.name}</h1>
-          <div className="meta-row">
+    <section className="page-stack detail-page detail-page-projects">
+      <DetailHero
+        accent="projects"
+        eyebrow={copy.eyebrow}
+        title={project.name}
+        summary={project.summary}
+        meta={
+          <>
             <span className="badge">{project.status}</span>
             <span>{project.role}</span>
-          </div>
-          {locale !== "en" && !project.availableLocales.includes(locale) ? (
+          </>
+        }
+        note={
+          locale !== "en" && !project.availableLocales.includes(locale) ? (
             <p className="locale-note">{tCommon("englishOnly")}</p>
-          ) : null}
-        </div>
-        <div className="detail-body stack">
-          <p>{project.summary}</p>
-          <div>
-            <h2 className="section-heading">{copy.problem}</h2>
-            <p className="muted">{project.problem}</p>
+          ) : undefined
+        }
+        aside={
+          <>
+            <p className="eyebrow">{copy.signalEyebrow}</p>
+            <h2 className="section-heading">{copy.signalTitle}</h2>
+            <p className="muted">{copy.signalBody}</p>
+          </>
+        }
+      />
+      <div className="detail-grid detail-grid-page">
+        <article className="surface-card detail-article-card">
+          <div className="detail-body stack">
+            <div>
+              <h2 className="section-heading">{copy.problem}</h2>
+              <p className="muted">{project.problem}</p>
+            </div>
+            <div>
+              <h2 className="section-heading">{copy.approach}</h2>
+              <p className="muted">{project.approach}</p>
+            </div>
           </div>
+        </article>
+        <aside className="surface-card stack detail-side-card">
           <div>
-            <h2 className="section-heading">{copy.approach}</h2>
-            <p className="muted">{project.approach}</p>
-          </div>
-        </div>
-      </article>
-      <aside className="surface-card stack">
-        <div>
           <h2 className="section-heading">{copy.outcomes}</h2>
           <ul className="list-reset stack">
             {project.outcomes.map((outcome) => (
@@ -130,8 +153,9 @@ export default async function LocalizedProjectDetailPage({params}: PageProps) {
               <p className="muted">{copy.noLinks}</p>
             )}
           </div>
-        </div>
-      </aside>
+          </div>
+        </aside>
+      </div>
     </section>
   );
 }

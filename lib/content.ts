@@ -117,7 +117,7 @@ const profileCopy: Record<AppLocale, LocalizedProfileFields> = {
   ja: {
     descriptor: "思考と文章と実装のための公開ホームを形にしているソフトウェアエンジニア。",
     bio: [
-      "2zcory Garden は、探索中のノート、形を整えた文章、選ばれたプロジェクトを、ばらばらの自己紹介面に分断せず一つにつなぎとめるための personal operating site です。",
+      "2zcory Garden は、探索中のノート、形を整えた文章、選ばれたプロジェクトを、ばらばらの自己紹介面に分断せず一つにつなぎとめるための、公開された personal operating system です。",
       "立ち上げ時の基準は意図的に小さく保たれています。プロダクトの輪郭が読めるだけの実在する内容、時間とともに伸ばせるだけの構造、そして仕事そのものを埋もれさせる余計な仕組みを持ち込まないことが条件です。"
     ],
     currentFocus: [
@@ -129,12 +129,12 @@ const profileCopy: Record<AppLocale, LocalizedProfileFields> = {
   vi: {
     descriptor: "Software engineer đang tạo một ngôi nhà công khai cho suy nghĩ, bài viết và thực thi.",
     bio: [
-      "2zcory Garden là một personal operating site nơi các note khám phá, bài viết đã được gọt và những dự án được chọn có thể ở lại cùng nhau thay vì bị tách ra thành các bề mặt nhận diện rời rạc.",
+      "2zcory Garden là một personal operating system được mở ra công khai, nơi các ghi chú khám phá, bài viết đã được gọt và những dự án được chọn có thể ở lại cùng nhau thay vì bị tách ra thành các bề mặt nhận diện rời rạc.",
       "Baseline ra mắt được giữ nhỏ có chủ đích: đủ nội dung thật để sản phẩm dễ đọc, đủ cấu trúc để lớn dần theo thời gian, và không thêm máy móc thừa che khuất chính phần công việc."
     ],
     currentFocus: [
       "Xây một web product cá nhân bền vững với mô hình xuất bản rõ ràng",
-      "Biến các mảnh note rời rạc thành public trails có thể cứng dần thành writing",
+      "Biến các mảnh ghi chú rời rạc thành các đường mòn công khai có thể cứng dần thành bài viết",
       "Cho thấy bằng chứng thực thi mà không biến mọi thứ thành portfolio theater"
     ]
   }
@@ -165,11 +165,11 @@ const notes: NoteEntry[] = [
     },
     translations: {
       vi: {
-        title: "Những Note Lớn Dần Thành Sản Phẩm",
+        title: "Những Ghi Chú Lớn Dần Thành Sản Phẩm",
         summary: "Khi những mảnh lặp lại ngừng là mẩu nháp và bắt đầu đòi một ngôi nhà công khai.",
         body: [
-          "Có những ý tưởng không bắt đầu như essay. Chúng bắt đầu như các mảnh lặp lại: một cụm từ, một mô hình, một bài học dự án cứ quay về cho tới khi trở nên khó có thể bỏ qua.",
-          "Một garden note xứng đáng tồn tại khi nó giữ lại được chuyển động đó thay vì giả vờ câu trả lời đã đến trong hình dạng hoàn chỉnh. Giá trị không chỉ nằm ở độ bóng. Giá trị nằm ở con đường còn nhìn thấy được."
+          "Có những ý tưởng không bắt đầu như bài viết. Chúng bắt đầu như các mảnh lặp lại: một cụm từ, một mô hình, một bài học dự án cứ quay về cho tới khi trở nên khó có thể bỏ qua.",
+          "Một ghi chú Garden xứng đáng tồn tại khi nó giữ lại được chuyển động đó thay vì giả vờ câu trả lời đã đến trong hình dạng hoàn chỉnh. Giá trị không chỉ nằm ở độ bóng. Giá trị nằm ở con đường còn nhìn thấy được."
         ],
         topicLabels: ["knowledge-garden", "product-shaping"]
       }
@@ -236,7 +236,7 @@ const articles: ArticleEntry[] = [
           "Vì sao một personal site nên nối identity, thought và execution thay vì tách chúng thành những lớp trình bày rời rạc.",
         body: [
           "Phần lớn personal site tách identity, writing và project work thành các lớp trình diễn riêng. Kết quả dễ đọc, nhưng thường mỏng vì các mảnh đó không thật sự gia cố cho nhau.",
-          "Một mô hình mạnh hơn là operating site: một nơi để ý tưởng trưởng thành, bằng chứng công khai tích lũy, và hướng đi hiện tại của người làm vẫn hiện ra mà không cần tự tái phát minh liên tục."
+          "Một mô hình mạnh hơn là operating system cá nhân được mở ra công khai: một nơi để ý tưởng trưởng thành, bằng chứng công khai tích lũy, và hướng đi hiện tại của người làm vẫn hiện ra mà không cần tự tái phát minh liên tục."
         ],
         theme: "định hướng sản phẩm"
       },
@@ -305,7 +305,7 @@ const projects: ProjectEntry[] = [
     slug: "2zcory-garden",
     content: {
       name: "2zcory Garden",
-      summary: "A personal operating site built as a public home for notes, writing, and proof of work.",
+      summary: "A personal operating system made public as a home for notes, writing, and proof of work.",
       role: "Product direction, IA, implementation baseline",
       problem:
         "Generic personal sites flatten evolving thought into static profile pages, portfolio summaries, or disconnected publishing surfaces.",
@@ -325,20 +325,20 @@ const projects: ProjectEntry[] = [
       vi: {
         name: "2zcory Garden",
         summary:
-          "Một personal operating site được xây như ngôi nhà công khai cho note, bài viết và bằng chứng thực thi.",
-        role: "Định hướng sản phẩm, IA, baseline implementation",
+          "Một personal operating system được mở ra công khai như ngôi nhà cho ghi chú, bài viết và bằng chứng thực thi.",
+        role: "Định hướng sản phẩm, IA, nền triển khai",
         problem:
           "Các personal site dạng generic thường làm phẳng suy nghĩ đang phát triển thành profile page tĩnh, portfolio summary hoặc các bề mặt publish tách rời.",
         approach:
-          "Tạo các bề mặt riêng cho garden notes, writing, projects và identity, đồng thời giữ release đầu đủ nhỏ để một người có thể tự duy trì.",
+          "Tạo các bề mặt riêng cho Garden, Writing, Projects và phần nhận diện, đồng thời giữ release đầu đủ nhỏ để một người có thể tự duy trì.",
         outcomes: [
           "Xây lại nền sản phẩm từ con số không",
-          "Một content model dẫn bởi garden để phân biệt note, writing và projects",
-          "Một baseline Next.js public-first với metadata theo route, responsive behavior và smoke-verified public routes"
+          "Một content model dẫn bởi Garden để phân biệt ghi chú, bài viết và dự án",
+          "Một nền Next.js public-first với metadata theo route, responsive behavior và smoke-verified public routes"
         ],
         links: [
-          {label: "Đọc bài essay", href: "/writing/building-a-personal-site-as-an-operating-system"},
-          {label: "Xem note liên quan", href: "/garden/notes-that-grow-into-products"}
+          {label: "Đọc bài viết liên quan", href: "/writing/building-a-personal-site-as-an-operating-system"},
+          {label: "Xem ghi chú liên quan", href: "/garden/notes-that-grow-into-products"}
         ]
       }
     },

@@ -2,9 +2,12 @@ import type {Metadata} from "next";
 
 import {getTranslations} from "next-intl/server";
 
-import {Link} from "@/i18n/routing";
+import {HomeFeaturedSection} from "@/components/home/home-featured-section";
+import {HomeHero} from "@/components/home/home-hero";
+import {HomeRouteCard} from "@/components/home/home-route-card";
+import {HomeSection} from "@/components/home/home-section";
 import type {AppLocale} from "@/i18n/routing";
-import {getFeaturedContent} from "@/lib/content";
+import {getArticles, getFeaturedContent, getNotes, getProjects} from "@/lib/content";
 import {buildPageMetadata, formatDate} from "@/lib/metadata";
 
 type PageProps = {
@@ -14,49 +17,63 @@ type PageProps = {
 const COPY = {
   en: {
     title: "Home",
-    description: "A public entry point into 2zcory Garden, connecting notes, writing, and selected projects.",
-    eyebrow: "Public home for thought and execution",
-    refined: "Refined first-screen pass",
-    heroTitle: "A map for thought that turns into public work.",
+    description: "One site, three ways in: raw thinking, refined writing, and projects that prove the work can land.",
+    eyebrow: "Personal operating system",
+    heroTitle: "Thinking, writing, and building in one terrain.",
     heroLead:
-      "2zcory Garden should open like a territory, not like a summary page. The first screen should explain the place quickly, then make three routes legible: thinking still in motion, writing already shaped, and work already made concrete.",
-    chips: ["Keep the split structure", "Tighten first-screen rhythm", "No broad redesign"],
-    goalLabel: "Refinement goal",
-    goalText: "Make the hero feel more decisive than descriptive.",
-    ctaPrimary: "Review the routes",
-    ctaSecondary: "Check the intent",
-    ruleEyebrow: "Orientation rule",
-    ruleTitle: "One site, three ways in.",
-    ruleBodyA:
-      "The homepage should orient first. It does not need to explain every content type equally, only give visitors a strong first read and an obvious way inward.",
-    ruleBodyB:
-      "This pass is about cadence, emphasis, and calm. It should sharpen the first screen without changing the underlying route logic.",
-    boardEyebrow: "Refinement target",
-    boardTitle: "Keep the atlas feeling, reduce the leftover noise.",
-    boardBody:
-      "The board should still read as connected terrain, but the composition needs a cleaner rhythm so the first impression feels authored rather than merely arranged.",
-    routeGardenTitle: "Notes, fragments, and trails still moving.",
+      "2zcory Garden is a personal operating system. Garden captures raw thinking, Writing shapes it into arguments, and Projects show where it turns into execution.",
+    supportLabel: "Why this home exists",
+    supportText:
+      "The homepage should orient in seconds: show the pipeline, separate the three routes, and make the first click obvious without sounding like a portfolio.",
+    ctaPrimary: "Enter the Garden",
+    ctaSecondary: "Read the system",
+    routesLabel: "Three routes",
+    routeGardenName: "Garden",
+    routeGardenCue: "raw thinking",
+    routeWritingName: "Writing",
+    routeWritingCue: "refined thinking",
+    routeProjectsName: "Projects",
+    routeProjectsCue: "proof of work",
+    metricRoutes: "routes",
+    metricNotes: "published notes",
+    metricArticles: "essays",
+    routesEyebrow: "Choose a route",
+    routesTitle: "Three distinct entry points, one connected system.",
+    routesDescription:
+      "Each route gets its own visual logic so visitors can scan by intent instead of reading paragraphs to decode the difference.",
+    routeGardenTitle: "Start where ideas are still alive.",
     routeGardenBody:
-      "Start at the live edge of ideas. This route holds the unfinished, the connective tissue, and the threads that may later harden into essays or project decisions.",
-    routeWritingTitle: "Essays and clearer positions after the trail.",
+      "Loose notes, fragments, and trails. This is the surface for unfinished thought before it becomes an essay or a product decision.",
+    routeWritingTitle: "Move into shaped arguments.",
     routeWritingBody:
-      "This layer is for visitors who want shaped arguments, clearer conclusions, and the more deliberate editorial surface of the site.",
-    routeProjectsTitle: "Builds that prove the thinking can land.",
+      "Essays, clearer positions, and more deliberate editorial structure for people who want the refined layer of the system.",
+    routeProjectsTitle: "See where the thinking lands.",
     routeProjectsBody:
-      "This route carries execution evidence without flattening the whole site into a portfolio wall.",
+      "Selected builds that show execution, tradeoffs, and real output without flattening the whole site into a generic portfolio.",
+    routeGardenCount: "living entries",
+    routeWritingCount: "published pieces",
+    routeProjectsCount: "selected builds",
     routeOpen: "Open route",
-    routeGarden: "thought in motion",
-    routeWriting: "deliberate pieces",
-    routeProjects: "proof of work",
-    boardCaptionStrong: "Refinement reading rule",
-    boardCaptionText: "Keep the asymmetry and route tension, but make the first screen land with more composure.",
-    featuredTrails: "Featured trails",
+    routeGardenScan: "Trail-first",
+    routeWritingScan: "Argument-first",
+    routeProjectsScan: "Execution-first",
+    signalEyebrow: "Current signals",
+    signalTitle: "Recent public outputs from each layer.",
+    signalDescription:
+      "A narrow read from each route makes the pipeline legible at a glance.",
+    featuredTrails: "Garden",
+    featuredTrailsTitle: "Notes and fragments in motion",
+    featuredTrailsDescription: "Quick reads from the live edge of the garden.",
     readNote: "Read note",
     visitGarden: "Visit the garden",
-    featuredWriting: "Featured writing",
+    featuredWriting: "Writing",
+    featuredWritingTitle: "Essays with stronger shape",
+    featuredWritingDescription: "Refined pieces for readers who want the settled version.",
     readArticle: "Read article",
     browseWriting: "Browse writing",
-    selectedProjects: "Selected projects",
+    selectedProjects: "Projects",
+    selectedProjectsTitle: "Builds that make the thinking concrete",
+    selectedProjectsDescription: "Execution evidence without portfolio theater.",
     openProject: "Open project",
     viewAllProjects: "View all projects",
     noNotes: "No featured notes yet.",
@@ -68,103 +85,131 @@ const COPY = {
   },
   vi: {
     title: "Trang chủ",
-    description: "Điểm vào công khai của 2zcory Garden, kết nối note, bài viết và các dự án được chọn.",
-    eyebrow: "Ngôi nhà công khai cho suy nghĩ và thực thi",
-    refined: "Vòng tinh chỉnh first-screen",
-    heroTitle: "Một bản đồ cho suy nghĩ có thể trở thành sản phẩm công khai.",
+    description: "Một site, ba lối vào: suy nghĩ thô, bài viết đã gọt và các dự án chứng minh việc làm thật.",
+    eyebrow: "Personal operating system",
+    heroTitle: "Suy nghĩ, bài viết và build ở trong cùng một địa hình.",
     heroLead:
-      "2zcory Garden nên mở ra như một vùng đất, không phải một trang tóm tắt. Màn hình đầu tiên cần giải thích nơi này thật nhanh, rồi làm rõ ba lối vào: suy nghĩ còn đang chuyển động, bài viết đã được gọt lại, và công việc đã thành hình.",
-    chips: ["Giữ nguyên split structure", "Siết nhịp first-screen", "Không mở rộng redesign"],
-    goalLabel: "Mục tiêu tinh chỉnh",
-    goalText: "Làm hero quyết đoán hơn thay vì chỉ mang tính mô tả.",
-    ctaPrimary: "Xem các lối vào",
-    ctaSecondary: "Xem chủ đích",
-    ruleEyebrow: "Quy tắc định hướng",
-    ruleTitle: "Một site, ba đường đi vào.",
-    ruleBodyA:
-      "Homepage nên ưu tiên định hướng. Nó không cần giải thích mọi loại nội dung với trọng số ngang nhau, chỉ cần tạo được lần đọc đầu rõ ràng và một cách đi sâu vào đủ dễ thấy.",
-    ruleBodyB:
-      "Vòng này tập trung vào nhịp điệu, nhấn mạnh và độ yên. Nó cần làm first-screen sắc hơn mà không đổi route logic nền bên dưới.",
-    boardEyebrow: "Mục tiêu của pass",
-    boardTitle: "Giữ cảm giác atlas, giảm phần nhiễu còn sót lại.",
-    boardBody:
-      "Board vẫn phải đọc như một địa hình liên kết, nhưng bố cục cần nhịp sạch hơn để ấn tượng đầu tiên trông có chủ đích thay vì chỉ là đã được sắp xếp.",
-    routeGardenTitle: "Note, fragment và trail vẫn đang chuyển động.",
+      "2zcory Garden là một personal operating system. Garden giữ suy nghĩ thô, Writing gọt nó thành lập luận, còn Projects cho thấy nơi nó hạ xuống thành thực thi.",
+    supportLabel: "Vì sao trang chủ này tồn tại",
+    supportText:
+      "Màn hình đầu phải định hướng trong vài giây: cho thấy pipeline, tách rõ ba lối vào và khiến cú click đầu tiên trở nên hiển nhiên mà không biến site thành portfolio.",
+    ctaPrimary: "Vào Garden",
+    ctaSecondary: "Đọc hệ thống",
+    routesLabel: "Ba lối vào",
+    routeGardenName: "Garden",
+    routeGardenCue: "suy nghĩ thô",
+    routeWritingName: "Writing",
+    routeWritingCue: "suy nghĩ đã gọt",
+    routeProjectsName: "Projects",
+    routeProjectsCue: "bằng chứng thực thi",
+    metricRoutes: "lối vào",
+    metricNotes: "ghi chú đã xuất bản",
+    metricArticles: "bài viết",
+    routesEyebrow: "Chọn lối vào",
+    routesTitle: "Ba điểm vào khác nhau, một hệ thống nối liền.",
+    routesDescription:
+      "Mỗi lối vào có logic thị giác riêng để người xem quét theo ý định thay vì phải đọc từng đoạn dài mới hiểu chúng khác nhau ở đâu.",
+    routeGardenTitle: "Bắt đầu ở nơi ý tưởng còn đang sống.",
     routeGardenBody:
-      "Bắt đầu từ mép sống của ý tưởng. Route này giữ phần chưa hoàn tất, connective tissue và những sợi chỉ sau này có thể cứng lại thành essay hoặc quyết định dự án.",
-    routeWritingTitle: "Bài viết và lập trường rõ hơn sau quãng trail.",
+      "Các ghi chú, mảnh rời và đường mòn còn dang dở. Đây là bề mặt cho suy nghĩ chưa thành bài viết hoặc chưa hóa thành quyết định sản phẩm.",
+    routeWritingTitle: "Đi tiếp vào các lập luận đã thành hình.",
     routeWritingBody:
-      "Lớp này dành cho người muốn các lập luận đã được gọt, kết luận rõ hơn và bề mặt biên tập có chủ đích hơn của site.",
-    routeProjectsTitle: "Những thứ đã build để chứng minh suy nghĩ có thể hạ xuống.",
+      "Bài viết, lập trường rõ hơn và lớp biên tập có chủ đích hơn cho người muốn phần đã được gọt của hệ thống này.",
+    routeProjectsTitle: "Xem nơi suy nghĩ chạm đất.",
     routeProjectsBody:
-      "Route này mang bằng chứng thực thi mà không ép toàn site thành một bức tường portfolio.",
-    routeOpen: "Mở route",
-    routeGarden: "suy nghĩ đang chuyển động",
-    routeWriting: "bài viết có chủ đích",
-    routeProjects: "bằng chứng thực thi",
-    boardCaptionStrong: "Quy tắc đọc refinement",
-    boardCaptionText: "Giữ độ lệch và lực căng giữa các route, nhưng để first-screen hạ xuống gọn và chín hơn.",
-    featuredTrails: "Các trail nổi bật",
-    readNote: "Đọc note",
-    visitGarden: "Vào garden",
-    featuredWriting: "Bài viết nổi bật",
+      "Những build được chọn để cho thấy thực thi, tradeoff và đầu ra thật mà không làm phẳng toàn site thành một portfolio generic.",
+    routeGardenCount: "mục đang sống",
+    routeWritingCount: "bài đã xuất bản",
+    routeProjectsCount: "build được chọn",
+    routeOpen: "Mở lối vào",
+    routeGardenScan: "ưu tiên trail",
+    routeWritingScan: "ưu tiên lập luận",
+    routeProjectsScan: "ưu tiên thực thi",
+    signalEyebrow: "Tín hiệu hiện tại",
+    signalTitle: "Đầu ra công khai gần đây từ từng lớp.",
+    signalDescription:
+      "Mỗi lối vào chỉ cần một lát cắt hẹp là đủ để người xem hiểu pipeline trong một lần quét.",
+    featuredTrails: "Garden",
+    featuredTrailsTitle: "Ghi chú và mảnh rời còn đang chuyển động",
+    featuredTrailsDescription: "Các lát cắt ngắn từ mép sống của Garden.",
+    readNote: "Đọc ghi chú",
+    visitGarden: "Vào Garden",
+    featuredWriting: "Writing",
+    featuredWritingTitle: "Bài viết đã có hình khối rõ hơn",
+    featuredWritingDescription: "Các bài dành cho người muốn phiên bản đã lắng xuống.",
     readArticle: "Đọc bài viết",
-    browseWriting: "Xem writing",
-    selectedProjects: "Dự án được chọn",
+    browseWriting: "Xem bài viết",
+    selectedProjects: "Projects",
+    selectedProjectsTitle: "Những build làm suy nghĩ trở nên cụ thể",
+    selectedProjectsDescription: "Bằng chứng thực thi, không phải portfolio theater.",
     openProject: "Mở dự án",
     viewAllProjects: "Xem tất cả dự án",
-    noNotes: "Chưa có note nổi bật.",
-    noNotesBody: "Garden sẽ hiện ở đây khi những note đầu tiên được chọn cho bề mặt homepage.",
+    noNotes: "Chưa có ghi chú nổi bật.",
+    noNotesBody: "Garden sẽ hiện ở đây khi những ghi chú đầu tiên được chọn cho bề mặt trang chủ.",
     noWriting: "Chưa có bài viết nổi bật.",
-    noWritingBody: "Các bài viết đã được gọt sẽ hiện ở đây khi đợt writing đầu tiên sẵn sàng cho homepage.",
+    noWritingBody: "Các bài viết đã được gọt sẽ hiện ở đây khi đợt nội dung đầu tiên sẵn sàng cho trang chủ.",
     noProjects: "Chưa có dự án được chọn.",
-    noProjectsBody: "Khu vực này sẽ trỏ tới các bằng chứng thực thi công khai khi các project entry đã sẵn sàng."
+    noProjectsBody: "Khu vực này sẽ trỏ tới các bằng chứng thực thi công khai khi các mục dự án đã sẵn sàng."
   },
   ja: {
     title: "ホーム",
-    description: "2zcory Garden の公開入口。ノート、文章、選ばれたプロジェクトをつなぐ。",
-    eyebrow: "思考と実装のための公開ホーム",
-    refined: "ファーストビューの整理パス",
-    heroTitle: "思考が公開された仕事へ変わるための地図。",
+    description: "ひとつのサイト、三つの入口。生の思考、整えた文章、そして実行の証拠をつなぐ。",
+    eyebrow: "Personal operating system",
+    heroTitle: "思考と文章と実装が、ひとつの地形にある。",
     heroLead:
-      "2zcory Garden は要約ページではなく、ひとつの地形のように開くべきです。最初の画面ではこの場所をすばやく説明し、まだ動いている思考、形を整えた文章、具体的な仕事という三つの入口を見えるようにする必要があります。",
-    chips: ["分割構造は維持する", "ファーストビューのリズムを整える", "広いリデザインはしない"],
-    goalLabel: "調整目標",
-    goalText: "ヒーローを説明的なものではなく、より決断のある印象にする。",
-    ctaPrimary: "入口を見る",
-    ctaSecondary: "意図を確認する",
-    ruleEyebrow: "オリエンテーションの原則",
-    ruleTitle: "ひとつのサイト、三つの入り口。",
-    ruleBodyA:
-      "ホームページはまず案内役であるべきです。すべての内容タイプを同じ重さで説明する必要はなく、強い第一読と、内側へ進む明確な道があればよいのです。",
-    ruleBodyB:
-      "このパスは cadence と emphasis と calm のためのものです。基礎の route logic を変えずに、最初の画面をより研ぎ澄ませます。",
-    boardEyebrow: "調整対象",
-    boardTitle: "アトラスの感触を保ちつつ、余分なノイズを減らす。",
-    boardBody:
-      "このボードはつながった地形として読めるべきですが、第一印象が単に並べられたものではなく、意図を持って構成されたものに見えるよう、構図のリズムをより整える必要があります。",
-    routeGardenTitle: "まだ動いているノート、断片、トレイル。",
+      "2zcory Garden は personal operating system です。Garden は生の思考を受け止め、Writing はそれを議論へ整え、Projects はそれが実装へ着地した場所を見せます。",
+    supportLabel: "このホームの役割",
+    supportText:
+      "最初の画面は数秒で案内できるべきです。パイプラインを見せ、三つの route を分け、portfolio のように見せずに最初のクリックを明確にします。",
+    ctaPrimary: "Garden に入る",
+    ctaSecondary: "仕組みを読む",
+    routesLabel: "三つの route",
+    routeGardenName: "Garden",
+    routeGardenCue: "生の思考",
+    routeWritingName: "Writing",
+    routeWritingCue: "整えた思考",
+    routeProjectsName: "Projects",
+    routeProjectsCue: "実行の証拠",
+    metricRoutes: "routes",
+    metricNotes: "公開ノート",
+    metricArticles: "essay",
+    routesEyebrow: "入口を選ぶ",
+    routesTitle: "異なる三つの入口、でも一つのつながった仕組み。",
+    routesDescription:
+      "各 route に独自の視覚ロジックを与え、訪問者が長文を読まなくても意図で見分けられるようにします。",
+    routeGardenTitle: "アイデアがまだ生きている場所から始める。",
     routeGardenBody:
-      "アイデアの生きた端から始めます。この route には未完成のもの、つなぎの組織、そして後に essay や project decision へ固まっていく糸が置かれます。",
-    routeWritingTitle: "トレイルの後に残る、より明確な文章と立場。",
+      "ノート、断片、トレイル。essay や product decision になる前の、未完成な思考のための面です。",
+    routeWritingTitle: "形を持った議論へ進む。",
     routeWritingBody:
-      "この層は、整えられた議論、より明快な結論、そしてより意図的な編集面を求める人のためのものです。",
-    routeProjectsTitle: "思考が着地できると証明するビルド。",
+      "整えられた essay、より明確な立場、そしてこの仕組みの編集された層を求める読者のための面です。",
+    routeProjectsTitle: "思考がどこで着地したかを見る。",
     routeProjectsBody:
-      "この route は、サイト全体を portfolio wall に平板化することなく、実行の証拠を運びます。",
+      "実行、tradeoff、現実のアウトプットを示す選ばれた build 群。サイト全体を generic な portfolio に平板化しません。",
+    routeGardenCount: "生きている entry",
+    routeWritingCount: "公開済み pieces",
+    routeProjectsCount: "選ばれた builds",
     routeOpen: "route を開く",
-    routeGarden: "動いている思考",
-    routeWriting: "整えられた文章",
-    routeProjects: "実行の証拠",
-    boardCaptionStrong: "リーディングルール",
-    boardCaptionText: "非対称性と route の緊張は保ちつつ、最初の画面はもっと落ち着いて着地させる。",
-    featuredTrails: "注目のトレイル",
+    routeGardenScan: "trail-first",
+    routeWritingScan: "argument-first",
+    routeProjectsScan: "execution-first",
+    signalEyebrow: "現在のシグナル",
+    signalTitle: "各レイヤーからの最近の公開アウトプット。",
+    signalDescription:
+      "各 route の狭い抜粋だけで、この pipeline がひと目で読めるようにします。",
+    featuredTrails: "Garden",
+    featuredTrailsTitle: "動いているノートと断片",
+    featuredTrailsDescription: "garden の生きた端からの短い読み口。",
     readNote: "ノートを読む",
     visitGarden: "ガーデンへ",
-    featuredWriting: "注目の文章",
+    featuredWriting: "Writing",
+    featuredWritingTitle: "より形のある文章",
+    featuredWritingDescription: "落ち着いた版を読みたい人のための文章。",
     readArticle: "記事を読む",
     browseWriting: "文章を見る",
-    selectedProjects: "選ばれたプロジェクト",
+    selectedProjects: "Projects",
+    selectedProjectsTitle: "思考を具体化した build",
+    selectedProjectsDescription: "portfolio theater ではない実行の証拠。",
     openProject: "プロジェクトを開く",
     viewAllProjects: "すべてのプロジェクトを見る",
     noNotes: "まだ注目ノートはありません。",
@@ -178,7 +223,7 @@ const COPY = {
 
 export async function generateMetadata({params}: PageProps): Promise<Metadata> {
   const {locale} = await params;
-  const copy = COPY[locale];
+  const copy = COPY[locale] ?? COPY.en;
 
   return buildPageMetadata({
     title: copy.title,
@@ -188,194 +233,151 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 
 export default async function LocaleHomePage({params}: PageProps) {
   const {locale} = await params;
-  const copy = COPY[locale];
+  const copy = COPY[locale] ?? COPY.en;
   const featured = getFeaturedContent(locale);
+  const notes = getNotes(locale);
+  const articles = getArticles(locale);
+  const projects = getProjects(locale);
   const tCommon = await getTranslations({locale, namespace: "Common"});
 
   return (
     <div className="page-stack">
-      <section className="hero-card home-atlas-shell">
-        <div className="home-atlas-grid">
-          <section className="home-atlas-copy">
-            <div className="home-atlas-kicker">
-              <p className="eyebrow">{copy.eyebrow}</p>
-              <span className="home-kicker-pill">{copy.refined}</span>
-            </div>
+      <HomeHero
+        eyebrow={copy.eyebrow}
+        headline={copy.heroTitle}
+        subtext={copy.heroLead}
+        supportingLabel={copy.supportLabel}
+        supportingText={copy.supportText}
+        primaryHref="/garden"
+        primaryLabel={copy.ctaPrimary}
+        secondaryHref="/about"
+        secondaryLabel={copy.ctaSecondary}
+        routesLabel={copy.routesLabel}
+        routes={[
+          {index: "01", name: copy.routeGardenName, cue: copy.routeGardenCue},
+          {index: "02", name: copy.routeWritingName, cue: copy.routeWritingCue},
+          {index: "03", name: copy.routeProjectsName, cue: copy.routeProjectsCue}
+        ]}
+        metrics={[
+          {value: "3", label: copy.metricRoutes},
+          {value: String(notes.length), label: copy.metricNotes},
+          {value: String(articles.length), label: copy.metricArticles}
+        ]}
+      />
 
-            <div>
-              <h1 className="hero-title home-atlas-title">{copy.heroTitle}</h1>
-              <p className="hero-copy home-atlas-lead">{copy.heroLead}</p>
-            </div>
-
-            <div className="home-intent-row" aria-label="Refinement boundaries">
-              {copy.chips.map((chip) => (
-                <span key={chip} className="home-intent-chip">
-                  {chip}
-                </span>
-              ))}
-            </div>
-
-            <div className="home-rhythm-note">
-              <strong>{copy.goalLabel}</strong>
-              <span>{copy.goalText}</span>
-            </div>
-
-            <div className="cta-row">
-              <Link href="/garden" className="button-link">
-                {copy.ctaPrimary}
-              </Link>
-              <Link href="/about" className="button-link secondary">
-                {copy.ctaSecondary}
-              </Link>
-            </div>
-
-            <section className="home-rule-card">
-              <p className="eyebrow">{copy.ruleEyebrow}</p>
-              <h2 className="section-heading">{copy.ruleTitle}</h2>
-              <p className="muted">{copy.ruleBodyA}</p>
-              <p className="muted">{copy.ruleBodyB}</p>
-            </section>
-          </section>
-
-          <section className="home-atlas-board">
-            <div className="home-board-header">
-              <p className="eyebrow">{copy.boardEyebrow}</p>
-              <h2>{copy.boardTitle}</h2>
-              <p className="muted">{copy.boardBody}</p>
-            </div>
-
-            <article className="home-route-card home-route-garden">
-              <div className="route-label">Route 01 / Garden</div>
-              <h2>{copy.routeGardenTitle}</h2>
-              <p>{copy.routeGardenBody}</p>
-              <div className="home-route-actions">
-                <Link href="/garden" className="route-pill">
-                  {copy.routeOpen}
-                </Link>
-                <span className="route-pill route-pill-muted">{copy.routeGarden}</span>
-              </div>
-            </article>
-
-            <article className="home-route-card home-route-writing">
-              <div className="route-label">Route 02 / Writing</div>
-              <h2>{copy.routeWritingTitle}</h2>
-              <p>{copy.routeWritingBody}</p>
-              <div className="home-route-actions">
-                <Link href="/writing" className="route-pill">
-                  {copy.routeOpen}
-                </Link>
-                <span className="route-pill route-pill-muted">{copy.routeWriting}</span>
-              </div>
-            </article>
-
-            <article className="home-route-card home-route-projects">
-              <div className="route-label">Route 03 / Projects</div>
-              <h2>{copy.routeProjectsTitle}</h2>
-              <p>{copy.routeProjectsBody}</p>
-              <div className="home-route-actions">
-                <Link href="/projects" className="route-pill">
-                  {copy.routeOpen}
-                </Link>
-                <span className="route-pill route-pill-muted">{copy.routeProjects}</span>
-              </div>
-            </article>
-
-            <div className="home-board-caption">
-              <strong>{copy.boardCaptionStrong}</strong>
-              <span>{copy.boardCaptionText}</span>
-            </div>
-          </section>
+      <HomeSection
+        eyebrow={copy.routesEyebrow}
+        title={copy.routesTitle}
+        description={copy.routesDescription}
+        className="surface-card"
+      >
+        <div className="home-routes-grid">
+          <HomeRouteCard
+            index="01"
+            routeName={copy.routeGardenName}
+            title={copy.routeGardenTitle}
+            description={copy.routeGardenBody}
+            cue={copy.routeGardenScan}
+            countLabel={copy.routeGardenCount}
+            countValue={String(notes.length)}
+            href="/garden"
+            cta={copy.routeOpen}
+            accent="garden"
+          />
+          <HomeRouteCard
+            index="02"
+            routeName={copy.routeWritingName}
+            title={copy.routeWritingTitle}
+            description={copy.routeWritingBody}
+            cue={copy.routeWritingScan}
+            countLabel={copy.routeWritingCount}
+            countValue={String(articles.length)}
+            href="/writing"
+            cta={copy.routeOpen}
+            accent="writing"
+          />
+          <HomeRouteCard
+            index="03"
+            routeName={copy.routeProjectsName}
+            title={copy.routeProjectsTitle}
+            description={copy.routeProjectsBody}
+            cue={copy.routeProjectsScan}
+            countLabel={copy.routeProjectsCount}
+            countValue={String(projects.length)}
+            href="/projects"
+            cta={copy.routeOpen}
+            accent="projects"
+          />
         </div>
-      </section>
+      </HomeSection>
 
-      <section className="surface-card">
-        <p className="eyebrow">{copy.featuredTrails}</p>
-        <div className="content-list">
-          {featured.notes.length > 0 ? (
-            featured.notes.map((note) => (
-              <article key={note.slug} className="content-item">
-                {locale !== "en" && !note.availableLocales.includes(locale) ? (
-                  <p className="locale-note">{tCommon("englishOnly")}</p>
-                ) : null}
-                <div className="meta-row">
-                  <span>{formatDate(note.publishedAt, locale)}</span>
-                  {note.topicLabels.map((label) => (
-                    <span key={label} className="badge">
-                      {label}
-                    </span>
-                  ))}
-                </div>
-                <h3>{note.title}</h3>
-                <p className="muted">{note.summary}</p>
-                <Link href={`/garden/${note.slug}`} className="inline-link">
-                  {copy.readNote}
-                </Link>
-              </article>
-            ))
-          ) : (
-            <article className="content-item">
-              <h3>{copy.noNotes}</h3>
-              <p className="muted">{copy.noNotesBody}</p>
-              <Link href="/garden" className="inline-link">
-                {copy.visitGarden}
-              </Link>
-            </article>
-          )}
+      <HomeSection
+        eyebrow={copy.signalEyebrow}
+        title={copy.signalTitle}
+        description={copy.signalDescription}
+        className="surface-card"
+      >
+        <div className="home-signals-grid">
+          <HomeFeaturedSection
+            eyebrow={copy.featuredTrails}
+            title={copy.featuredTrailsTitle}
+            description={copy.featuredTrailsDescription}
+            items={featured.notes.map((note) => ({
+              slug: note.slug,
+              title: note.title,
+              summary: note.summary,
+              meta: formatDate(note.publishedAt, locale),
+              badges: note.topicLabels,
+              href: `/garden/${note.slug}`,
+              localeNote: locale !== "en" && !note.availableLocales.includes(locale) ? tCommon("englishOnly") : undefined
+            }))}
+            emptyTitle={copy.noNotes}
+            emptyBody={copy.noNotesBody}
+            emptyHref="/garden"
+            emptyCta={copy.visitGarden}
+            itemCta={copy.readNote}
+          />
+          <HomeFeaturedSection
+            eyebrow={copy.featuredWriting}
+            title={copy.featuredWritingTitle}
+            description={copy.featuredWritingDescription}
+            items={featured.articles.map((article) => ({
+              slug: article.slug,
+              title: article.title,
+              summary: article.excerpt,
+              meta: formatDate(article.publishedAt, locale),
+              badges: [article.theme],
+              href: `/writing/${article.slug}`,
+              localeNote:
+                locale !== "en" && !article.availableLocales.includes(locale) ? tCommon("englishOnly") : undefined
+            }))}
+            emptyTitle={copy.noWriting}
+            emptyBody={copy.noWritingBody}
+            emptyHref="/writing"
+            emptyCta={copy.browseWriting}
+            itemCta={copy.readArticle}
+          />
+          <HomeFeaturedSection
+            eyebrow={copy.selectedProjects}
+            title={copy.selectedProjectsTitle}
+            description={copy.selectedProjectsDescription}
+            items={featured.projects.map((project) => ({
+              slug: project.slug,
+              title: project.name,
+              summary: project.summary,
+              badges: [project.role],
+              href: `/projects/${project.slug}`,
+              localeNote:
+                locale !== "en" && !project.availableLocales.includes(locale) ? tCommon("englishOnly") : undefined
+            }))}
+            emptyTitle={copy.noProjects}
+            emptyBody={copy.noProjectsBody}
+            emptyHref="/projects"
+            emptyCta={copy.viewAllProjects}
+            itemCta={copy.openProject}
+          />
         </div>
-      </section>
-
-      <section className="section-grid">
-        <article className="surface-card stack">
-          <p className="eyebrow">{copy.featuredWriting}</p>
-          {featured.articles.length > 0 ? (
-            featured.articles.map((article) => (
-              <div key={article.slug}>
-                {locale !== "en" && !article.availableLocales.includes(locale) ? (
-                  <p className="locale-note">{tCommon("englishOnly")}</p>
-                ) : null}
-                <h3>{article.title}</h3>
-                <p className="muted">{article.excerpt}</p>
-                <Link href={`/writing/${article.slug}`} className="inline-link">
-                  {copy.readArticle}
-                </Link>
-              </div>
-            ))
-          ) : (
-            <div>
-              <h3>{copy.noWriting}</h3>
-              <p className="muted">{copy.noWritingBody}</p>
-              <Link href="/writing" className="inline-link">
-                {copy.browseWriting}
-              </Link>
-            </div>
-          )}
-        </article>
-        <article className="surface-card stack">
-          <p className="eyebrow">{copy.selectedProjects}</p>
-          {featured.projects.length > 0 ? (
-            featured.projects.map((project) => (
-              <div key={project.slug}>
-                {locale !== "en" && !project.availableLocales.includes(locale) ? (
-                  <p className="locale-note">{tCommon("englishOnly")}</p>
-                ) : null}
-                <h3>{project.name}</h3>
-                <p className="muted">{project.summary}</p>
-                <Link href={`/projects/${project.slug}`} className="inline-link">
-                  {copy.openProject}
-                </Link>
-              </div>
-            ))
-          ) : (
-            <div>
-              <h3>{copy.noProjects}</h3>
-              <p className="muted">{copy.noProjectsBody}</p>
-              <Link href="/projects" className="inline-link">
-                {copy.viewAllProjects}
-              </Link>
-            </div>
-          )}
-        </article>
-      </section>
+      </HomeSection>
     </div>
   );
 }

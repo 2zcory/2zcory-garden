@@ -1,11 +1,11 @@
 const DEFAULT_BASE_URL = "https://2zcory-garden.vercel.app";
 
 const checks = [
-  { path: "/", marker: "Một bản đồ cho suy nghĩ có thể trở thành sản phẩm công khai." },
-  { path: "/vi", marker: "Một bản đồ cho suy nghĩ có thể trở thành sản phẩm công khai." },
-  { path: "/en", marker: "A map for thought that turns into public work." },
-  { path: "/ja", marker: "思考が公開された仕事へ変わるための地図。" },
-  { path: "/vi/about", marker: "Site này dùng để làm gì" },
+  { path: "/", marker: "Suy nghĩ, bài viết và build ở trong cùng một địa hình." },
+  { path: "/vi", marker: "Suy nghĩ, bài viết và build ở trong cùng một địa hình." },
+  { path: "/en", marker: "Thinking, writing, and building in one terrain." },
+  { path: "/ja", marker: "思考と文章と実装が、ひとつの地形にある。" },
+  { path: "/vi/about", marker: "Trang này dùng để làm gì" },
   { path: "/en/about", marker: "What this site is for" },
   { path: "/ja/about", marker: "このサイトの役割" },
   { path: "/vi/projects", marker: "Bằng chứng thực thi." },
@@ -35,7 +35,7 @@ const checks = [
   { path: "/en/garden", marker: "Thought in motion." },
   {
     path: "/vi/garden/notes-that-grow-into-products",
-    marker: "Những Note Lớn Dần Thành Sản Phẩm"
+    marker: "Những Ghi Chú Lớn Dần Thành Sản Phẩm"
   },
   {
     path: "/en/garden/notes-that-grow-into-products",
@@ -51,7 +51,7 @@ const checks = [
   },
   {
     path: "/vi/projects/2zcory-garden",
-    marker: "Một personal operating site được xây như ngôi nhà công khai cho note, bài viết và bằng chứng thực thi."
+    marker: "Một personal operating system được mở ra công khai như ngôi nhà cho ghi chú, bài viết và bằng chứng thực thi."
   },
   { path: "/vi/contact", marker: "Một cách liên hệ rõ ràng." },
   { path: "/en/contact", marker: "A clear way to reach out." },
