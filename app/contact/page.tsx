@@ -6,7 +6,8 @@ import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact",
-  description: "Direct contact details for thoughtful replies, collaboration, and project discussion."
+  description:
+    "A clear contact page for collaboration, project discussion, and replies that already have context."
 });
 
 export default function ContactPage() {
@@ -21,9 +22,8 @@ export default function ContactPage() {
             <p className="eyebrow">Contact</p>
             <h1 className="page-title">A clear way to reach out.</h1>
             <p className="page-copy">
-              Collaboration, project discussion, and thoughtful replies are welcome. This surface
-              is meant to clarify what kind of outreach fits the site before it exposes any channel
-              details.
+              Collaboration, project discussion, and thoughtful replies are welcome. The best
+              messages usually start from something already published here.
             </p>
           </div>
           <div className="contact-chip-row">
@@ -33,12 +33,11 @@ export default function ContactPage() {
           </div>
         </div>
         <aside className="surface-card contact-policy-card">
-          <p className="eyebrow">Channel Policy</p>
-          <h2 className="section-heading">Direct contact stays intentionally narrow.</h2>
+          <p className="eyebrow">How to use this page</p>
+          <h2 className="section-heading">Reach out when there is already a real starting point.</h2>
           <p className="muted">
-            A direct inbox should appear only when there is a reply path that can actually be
-            maintained. Until then, the page should stay honest about the constraint instead of
-            pretending a durable channel already exists.
+            A note, an essay, or a project usually makes the conversation sharper from the first
+            message.
           </p>
         </aside>
       </section>
@@ -47,11 +46,11 @@ export default function ContactPage() {
         <article className="stack">
           <div>
             <p className="eyebrow">Good Fit</p>
-            <h2 className="section-heading">Reach out when the context already connects.</h2>
+            <h2 className="section-heading">Reach out when the context is already there.</h2>
             <p className="section-intro">
               The strongest messages usually follow material that is already published here:
               something in the garden, a writing piece, or a project that gives the conversation a
-              real starting point.
+              real place to begin.
             </p>
           </div>
           <div className="section-grid contact-intent-grid">
@@ -63,10 +62,10 @@ export default function ContactPage() {
               </p>
             </article>
             <article className="content-item">
-              <h3>What is not ready yet</h3>
+              <h3>What is not offered here</h3>
               <p className="muted">
-                A permanent direct inbox is not published right now, so this page should not imply
-                guaranteed replies through a hidden or temporary channel.
+                This page does not promise guaranteed replies through hidden, temporary, or
+                informal channels.
               </p>
             </article>
           </div>
@@ -76,9 +75,10 @@ export default function ContactPage() {
           {hasDirectContact ? (
             <article className="content-item contact-primary-card">
               <p className="eyebrow">Direct Channel</p>
-              <h2 className="section-heading">Email is open for thoughtful outreach.</h2>
+              <h2 className="section-heading">Email is open for careful outreach.</h2>
               <p className="muted">
-                For collaboration, project discussion, or careful replies, use the address below.
+                For collaboration, project discussion, or a thoughtful reply, use the address
+                below.
               </p>
               <Link href={`mailto:${profile.contactEmail}`} className="button-link contact-action-link">
                 {profile.contactEmail}
@@ -87,11 +87,10 @@ export default function ContactPage() {
           ) : (
             <article className="content-item contact-primary-card">
               <p className="eyebrow">Best Next Move</p>
-              <h2 className="section-heading">Return with context first.</h2>
+              <h2 className="section-heading">Start with the work, then come back.</h2>
               <p className="muted">
-                If a direct message is not possible yet, the most useful next step is to follow the
-                material that explains what kind of work, thinking, or collaboration you want to
-                discuss.
+                If a direct message is not possible yet, the best next step is to read the
+                material closest to what you want to talk about.
               </p>
               <div className="contact-link-list">
                 <Link href="/writing" className="button-link secondary contact-action-link">
@@ -109,10 +108,10 @@ export default function ContactPage() {
 
           <article className="content-item">
             <p className="eyebrow">Expectation</p>
-            <h2 className="section-heading">The page should filter intent, not fake availability.</h2>
+            <h2 className="section-heading">Clarity matters more than appearing always available.</h2>
             <p className="muted">
-              This site is publication-first for now. Contact details will expand only when there
-              is a reliable response path worth publishing.
+              This site is still publication-first. Contact details should only expand when there
+              is a reliable reply path worth publishing.
             </p>
           </article>
         </aside>

@@ -14,15 +14,15 @@ const COPY = {
   en: {
     title: "Contact",
     description:
-      "Direct contact details for thoughtful replies, collaboration, and project discussion.",
+      "A clear contact page for collaboration, project discussion, and replies that already have context.",
     eyebrow: "Contact",
     heroTitle: "A clear way to reach out.",
     heroBody:
-      "Collaboration, project discussion, and thoughtful replies are welcome. This page should filter intent before it promises access.",
-    signalEyebrow: "Channel policy",
-    signalTitle: "Direct contact stays intentionally narrow.",
+      "Collaboration, project discussion, and thoughtful replies are welcome. The best messages usually start from something already published here.",
+    signalEyebrow: "How to use this page",
+    signalTitle: "Reach out when there is already a real starting point.",
     signalBody:
-      "A direct inbox should appear only when there is a reply path that can actually be maintained.",
+      "A note, an essay, or a project usually makes the conversation sharper from the first message.",
     metricPaths: "next moves",
     metricChannels: "open channels",
     metricIntent: "contact mode",
@@ -30,46 +30,46 @@ const COPY = {
     projectDiscussion: "Project discussion",
     channelPolicyChip: "Public-safe channel policy",
     policyEyebrow: "Channel Policy",
-    policyTitle: "Direct contact stays intentionally narrow.",
+    policyTitle: "Direct contact stays narrow on purpose.",
     policyBody:
-      "A direct inbox should appear only when there is a reply path that can actually be maintained. Until then, the page should stay honest about the constraint instead of pretending a durable channel already exists.",
+      "A direct inbox only belongs here if there is a reply path that can actually be maintained. Until then, it is better to stay clear than to imply more access than exists.",
     fitEyebrow: "Good Fit",
-    fitTitle: "Reach out when the context already connects.",
+    fitTitle: "Reach out when the context is already there.",
     fitBody:
-      "The strongest messages usually follow material that is already published here: something in the garden, a writing piece, or a project that gives the conversation a real starting point.",
+      "The strongest messages usually follow something already published here: a note in the garden, a piece of writing, or a project that gives the conversation a real place to begin.",
     goodReasons: "Good reasons to contact",
     goodReasonsBody:
       "Collaboration, project discussion, responses to a specific piece of writing, or a concrete follow-up to published work.",
-    notReady: "What is not ready yet",
+    notReady: "What is not offered here",
     notReadyBody:
-      "A permanent direct inbox is not published right now, so this page should not imply guaranteed replies through a hidden or temporary channel.",
+      "This page does not promise guaranteed replies through hidden, temporary, or informal channels.",
     directChannel: "Direct Channel",
-    directTitle: "Email is open for thoughtful outreach.",
+    directTitle: "Email is open for careful outreach.",
     directBody:
-      "For collaboration, project discussion, or careful replies, use the address below.",
+      "For collaboration, project discussion, or a thoughtful reply, use the address below.",
     nextMove: "Best Next Move",
-    nextMoveTitle: "Return with context first.",
+    nextMoveTitle: "Start with the work, then come back.",
     nextMoveBody:
-      "If a direct message is not possible yet, the most useful next step is to follow the material that explains what kind of work, thinking, or collaboration you want to discuss.",
+      "If a direct message is not possible yet, the best next step is to read the material closest to what you want to talk about.",
     readWriting: "Read writing",
     viewProjects: "View projects",
     browseGarden: "Browse garden notes",
     expectationEyebrow: "Expectation",
-    expectationTitle: "The page should filter intent, not fake availability.",
+    expectationTitle: "Clarity matters more than appearing always available.",
     expectationBody:
-      "This site is publication-first for now. Contact details will expand only when there is a reliable response path worth publishing."
+      "This site is still publication-first. Contact details should only expand when there is a reliable reply path worth publishing."
   },
   vi: {
     title: "Liên hệ",
-    description: "Thông tin liên hệ trực tiếp cho những phản hồi có chủ đích, hợp tác và trao đổi dự án.",
+    description: "Một trang liên hệ rõ ràng cho hợp tác, trao đổi dự án, và những phản hồi đã có sẵn ngữ cảnh.",
     eyebrow: "Liên hệ",
     heroTitle: "Một cách liên hệ rõ ràng.",
     heroBody:
-      "Hợp tác, trao đổi dự án và phản hồi có chiều sâu đều được hoan nghênh. Trang này nên lọc ý định trước khi hứa hẹn quyền truy cập.",
-    signalEyebrow: "Chính sách kênh",
-    signalTitle: "Kênh liên hệ trực tiếp được giữ hẹp có chủ đích.",
+      "Hợp tác, trao đổi dự án và phản hồi có chiều sâu đều được hoan nghênh. Những tin nhắn tốt nhất thường bắt đầu từ một thứ đã có trên site này.",
+    signalEyebrow: "Cách dùng trang này",
+    signalTitle: "Hãy liên hệ khi đã có một điểm bắt đầu thật.",
     signalBody:
-      "Một inbox trực tiếp chỉ nên xuất hiện khi thật sự có đường phản hồi có thể duy trì.",
+      "Một note, một bài viết, hay một dự án thường giúp cuộc trò chuyện đi đúng trọng tâm ngay từ tin đầu.",
     metricPaths: "bước tiếp theo",
     metricChannels: "kênh mở",
     metricIntent: "chế độ liên hệ",
@@ -79,43 +79,43 @@ const COPY = {
     policyEyebrow: "Chính sách kênh",
     policyTitle: "Kênh liên hệ trực tiếp được giữ hẹp có chủ đích.",
     policyBody:
-      "Một inbox trực tiếp chỉ nên xuất hiện khi thật sự có đường phản hồi có thể duy trì. Cho tới lúc đó, trang này nên trung thực về giới hạn đó thay vì giả vờ rằng đã có sẵn một kênh bền vững.",
+      "Một inbox trực tiếp chỉ nên nằm ở đây khi thật sự có đường phản hồi có thể duy trì. Nếu chưa có, tốt hơn là nói rõ thay vì gợi cảm giác rằng quyền truy cập luôn đang mở.",
     fitEyebrow: "Phù hợp",
-    fitTitle: "Liên hệ khi context đã nối vào được.",
+    fitTitle: "Liên hệ khi ngữ cảnh đã có sẵn.",
     fitBody:
-      "Những tin nhắn mạnh nhất thường đi sau một thứ đã được xuất bản ở đây: một ghi chú trong Garden, một bài viết, hoặc một dự án đã cho cuộc trò chuyện một điểm bắt đầu thật.",
+      "Những tin nhắn mạnh nhất thường đi sau một thứ đã được xuất bản ở đây: một ghi chú trong Garden, một bài viết, hoặc một dự án cho cuộc trò chuyện một chỗ bắt đầu thật.",
     goodReasons: "Những lý do phù hợp để liên hệ",
     goodReasonsBody:
       "Hợp tác, trao đổi dự án, phản hồi về một bài viết cụ thể, hoặc một trao đổi tiếp nối đủ cụ thể tới phần công việc đã được xuất bản.",
-    notReady: "Điều chưa sẵn sàng",
+    notReady: "Điều không được hứa ở đây",
     notReadyBody:
-      "Một inbox trực tiếp lâu dài hiện chưa được công khai, nên trang này không nên ngụ ý rằng sẽ có phản hồi đảm bảo qua một kênh ẩn hoặc tạm thời.",
+      "Trang này không hứa phản hồi đảm bảo qua các kênh ẩn, tạm thời, hay không được công khai rõ ràng.",
     directChannel: "Kênh trực tiếp",
-    directTitle: "Email đang mở cho outreach có chủ đích.",
-    directBody: "Với hợp tác, trao đổi dự án hoặc phản hồi nghiêm túc, hãy dùng địa chỉ bên dưới.",
+    directTitle: "Email đang mở cho những liên hệ có cân nhắc.",
+    directBody: "Nếu muốn bàn về hợp tác, dự án, hay phản hồi nghiêm túc, hãy dùng địa chỉ bên dưới.",
     nextMove: "Bước đi phù hợp nhất",
-    nextMoveTitle: "Quay lại với ngữ cảnh trước.",
+    nextMoveTitle: "Bắt đầu từ phần việc, rồi quay lại đây.",
     nextMoveBody:
-      "Nếu chưa thể nhắn trực tiếp, bước tiếp theo hữu ích nhất là đi qua phần nội dung giải thích rõ loại công việc, suy nghĩ hoặc kiểu hợp tác mà bạn muốn bàn.",
+      "Nếu chưa thể nhắn trực tiếp, bước đi tốt nhất là đọc phần nội dung gần nhất với thứ bạn muốn bàn.",
     readWriting: "Đọc bài viết",
     viewProjects: "Xem dự án",
     browseGarden: "Xem ghi chú Garden",
     expectationEyebrow: "Kỳ vọng",
-    expectationTitle: "Trang này nên lọc ý định, không giả vờ sẵn sàng.",
+    expectationTitle: "Rõ ràng quan trọng hơn việc tỏ ra luôn sẵn sàng.",
     expectationBody:
-      "Site này hiện vẫn ưu tiên xuất bản. Thông tin liên hệ sẽ chỉ mở rộng khi có một đường phản hồi đủ đáng tin để công khai."
+      "Site này hiện vẫn ưu tiên xuất bản. Thông tin liên hệ chỉ nên mở rộng khi có một đường phản hồi đủ đáng tin để đưa ra công khai."
   },
   ja: {
     title: "連絡",
-    description: "慎重な返信、協業、プロジェクト相談のための連絡面。",
+    description: "協業やプロジェクト相談、すでに文脈のある返信のための連絡ページ。",
     eyebrow: "連絡",
     heroTitle: "明確な連絡のしかた。",
     heroBody:
-      "協業、プロジェクト相談、考え抜かれた返信は歓迎します。このページは access を約束する前に intent を絞るためのものです。",
-    signalEyebrow: "チャネル方針",
-    signalTitle: "直接連絡は意図的に狭く保つ。",
+      "協業、プロジェクト相談、考え抜かれた返信は歓迎します。いちばんよい連絡は、すでにここにある何かから始まります。",
+    signalEyebrow: "このページの使い方",
+    signalTitle: "ちゃんとした出発点があるときに連絡する。",
     signalBody:
-      "直接の inbox は、実際に維持できる返信経路があるときにだけ現れるべきです。",
+      "ノート、文章、プロジェクトのどれかがあると、最初のメッセージから話がずっと通りやすくなります。",
     metricPaths: "next moves",
     metricChannels: "open channels",
     metricIntent: "contact mode",
@@ -123,34 +123,34 @@ const COPY = {
     projectDiscussion: "プロジェクト相談",
     channelPolicyChip: "公開向けチャネル方針",
     policyEyebrow: "チャネル方針",
-    policyTitle: "直接連絡は意図的に狭く保つ。",
+    policyTitle: "直接連絡は意図的に絞っています。",
     policyBody:
-      "直接の inbox は、実際に維持できる返信経路があるときにだけ現れるべきです。それまでは、すでに持続的なチャネルがあるかのように見せるのではなく、この制約を正直に示すべきです。",
+      "直接の inbox は、実際に維持できる返信経路があるときだけ置くべきです。まだそこまで整っていないなら、その制約をそのまま示すほうが正直です。",
     fitEyebrow: "向いている連絡",
-    fitTitle: "すでに文脈がつながっているときに連絡する。",
+    fitTitle: "文脈がすでにつながっているときに連絡する。",
     fitBody:
       "いちばん強いメッセージは、すでにここで公開されている素材のあとに来ます。たとえばガーデンのノート、文章、あるいは会話の出発点になるプロジェクトです。",
     goodReasons: "連絡する良い理由",
     goodReasonsBody:
       "協業、プロジェクト相談、特定の文章への返信、または公開済みの仕事への具体的な follow-up。",
-    notReady: "まだ整っていないこと",
+    notReady: "ここで約束していないこと",
     notReadyBody:
-      "恒久的な直接 inbox はまだ公開されていないので、このページは隠れた一時的チャネルを通じた確実な返信を示唆するべきではありません。",
+      "このページは、隠れた一時的チャネルや非公開の経路を通じた確実な返信を約束しません。",
     directChannel: "直接チャネル",
-    directTitle: "メールは慎重な outreach のために開かれています。",
+    directTitle: "メールは、よく考えられた連絡のために開いています。",
     directBody:
       "協業、プロジェクト相談、または丁寧な返信のためには、以下のアドレスを使ってください。",
     nextMove: "最適な次の一歩",
-    nextMoveTitle: "まず文脈を持って戻る。",
+    nextMoveTitle: "まず仕事を読み、それから戻る。",
     nextMoveBody:
-      "もしまだ直接メッセージができないなら、次に役立つのは、どんな仕事や思考や協業について話したいのかを説明している素材をたどることです。",
+      "まだ直接メッセージができないなら、まず話したい内容にいちばん近い素材を読むのが次のよい一歩です。",
     readWriting: "文章を読む",
     viewProjects: "プロジェクトを見る",
     browseGarden: "ガーデンノートを見る",
     expectationEyebrow: "期待値",
-    expectationTitle: "このページは意図を絞るべきで、空きがあるふりをしてはいけない。",
+    expectationTitle: "いつでも開いているように見せるより、はっきりしているほうがいい。",
     expectationBody:
-      "このサイトは今のところ publication-first です。連絡先は、公に出す価値のある信頼できる返信経路があるときだけ広がります。"
+      "このサイトは今のところ publication-first です。連絡先は、公に出せるだけの安定した返信経路があるときにだけ広げるべきです。"
   }
 } as const;
 
