@@ -31,8 +31,9 @@ const checks = [
     path: "/en/writing/when-writing-should-not-start-as-an-essay",
     marker: "When Writing Should Not Start As An Essay"
   },
-  { path: "/vi/garden", marker: "Suy nghĩ đang chuyển động." },
-  { path: "/en/garden", marker: "Thought in motion." },
+  { path: "/vi/garden", marker: "Đường mòn hiện ra, vẫn còn mở." },
+  { path: "/en/garden", marker: "Visible trails, still open." },
+  { path: "/ja/garden", marker: "見える trail、まだ開いたまま。" },
   {
     path: "/vi/garden/notes-that-grow-into-products",
     marker: "Những Ghi Chú Lớn Dần Thành Sản Phẩm"
