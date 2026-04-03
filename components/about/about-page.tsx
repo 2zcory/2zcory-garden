@@ -40,41 +40,40 @@ export type AboutCopy = {
 export const ABOUT_COPY: Record<AppLocale, AboutCopy> = {
   en: {
     title: "About",
-    description:
-      "Background, intent, and product framing for 2zcory Garden as a public home for thought and execution.",
+    description: "A short introduction to the person and the work behind 2zcory Garden.",
     eyebrow: "About",
-    heroTitle: "The person behind the terrain.",
+    heroTitle: "A short note on who this is for and who made it.",
     heroBody:
-      "2zcory Garden is not a portfolio shell. It is a personal operating system made public, where thought, writing, and execution stay connected.",
-    signalEyebrow: "Orientation",
-    signalTitle: "Identity is here to support the work, not replace it.",
+      "This site is a public home for notes, essays, and projects. It is personal in voice, but the work stays in front.",
+    signalEyebrow: "Reading note",
+    signalTitle: "Start with the work, then come back here for context.",
     signalBody:
-      "The about page should explain why this system exists and what kind of work it is trying to make legible over time.",
+      "If you want the quickest sense of the site, go to Projects, Writing, or Garden first. This page is here for the background around them.",
     metricRoutes: "routes",
     metricFocus: "focus areas",
     metricMode: "operating mode",
-    sitePurpose: "What this site is for",
-    siteTitle: "A public operating site, not a profile shell.",
+    sitePurpose: "What this site holds",
+    siteTitle: "A public home for work that is still connected to the person behind it.",
     siteBody:
-      "This surface exists to make the work legible fast: what kind of material lives here, why it is organized this way, and where to enter first.",
-    principles: "Operating principles",
+      "The site keeps notes, essays, and projects close to one another so the reader can move between early thinking, clearer writing, and finished work without switching contexts.",
+    principles: "What it leans toward",
     principleItems: [
       {
-        title: "Public home over profile theater",
-        body: "Identity exists here to orient the work, not to become the product."
+        title: "Work first",
+        body: "The personal layer matters, but it should help the work read more clearly, not compete with it."
       },
       {
-        title: "Thinking, writing, and execution stay linked",
-        body: "Notes, essays, and projects reinforce each other instead of being split into separate presentation layers."
+        title: "One line of thought, shown at different stages",
+        body: "Notes, essays, and projects sit near each other because they often belong to the same thread."
       },
       {
-        title: "Small baseline, durable growth",
-        body: "The system starts lean enough to maintain and structured enough to grow over time."
+        title: "Small enough to keep alive",
+        body: "The site stays light on purpose so it can keep growing without turning into administration."
       }
     ],
     entryPoints: "Start with the work",
     entryIntro:
-      "The strongest way to understand this site is to enter through the material itself, then return to identity only if more context is needed.",
+      "The clearest way to understand the site is still to read something first, then come back here if you want the longer frame.",
     entryLinks: [
       {label: "View projects", href: "/projects"},
       {label: "Read writing", href: "/writing"},
@@ -84,41 +83,40 @@ export const ABOUT_COPY: Record<AppLocale, AboutCopy> = {
   },
   vi: {
     title: "Giới thiệu",
-    description:
-      "Bối cảnh, chủ đích và product framing của 2zcory Garden như một ngôi nhà công khai cho suy nghĩ và thực thi.",
+    description: "Một phần giới thiệu ngắn về người làm ra 2zcory Garden và kiểu công việc có ở đây.",
     eyebrow: "Giới thiệu",
-    heroTitle: "Người đứng sau địa hình này.",
+    heroTitle: "Một ghi chú ngắn về người làm ra site này và nó dành cho ai.",
     heroBody:
-      "2zcory Garden không phải một vỏ portfolio. Đây là một personal operating system được mở ra công khai, nơi suy nghĩ, bài viết và thực thi được giữ nối với nhau.",
-    signalEyebrow: "Định hướng",
-    signalTitle: "Phần nhận diện ở đây để đỡ công việc, không thay chỗ cho nó.",
+      "Đây là một ngôi nhà công khai cho note, bài viết và dự án. Giọng của nó là cá nhân, nhưng phần công việc vẫn đứng phía trước.",
+    signalEyebrow: "Cách đọc",
+    signalTitle: "Nên bắt đầu từ công việc trước, rồi quay lại đây nếu cần thêm bối cảnh.",
     signalBody:
-      "Trang giới thiệu nên giải thích vì sao hệ thống này tồn tại và loại công việc nào nó đang cố làm cho dễ đọc theo thời gian.",
+      "Nếu muốn hiểu nhanh site này, hãy vào Projects, Writing, hoặc Garden trước. Trang này chỉ thêm phần nền phía sau.",
     metricRoutes: "lối vào",
     metricFocus: "trọng tâm",
     metricMode: "chế độ vận hành",
-    sitePurpose: "Trang này dùng để làm gì",
-    siteTitle: "Một public operating site, không phải vỏ profile.",
+    sitePurpose: "Site này giữ những gì",
+    siteTitle: "Một ngôi nhà công khai cho công việc, vẫn còn dính với con người làm ra nó.",
     siteBody:
-      "Bề mặt này tồn tại để làm phần công việc trở nên dễ đọc thật nhanh: ở đây có loại material nào, vì sao nó được tổ chức theo cách này, và nên đi vào từ đâu trước.",
-    principles: "Nguyên tắc vận hành",
+      "Site giữ note, bài viết, và dự án ở gần nhau để người đọc có thể đi từ ý còn mở sang phần đã gọt, rồi sang việc đã làm, mà không phải đổi bối cảnh quá nhiều.",
+    principles: "Những gì nó nghiêng về",
     principleItems: [
       {
-        title: "Ngôi nhà công khai thay vì profile theater",
-        body: "Phần nhận diện ở đây để định hướng công việc, không để tự nó trở thành sản phẩm."
+        title: "Công việc đứng trước",
+        body: "Phần cá nhân vẫn cần, nhưng nó nên giúp đọc phần việc rõ hơn chứ không tranh vai với nó."
       },
       {
-        title: "Suy nghĩ, bài viết và thực thi được giữ nối",
-        body: "Note, essay và project gia cố cho nhau thay vì bị tách thành các lớp trình bày riêng."
+        title: "Một đường suy nghĩ, đi qua nhiều trạng thái",
+        body: "Note, bài viết và dự án được đặt gần nhau vì nhiều khi chúng thuộc cùng một mạch."
       },
       {
-        title: "Baseline nhỏ, tăng trưởng bền",
-        body: "Hệ thống bắt đầu đủ gọn để tự duy trì và đủ có cấu trúc để lớn dần theo thời gian."
+        title: "Vừa đủ nhỏ để giữ nó sống",
+        body: "Site được giữ nhẹ có chủ đích, để nó có thể lớn dần mà không biến thành phần việc hành chính."
       }
     ],
     entryPoints: "Bắt đầu từ phần công việc",
     entryIntro:
-      "Cách mạnh nhất để hiểu site này là đi vào từ chính material, rồi chỉ quay lại phần nhận diện khi cần thêm context.",
+      "Cách dễ hiểu nhất vẫn là đọc một thứ gì đó trước, rồi quay lại đây nếu muốn biết khung dài hơn.",
     entryLinks: [
       {label: "Xem dự án", href: "/projects"},
       {label: "Đọc bài viết", href: "/writing"},
@@ -128,41 +126,40 @@ export const ABOUT_COPY: Record<AppLocale, AboutCopy> = {
   },
   ja: {
     title: "概要",
-    description:
-      "2zcory Garden を、思考と実装のための公開ホームとして位置づける背景と意図。",
+    description: "2zcory Garden を作った人と、この場所の使い方を短く紹介するページ。",
     eyebrow: "概要",
-    heroTitle: "この地形の後ろにいる人。",
+    heroTitle: "誰が作ったのか、そして誰のための場所か。",
     heroBody:
-      "2zcory Garden は portfolio shell ではありません。思考と文章と実装をつないだ、公開された personal operating system です。",
-    signalEyebrow: "オリエンテーション",
-    signalTitle: "identity は work を支えるためにあり、置き換えるためではない。",
+      "ここはノートと文章とプロジェクトのための公開ホームです。個人の声はありますが、前に出るのは仕事のほうです。",
+    signalEyebrow: "読み方",
+    signalTitle: "まず work を見て、必要ならここに戻るのがいちばん早い。",
     signalBody:
-      "about page は、この仕組みがなぜ存在するのか、そして時間を通して何を読めるようにしたいのかを説明するべきです。",
+      "手早く掴みたいなら、Projects、Writing、Garden から先に入ってください。このページはその背景を足すためにあります。",
     metricRoutes: "routes",
     metricFocus: "focus areas",
     metricMode: "operating mode",
-    sitePurpose: "このサイトの役割",
-    siteTitle: "profile shell ではなく、公開された operating site。",
+    sitePurpose: "このサイトにあるもの",
+    siteTitle: "作った人の気配を残しつつ、仕事を前に出すための公開ホーム。",
     siteBody:
-      "この面の役割は、どんな material がここにあり、なぜこの構造なのか、そしてどこから入るべきかを、すばやく読めるようにすることです。",
-    principles: "運用原則",
+      "ノート、文章、プロジェクトを近くに置くことで、考えの初期段階から形になった仕事までを行き来しやすくしています。",
+    principles: "この場所が寄っていく方向",
     principleItems: [
       {
-        title: "profile theater より公開ホーム",
-        body: "identity は work を案内するためにあり、主役になるためではありません。"
+        title: "仕事を先に置く",
+        body: "個人の輪郭は必要ですが、主役になるためではなく、仕事を読みやすくするためにあります。"
       },
       {
-        title: "thought と writing と execution を分けない",
-        body: "note、essay、project が別々の見せ方に分断されず、互いを補強する構造です。"
+        title: "ひとつの思考を別の段階で見せる",
+        body: "note、文章、project は切り離された別物ではなく、同じ流れの異なる段階として並びます。"
       },
       {
-        title: "小さく始めて持続的に伸ばす",
-        body: "維持できるだけ十分に小さく、時間とともに育てられるだけ十分に構造化されています。"
+        title: "生かし続けられる小ささ",
+        body: "管理のために重くせず、続けながら育てられる軽さを保っています。"
       }
     ],
     entryPoints: "まず work から入る",
     entryIntro:
-      "このサイトを理解する最も強い方法は、identity からではなく material そのものから入り、必要なときだけ背景へ戻ることです。",
+      "いちばんわかりやすいのは、まず何かひとつ読んで、そのあと必要ならここへ戻ることです。",
     entryLinks: [
       {label: "project を見る", href: "/projects"},
       {label: "文章を読む", href: "/writing"},

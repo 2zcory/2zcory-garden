@@ -38,36 +38,36 @@ type WritingCopy = {
 export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
   en: {
     title: "Writing",
-    description: "Shaped writing from 2zcory Garden with clearer editorial hierarchy.",
+    description: "Essays from 2zcory Garden, arranged with a clearer sense of weight and pace.",
     eyebrow: "Writing",
-    heroTitle: "Shaped output, not archive filler.",
+    heroTitle: "Essays that have settled enough to stand on their own.",
     heroBody:
-      "Writing is where the garden trail tightens into a clearer claim. The route should feel selected, paced, and visibly more resolved than exploratory notes.",
-    asideEyebrow: "Route signal",
-    asideTitle: "One anchor essay should carry the route.",
+      "This is where a line of thought has slowed down, found its shape, and become something you can read straight through.",
+    asideEyebrow: "How to read it",
+    asideTitle: "Start with the lead essay, then drift outward.",
     asideBody:
-      "The page should lead with the strongest shaped piece, keep the rest visible but quieter, and separate itself from Garden through hierarchy rather than extra explanation.",
+      "The opening piece carries the most weight. The rest stay nearby as shorter or lighter companions.",
     metricEntries: "pieces",
     metricThemes: "themes",
     metricLocales: "active locales",
     leadLabel: "Lead essay",
     supportLabel: "Support",
-    leadTheme: "Product direction",
-    leadWhy: "Why it leads",
+    leadTheme: "Featured",
+    leadWhy: "Why start here",
     leadWhyPoints: [
-      "explains the operating model behind the whole site",
-      "ties identity, writing, and execution into one public frame",
-      "gives the clearest first entry point for a new visitor"
+      "it gives the clearest entry point into the writing on this site",
+      "it carries the broadest argument on the page",
+      "it gives the rest of the route something to gather around"
     ],
-    leadRole: "Route role",
+    leadRole: "What the lead is doing",
     leadRoleBody:
-      "The lead piece should behave like an editorial anchor, not a hero banner. It earns more space through argument and summary density.",
+      "The lead piece gets more room because it asks for a slower read, not because it needs a louder introduction.",
     supportTitle: "Supporting pieces",
     supportBody:
-      "Supporting essays should still read as shaped work, but with lighter density and shorter claims than the anchor piece.",
-    routeDistinction: "Route distinction",
+      "These pieces stay finished and deliberate, but they move faster than the lead essay.",
+    routeDistinction: "What makes this route different",
     routeDistinctionBody:
-      "Garden remains exploratory. Writing should feel tighter, quieter, and more resolved through hierarchy and pacing rather than a long explainer paragraph.",
+      "Garden stays open and provisional. Writing is quieter, more deliberate, and easier to read in one sitting.",
     readArticle: "Read article",
     emptyTitle: "No writing published yet.",
     emptyBody: "This section is ready for essays, but the first shaped pieces have not been added yet.",
@@ -76,36 +76,36 @@ export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
   },
   vi: {
     title: "Bài viết",
-    description: "Các bài viết đã được gọt và có hierarchy rõ hơn từ 2zcory Garden.",
+    description: "Các bài viết từ 2zcory Garden, được sắp lại để thấy rõ trọng lượng và nhịp đọc hơn.",
     eyebrow: "Bài viết",
-    heroTitle: "Đầu ra đã được gọt, không phải archive cho đủ chỗ.",
+    heroTitle: "Những bài đã lắng đủ để tự đứng thành một bài.",
     heroBody:
-      "Writing là nơi đường mòn Garden siết lại thành một lập luận rõ hơn. Route này nên đọc như phần output được chọn, có nhịp và resolved hơn note khám phá.",
-    asideEyebrow: "Tín hiệu lối vào",
-    asideTitle: "Một bài dẫn nên giữ trọng lượng của cả route.",
+      "Đây là nơi một đường suy nghĩ chậm lại, có hình, và thành thứ có thể đọc một mạch từ đầu tới cuối.",
+    asideEyebrow: "Cách đọc",
+    asideTitle: "Bắt đầu từ bài dẫn, rồi đi dần ra ngoài.",
     asideBody:
-      "Trang nên mở bằng bài đã được gọt mạnh nhất, giữ phần còn lại vẫn thấy được nhưng nhẹ hơn, và tách mình khỏi Garden bằng hierarchy chứ không bằng phần giải thích dài thêm.",
+      "Bài đầu giữ trọng lượng chính. Những bài còn lại vẫn ở gần, nhưng nhẹ hơn và đi nhanh hơn.",
     metricEntries: "bài",
     metricThemes: "chủ đề",
     metricLocales: "ngôn ngữ hoạt động",
     leadLabel: "Bài dẫn",
     supportLabel: "Hỗ trợ",
-    leadTheme: "Định hướng sản phẩm",
-    leadWhy: "Vì sao nó dẫn",
+    leadTheme: "Bài nổi bật",
+    leadWhy: "Vì sao nên bắt đầu ở đây",
     leadWhyPoints: [
-      "giải thích operating model đứng sau toàn bộ site",
-      "nối identity, writing và execution vào cùng một public frame",
-      "cho người mới một lối vào đầu tiên rõ nhất"
+      "đây là lối vào rõ nhất cho phần viết trên site",
+      "nó giữ lập luận rộng nhất trên trang này",
+      "nó cho các bài còn lại một điểm để tụ lại"
     ],
-    leadRole: "Vai trò của route",
+    leadRole: "Bài dẫn đang làm gì",
     leadRoleBody:
-      "Bài dẫn nên hoạt động như một editorial anchor, không phải hero banner. Nó nhận thêm không gian nhờ mật độ lập luận và tóm tắt.",
+      "Bài dẫn có thêm không gian vì nó cần nhịp đọc chậm hơn, không phải vì nó cần phần giới thiệu lớn hơn.",
     supportTitle: "Các bài hỗ trợ",
     supportBody:
-      "Các bài hỗ trợ vẫn phải đọc như output đã được gọt, nhưng với mật độ nhẹ hơn và claim ngắn hơn bài dẫn.",
-    routeDistinction: "Phân biệt route",
+      "Các bài này vẫn là bài đã hoàn thành, nhưng đọc nhanh và nhẹ hơn bài dẫn.",
+    routeDistinction: "Điểm khác của route này",
     routeDistinctionBody:
-      "Garden vẫn là vùng khám phá. Writing nên chặt hơn, yên hơn và resolved hơn thông qua hierarchy và nhịp đọc thay vì thêm một đoạn giải thích dài.",
+      "Garden còn mở và tạm thời hơn. Writing yên hơn, gọn hơn, và dễ đọc thành một mạch hơn.",
     readArticle: "Đọc bài viết",
     emptyTitle: "Chưa có bài viết nào được xuất bản.",
     emptyBody: "Khu vực này đã sẵn cho bài viết dài, nhưng những bài đã được gọt đầu tiên vẫn chưa được thêm vào.",
@@ -114,41 +114,41 @@ export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
   },
   ja: {
     title: "文章",
-    description: "2zcory Garden の整えられた文章と明確な editorial hierarchy。",
+    description: "2zcory Garden の文章を、重さと読みの流れが見えやすい形で並べたページ。",
     eyebrow: "文章",
-    heroTitle: "埋め草の archive ではなく、整えられた output。",
+    heroTitle: "ひとつの文章として読めるところまで落ち着いたもの。",
     heroBody:
-      "Writing は garden trail がより明確な claim に締まる場所です。この route は exploratory note よりも、選ばれ、整い、落ち着いた output として読めるべきです。",
-    asideEyebrow: "ルートの信号",
-    asideTitle: "一本の anchor essay が route を支えるべきです。",
+      "ここでは、考えが少し遅くなり、形を持ち、最初から最後まで通して読めるものになっています。",
+    asideEyebrow: "読み方",
+    asideTitle: "まず先頭の一本から入り、そのあと外へ広がる。",
     asideBody:
-      "最も強い文章を先頭に置き、残りは見えるまま静かに保ち、Garden との差を長い説明ではなく hierarchy で示すべきです。",
+      "先頭の文章がいちばん重く、残りはその近くで少し軽く並びます。",
     metricEntries: "pieces",
     metricThemes: "themes",
     metricLocales: "active locales",
     leadLabel: "Lead essay",
     supportLabel: "Support",
-    leadTheme: "Product direction",
-    leadWhy: "なぜ先頭か",
+    leadTheme: "Featured",
+    leadWhy: "ここから始める理由",
     leadWhyPoints: [
-      "サイト全体の operating model を説明する",
-      "identity と writing と execution を一つの public frame に結びつける",
-      "初めて来た訪問者に最も明確な入口を与える"
+      "このページの文章に入るいちばん自然な入口になる",
+      "ページの中でいちばん大きな議論を受け持っている",
+      "ほかの文章が集まる中心をつくる"
     ],
-    leadRole: "Route role",
+    leadRole: "先頭の役割",
     leadRoleBody:
-      "先頭の文章は hero banner ではなく editorial anchor として振る舞うべきです。広さは装飾ではなく argument と summary density で earned されます。",
-    supportTitle: "Supporting pieces",
+      "先頭の文章に広さがあるのは、ゆっくり読む必要があるからであって、派手な導入が必要だからではありません。",
+    supportTitle: "周りの文章",
     supportBody:
-      "補助の文章も shaped work として読めるべきですが、anchor piece より軽い密度と短い claim に留めます。",
-    routeDistinction: "Route distinction",
+      "こちらも完成した文章ですが、先頭の一本よりは軽く、速く読めます。",
+    routeDistinction: "この route の違い",
     routeDistinctionBody:
-      "Garden は exploratory のままです。Writing は hierarchy と pace によって、より締まり、静かで、resolved に感じられるべきです。",
+      "Garden がまだ開いたままなのに対して、Writing はもう少し静かで、まとまりのある読み心地になります。",
     readArticle: "記事を読む",
     emptyTitle: "まだ公開された文章はありません。",
-    emptyBody: "このセクションはエッセイのために用意されていますが、最初の整えられた文章はまだ追加されていません。",
-    supportRoleEditorial: "Editorial boundary",
-    supportRoleShorter: "Shorter shaped piece"
+    emptyBody: "この場所は文章のために空けてありますが、最初の一本はまだ公開されていません。",
+    supportRoleEditorial: "ゆっくり読む一本",
+    supportRoleShorter: "短めの文章"
   }
 };
 

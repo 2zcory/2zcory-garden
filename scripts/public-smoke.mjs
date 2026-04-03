@@ -1,20 +1,20 @@
 const DEFAULT_BASE_URL = "https://2zcory-garden.vercel.app";
 
 const checks = [
-  { path: "/", marker: "Suy nghĩ, bài viết và build ở trong cùng một địa hình." },
-  { path: "/vi", marker: "Suy nghĩ, bài viết và build ở trong cùng một địa hình." },
-  { path: "/en", marker: "Thinking, writing, and building in one terrain." },
-  { path: "/ja", marker: "思考と文章と実装が、ひとつの地形にある。" },
-  { path: "/vi/about", marker: "Trang này dùng để làm gì" },
-  { path: "/en/about", marker: "What this site is for" },
-  { path: "/ja/about", marker: "このサイトの役割" },
+  { path: "/", marker: "Một nơi cho note, bài viết và những dự án đã thành hình." },
+  { path: "/vi", marker: "Một nơi cho note, bài viết và những dự án đã thành hình." },
+  { path: "/en", marker: "A place for notes, essays, and shipped work." },
+  { path: "/ja", marker: "ノートと文章と、形になった仕事のための場所。" },
+  { path: "/vi/about", marker: "Site này giữ những gì" },
+  { path: "/en/about", marker: "What this site holds" },
+  { path: "/ja/about", marker: "このサイトにあるもの" },
   { path: "/vi/projects", marker: "Khám phá Context OS" },
   { path: "/en/projects", marker: "Explore Context OS" },
   { path: "/vi/projects/context-os", marker: "Context OS" },
   { path: "/en/projects/2zcory-garden", marker: "2zcory Garden" },
-  { path: "/vi/writing", marker: "Đầu ra đã được gọt, không phải archive cho đủ chỗ." },
-  { path: "/en/writing", marker: "Shaped output, not archive filler." },
-  { path: "/ja/writing", marker: "埋め草の archive ではなく、整えられた output。" },
+  { path: "/vi/writing", marker: "Những bài đã lắng đủ để tự đứng thành một bài." },
+  { path: "/en/writing", marker: "Essays that have settled enough to stand on their own." },
+  { path: "/ja/writing", marker: "ひとつの文章として読めるところまで落ち着いたもの。" },
   {
     path: "/vi/writing/building-a-personal-site-as-an-operating-system",
     marker: "Xây Một Personal Site Như Một Operating System"
@@ -31,9 +31,9 @@ const checks = [
     path: "/en/writing/when-writing-should-not-start-as-an-essay",
     marker: "When Writing Should Not Start As An Essay"
   },
-  { path: "/vi/garden", marker: "Đường mòn hiện ra, vẫn còn mở." },
-  { path: "/en/garden", marker: "Visible trails, still open." },
-  { path: "/ja/garden", marker: "見える trail、まだ開いたまま。" },
+  { path: "/vi/garden", marker: "Những note vẫn còn đang chuyển động." },
+  { path: "/en/garden", marker: "Notes that are still moving." },
+  { path: "/ja/garden", marker: "まだ動いているノート。" },
   {
     path: "/vi/garden/notes-that-grow-into-products",
     marker: "Những Ghi Chú Lớn Dần Thành Sản Phẩm"
