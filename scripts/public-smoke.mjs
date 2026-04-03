@@ -12,9 +12,9 @@ const checks = [
   { path: "/en/projects", marker: "Explore Context OS" },
   { path: "/vi/projects/context-os", marker: "Context OS" },
   { path: "/en/projects/2zcory-garden", marker: "2zcory Garden" },
-  { path: "/vi/writing", marker: "Đầu ra có chủ đích." },
-  { path: "/en/writing", marker: "Deliberate output." },
-  { path: "/ja/writing", marker: "意図を持った出力。" },
+  { path: "/vi/writing", marker: "Đầu ra đã được gọt, không phải archive cho đủ chỗ." },
+  { path: "/en/writing", marker: "Shaped output, not archive filler." },
+  { path: "/ja/writing", marker: "埋め草の archive ではなく、整えられた output。" },
   {
     path: "/vi/writing/building-a-personal-site-as-an-operating-system",
     marker: "Xây Một Personal Site Như Một Operating System"
