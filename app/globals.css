@@ -1695,6 +1695,14 @@ html[data-theme="dark"] .projects-badge-muted {
   margin-top: 0.6rem;
 }
 
+.home-hero-primary {
+  min-width: min(100%, 15.5rem);
+}
+
+.home-hero-secondary {
+  background: color-mix(in srgb, var(--surface-strong) 72%, transparent);
+}
+
 .home-hero-support {
   max-width: 28rem;
   padding-left: 1rem;
@@ -2012,31 +2020,67 @@ html[data-theme="dark"] .projects-badge-muted {
 
 @media (max-width: 680px) {
   .home-hero-shell {
-    padding: 1.3rem;
+    padding: 1.15rem;
   }
 
   .home-hero-title {
-    max-width: 11ch;
-    font-size: clamp(2.35rem, 10.5vw, 3.5rem);
-    margin-bottom: 0.7rem;
+    max-width: 12.5ch;
+    font-size: clamp(2.1rem, 9.4vw, 3.1rem);
+    margin-bottom: 0.5rem;
   }
 
   .home-hero-subtext {
-    font-size: 1rem;
+    max-width: 31rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .home-hero-actions {
+    gap: 0.55rem;
+    margin-top: 0.3rem;
+  }
+
+  .home-hero-primary {
+    width: 100%;
+  }
+
+  .home-hero-primary.button-link {
+    padding-block: 0.82rem;
+  }
+
+  .home-hero-secondary.button-link.secondary {
+    justify-content: flex-start;
+    width: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--accent);
+    box-shadow: none;
+  }
+
+  .home-hero-support {
+    max-width: none;
+    padding-left: 0.8rem;
+  }
+
+  .home-hero-support p {
+    font-size: 0.92rem;
+    line-height: 1.5;
   }
 
   .home-hero-board {
-    gap: 0.8rem;
+    gap: 0.7rem;
   }
 
   .home-hero-paths {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.45rem;
+    gap: 0.4rem;
   }
 
   .home-hero-path {
     gap: 0.15rem;
-    padding: 0.72rem 0.55rem;
+    padding: 0.62rem 0.5rem;
     border-radius: 16px;
   }
 
@@ -2056,7 +2100,7 @@ html[data-theme="dark"] .projects-badge-muted {
   }
 
   .home-hero-metric {
-    padding: 0.7rem 0.5rem;
+    padding: 0.75rem 0.7rem;
   }
 
   .home-hero-metric strong {

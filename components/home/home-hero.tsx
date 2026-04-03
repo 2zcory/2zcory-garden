@@ -50,10 +50,10 @@ export function HomeHero({
         <p className="hero-copy home-hero-subtext">{subtext}</p>
 
         <div className="home-hero-actions">
-          <Link href={primaryHref} className="button-link">
+          <Link href={primaryHref} className="button-link home-hero-primary">
             {primaryLabel}
           </Link>
-          <Link href={secondaryHref} className="button-link secondary">
+          <Link href={secondaryHref} className="button-link secondary home-hero-secondary">
             {secondaryLabel}
           </Link>
         </div>
