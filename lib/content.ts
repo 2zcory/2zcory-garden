@@ -281,12 +281,12 @@ const projects: ProjectEntry[] = [
     content: {
       name: "Context OS",
       summary:
-        "A system for durable assistant collaboration, workflow recovery, and disciplined private execution context.",
+        "A working system for long-running assistant collaboration, session recovery, and clearer execution boundaries.",
       role: "Product shaping, workflow design, implementation",
       problem:
-        "Long-running AI-assisted work tends to lose continuity, execution standards, and trust boundaries across sessions and repositories.",
+        "Long-running AI-assisted work often loses continuity and execution discipline as sessions end and work moves across repositories.",
       approach:
-        "Build a layered context model with a startup baseline, private project repositories, explicit workflow playbooks, and repeatable trust checks that survive session resets.",
+        "Build a layered context model with a durable startup baseline, private project context repos, explicit playbooks, and repeatable trust checks that survive resets.",
       outcomes: [
         "Durable startup and repo-execution workflows",
         "Cleaner handoff between public code repos and private context repos",
@@ -305,16 +305,16 @@ const projects: ProjectEntry[] = [
     slug: "2zcory-garden",
     content: {
       name: "2zcory Garden",
-      summary: "A personal operating system made public as a home for notes, writing, and proof of work.",
+      summary: "A public home for notes, essays, and projects that belong to the same line of work.",
       role: "Product direction, IA, implementation baseline",
       problem:
-        "Generic personal sites flatten evolving thought into static profile pages, portfolio summaries, or disconnected publishing surfaces.",
+        "Most personal sites flatten ongoing work into a static profile, a portfolio summary, or a set of disconnected publishing pages.",
       approach:
-        "Create distinct surfaces for garden notes, writing, projects, and identity while keeping the first release small enough for one-owner maintenance.",
+        "Give notes, writing, projects, and background their own surfaces while keeping the first release small enough for one person to maintain.",
       outcomes: [
         "Rebuilt product foundation from zero",
-        "A garden-led content model that differentiates notes, writing, and projects",
-        "A public-first Next.js baseline with route-level metadata, responsive behavior, and smoke-verified public routes"
+        "A content model that clearly separates notes, writing, and projects",
+        "A public Next.js baseline with route-level metadata, responsive behavior, and smoke-verified routes"
       ],
       links: [
         {label: "Read the essay", href: "/writing/building-a-personal-site-as-an-operating-system"},
@@ -325,16 +325,16 @@ const projects: ProjectEntry[] = [
       vi: {
         name: "2zcory Garden",
         summary:
-          "Một personal operating system được mở ra công khai như ngôi nhà cho ghi chú, bài viết và bằng chứng thực thi.",
+          "Một ngôi nhà công khai cho note, bài viết, và dự án thuộc cùng một mạch công việc.",
         role: "Định hướng sản phẩm, IA, nền triển khai",
         problem:
-          "Các personal site dạng generic thường làm phẳng suy nghĩ đang phát triển thành profile page tĩnh, portfolio summary hoặc các bề mặt publish tách rời.",
+          "Phần lớn personal site làm phẳng công việc đang diễn ra thành profile tĩnh, portfolio summary, hoặc các trang xuất bản đứng rời nhau.",
         approach:
-          "Tạo các bề mặt riêng cho Garden, Writing, Projects và phần nhận diện, đồng thời giữ release đầu đủ nhỏ để một người có thể tự duy trì.",
+          "Tách riêng Garden, Writing, Projects và phần nền giới thiệu, nhưng vẫn giữ release đầu đủ gọn để một người có thể tự duy trì.",
         outcomes: [
           "Xây lại nền sản phẩm từ con số không",
-          "Một content model dẫn bởi Garden để phân biệt ghi chú, bài viết và dự án",
-          "Một nền Next.js public-first với metadata theo route, responsive behavior và smoke-verified public routes"
+          "Một content model phân biệt rõ ghi chú, bài viết, và dự án",
+          "Một nền Next.js public với metadata theo route, responsive behavior và smoke-verified routes"
         ],
         links: [
           {label: "Đọc bài viết liên quan", href: "/writing/building-a-personal-site-as-an-operating-system"},

@@ -52,7 +52,7 @@ const checks = [
   },
   {
     path: "/vi/projects/2zcory-garden",
-    marker: "Một personal operating system được mở ra công khai như ngôi nhà cho ghi chú, bài viết và bằng chứng thực thi."
+    marker: "Một ngôi nhà công khai cho note, bài viết, và dự án thuộc cùng một mạch công việc."
   },
   { path: "/vi/contact", marker: "Một cách liên hệ rõ ràng." },
   { path: "/en/contact", marker: "A clear way to reach out." },
