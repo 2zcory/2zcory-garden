@@ -940,6 +940,142 @@ main {
   justify-content: flex-start;
 }
 
+.writing-page-shell,
+.writing-support-shell,
+.writing-support-head,
+.writing-entry,
+.writing-entry-body,
+.writing-entry-head,
+.writing-entry-grid,
+.writing-entry-column {
+  display: grid;
+}
+
+.writing-page-shell {
+  gap: 1rem;
+}
+
+.writing-entry {
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+}
+
+.writing-entry-lead {
+  background:
+    radial-gradient(circle at top right, rgba(176, 98, 72, 0.14), transparent 28%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-strong) 84%, rgba(176, 98, 72, 0.08)),
+      var(--surface)
+    );
+}
+
+.writing-entry-support,
+.writing-support-shell,
+.writing-route-note {
+  background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
+}
+
+.writing-entry-rank {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.writing-entry-body,
+.writing-entry-head,
+.writing-entry-column,
+.writing-support-head {
+  gap: 0.75rem;
+}
+
+.writing-entry-head {
+  align-items: start;
+}
+
+.writing-entry-meta {
+  align-items: center;
+}
+
+.writing-entry-head h2 {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(1.75rem, 2.9vw, 2.45rem);
+  line-height: 1.02;
+}
+
+.writing-entry-grid {
+  gap: 0.85rem;
+}
+
+.writing-entry-column {
+  gap: 0.45rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--surface-strong) 78%, transparent);
+}
+
+.writing-entry-column p,
+.writing-route-note p,
+.writing-support-head p,
+.writing-locale-note {
+  margin: 0;
+}
+
+.writing-entry-label {
+  color: var(--muted);
+}
+
+.writing-entry-points {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.writing-entry-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.writing-locale-note {
+  color: var(--muted);
+}
+
+.writing-support-shell {
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+}
+
+.writing-support-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.writing-badge-muted {
+  background: color-mix(in srgb, var(--surface) 74%, transparent);
+}
+
+.writing-route-note {
+  padding: 1.05rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 0.45rem;
+}
+
 .route-empty-card {
   background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
 }
