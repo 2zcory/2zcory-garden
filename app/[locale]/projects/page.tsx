@@ -16,18 +16,18 @@ const COPY = {
   en: {
     title: "Projects",
     description:
-      "Selected projects from 2zcory Garden, focused on build decisions, tradeoffs, and outcomes.",
+      "Selected projects from 2zcory Garden, with enough context to show what was built and what changed because of it.",
     eyebrow: "Projects",
-    heroTitle: "Start with Context OS.",
+    heroTitle: "Start with the project that explains the rest.",
     heroBody:
-      "One project carries the system logic. The rest shows where that logic lands in public work.",
+      "One project does most of the framing work here. The rest show how that way of working appears in public builds.",
     metricEntries: "projects",
     metricShipped: "shipped",
     metricActive: "active",
     leadKick: "Start here",
-    leadTitle: "Context OS is the center of gravity.",
+    leadTitle: "Context OS gives the page its clearest entry point.",
     leadBody:
-      "The operating model comes first. Everything else is easier to read once that system is clear.",
+      "It is the best place to begin because it makes the rest of the project list easier to read.",
     leadLabel: "Lead",
     supportLabel: "Support",
     leadSignals: "What it does",
@@ -38,37 +38,37 @@ const COPY = {
       "Workflow recovery across sessions",
       "Private execution context with trust boundaries"
     ],
-    supportTitle: "Supporting proof",
+    supportTitle: "Other projects nearby",
     supportBody:
-      "These builds show the operating model in use. They support the lead project instead of competing with it.",
+      "These projects matter on their own, but they read best once the lead project has set the frame.",
     viewLeadProject: "Explore Context OS",
     viewLeadProjectHint: "Start here",
-    viewSupportProject: "See supporting proof",
+    viewSupportProject: "Open project",
     whyToggle: "Why this structure",
-    whyTitle: "Weighted structure, not equal spotlight.",
+    whyTitle: "One project leads, the others stay lighter.",
     whyBody:
-      "The page keeps one lead project up front, then compresses the rest into support evidence so the hierarchy is visible before the paragraphs are read.",
-    routeNoteTitle: "Quiet bridges",
+      "The first project gets more room so the page is easier to scan. The others stay visible without all asking for the same amount of attention.",
+    routeNoteTitle: "Related reading",
     routeNoteBody:
-      "Writing and Garden stay here as supporting routes around the project system, not as a second navigation layer.",
+      "Writing and Garden sit nearby for readers who want more context around the work.",
     emptyTitle: "No projects listed yet.",
     emptyBody: "This section will publish selected execution work once the first project entries are ready."
   },
   vi: {
     title: "Dự án",
     description:
-      "Các dự án được chọn từ 2zcory Garden, tập trung vào quyết định build, tradeoff và kết quả.",
+      "Các dự án được chọn từ 2zcory Garden, với đủ bối cảnh để thấy đã làm gì và nó thay đổi điều gì.",
     eyebrow: "Dự án",
-    heroTitle: "Bắt đầu với Context OS.",
+    heroTitle: "Bắt đầu từ dự án giúp đọc phần còn lại rõ nhất.",
     heroBody:
-      "Một dự án giữ logic của cả hệ thống. Phần còn lại cho thấy logic đó hạ xuống thành các bề mặt public như thế nào.",
+      "Một dự án giữ phần khung chính của trang này. Những dự án còn lại cho thấy cách làm đó xuất hiện trong các build công khai.",
     metricEntries: "dự án",
     metricShipped: "đã ship",
     metricActive: "đang active",
     leadKick: "Bắt đầu ở đây",
-    leadTitle: "Context OS là trọng tâm của hệ thống.",
+    leadTitle: "Context OS là lối vào rõ nhất của trang này.",
     leadBody:
-      "Mô hình vận hành cần đứng trước. Khi hiểu nó rồi, các build công khai phía sau sẽ đọc nhanh và đúng hơn.",
+      "Nên bắt đầu ở đây trước, vì sau đó phần còn lại của danh sách dự án sẽ dễ đọc hơn nhiều.",
     leadLabel: "Dẫn đầu",
     supportLabel: "Hỗ trợ",
     leadSignals: "Nó làm gì",
@@ -79,37 +79,37 @@ const COPY = {
       "Khôi phục workflow khi quay lại việc cũ",
       "Ngữ cảnh thực thi riêng với ranh giới tin cậy rõ ràng"
     ],
-    supportTitle: "Bằng chứng hỗ trợ",
+    supportTitle: "Những dự án ở gần",
     supportBody:
-      "Các build này cho thấy mô hình vận hành đang được dùng thật. Chúng hỗ trợ dự án dẫn đầu thay vì tranh spotlight với nó.",
+      "Các dự án này vẫn quan trọng theo cách riêng của chúng, nhưng chúng đọc rõ nhất sau khi dự án dẫn đã đặt xong khung nhìn.",
     viewLeadProject: "Khám phá Context OS",
     viewLeadProjectHint: "Bắt đầu ở đây",
-    viewSupportProject: "Xem bằng chứng hỗ trợ",
+    viewSupportProject: "Mở dự án",
     whyToggle: "Vì sao cấu trúc này",
-    whyTitle: "Có trọng lượng rõ ràng, không chia spotlight đều.",
+    whyTitle: "Một dự án dẫn, phần còn lại nhẹ hơn.",
     whyBody:
-      "Trang giữ một dự án dẫn đầu ở phía trước, rồi nén phần còn lại thành bằng chứng hỗ trợ để người xem thấy hierarchy trước khi phải đọc các đoạn giải thích.",
-    routeNoteTitle: "Những cây cầu yên hơn",
+      "Dự án đầu được cho thêm không gian để trang dễ quét hơn. Các dự án còn lại vẫn hiện ra, nhưng không đòi cùng một lượng chú ý.",
+    routeNoteTitle: "Đọc thêm quanh đây",
     routeNoteBody:
-      "Writing và Garden xuất hiện như các lối nối hỗ trợ quanh hệ dự án, không phải như một tầng điều hướng thứ hai.",
+      "Writing và Garden nằm gần đó cho người muốn thêm bối cảnh quanh phần việc.",
     emptyTitle: "Chưa có dự án nào được liệt kê.",
     emptyBody: "Khu vực này sẽ xuất bản các phần thực thi được chọn khi những mục dự án đầu tiên sẵn sàng."
   },
   ja: {
     title: "プロジェクト",
     description:
-      "2zcory Garden の選ばれたプロジェクト。ビルドの判断、tradeoff、結果に焦点を当てる。",
+      "2zcory Garden で公開しているプロジェクトを、何を作り何が変わったかが読める形で並べたページ。",
     eyebrow: "プロジェクト",
-    heroTitle: "まず Context OS から。",
+    heroTitle: "まず、ほかを読みやすくする一本から。",
     heroBody:
-      "ひとつの project がシステムの核を持ち、残りがその考え方が public work にどう着地したかを見せます。",
+      "一本の project がこのページの入口になります。残りは、その仕事の進め方が公開された build にどう表れるかを見せます。",
     metricEntries: "projects",
     metricShipped: "shipped",
     metricActive: "active",
     leadKick: "ここから始める",
-    leadTitle: "Context OS が重心です。",
+    leadTitle: "Context OS がいちばん入りやすい出発点です。",
     leadBody:
-      "まず operating model を前に出します。それが見えれば、後ろの public build はずっと速く読めます。",
+      "先にここを読むと、後ろに続く project がずっとわかりやすくなります。",
     leadLabel: "主軸",
     supportLabel: "補助",
     leadSignals: "できること",
@@ -120,19 +120,19 @@ const COPY = {
       "session をまたぐ workflow recovery",
       "trust boundary を持つ private execution context"
     ],
-    supportTitle: "補助となる証拠",
+    supportTitle: "近くにあるほかのプロジェクト",
     supportBody:
-      "これらの build は operating model が実際に使われていることを示します。主軸と競うのではなく、それを支える位置です。",
+      "これらの project もそれぞれ重要ですが、先頭の一本を読んだあとに見ると位置づけがつかみやすくなります。",
     viewLeadProject: "Context OS を見る",
     viewLeadProjectHint: "ここから始める",
-    viewSupportProject: "補助の証拠を見る",
+    viewSupportProject: "プロジェクトを見る",
     whyToggle: "なぜこの構造か",
-    whyTitle: "均等な spotlight ではなく、重みづけされた構造。",
+    whyTitle: "一本を先に、ほかは少し軽く。",
     whyBody:
-      "最初に lead project を置き、残りは support evidence として圧縮することで、段落を読む前に hierarchy が見えるようにしています。",
-    routeNoteTitle: "静かな橋",
+      "最初の project に少し広さを持たせることで、ページ全体が読みやすくなります。ほかの project も見えたままですが、同じ強さでは前に出ません。",
+    routeNoteTitle: "関連する読みもの",
     routeNoteBody:
-      "Writing と Garden は project system の周辺にある補助ルートとして置き、第二の navigation layer にはしません。",
+      "Writing と Garden は、仕事の周辺にある文脈を読みたい人のために近くに置いています。",
     emptyTitle: "まだ掲載されたプロジェクトはありません。",
     emptyBody: "最初の project entry が整えば、このセクションに選ばれた execution work が公開されます。"
   }

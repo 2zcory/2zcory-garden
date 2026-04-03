@@ -8,21 +8,22 @@ import {buildPageMetadata} from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Projects",
-  description: "Selected projects from 2zcory Garden, focused on build decisions, tradeoffs, and outcomes."
+  description:
+    "Selected projects from 2zcory Garden, with enough context to show what was built and what changed because of it."
 });
 
 const COPY = {
   eyebrow: "Projects",
-  heroTitle: "Start with Context OS.",
+  heroTitle: "Start with the project that explains the rest.",
   heroBody:
-    "One project carries the system logic. The rest shows where that logic lands in public work.",
+    "One project does most of the framing work here. The rest show how that way of working appears in public builds.",
   metricEntries: "projects",
   metricShipped: "shipped",
   metricActive: "active",
   leadKick: "Start here",
-  leadTitle: "Context OS is the center of gravity.",
+  leadTitle: "Context OS gives the page its clearest entry point.",
   leadBody:
-    "The operating model comes first. Everything else is easier to read once that system is clear.",
+    "It is the best place to begin because it makes the rest of the project list easier to read.",
   leadLabel: "Lead",
   supportLabel: "Support",
   leadSignals: "What it does",
@@ -33,19 +34,19 @@ const COPY = {
     "Workflow recovery across sessions",
     "Private execution context with trust boundaries"
   ],
-  supportTitle: "Supporting proof",
+  supportTitle: "Other projects nearby",
   supportBody:
-    "These builds show the operating model in use. They support the lead project instead of competing with it.",
+    "These projects matter on their own, but they read best once the lead project has set the frame.",
   viewLeadProject: "Explore Context OS",
   viewLeadProjectHint: "Start here",
-  viewSupportProject: "See supporting proof",
+  viewSupportProject: "Open project",
   whyToggle: "Why this structure",
-  whyTitle: "Weighted structure, not equal spotlight.",
+  whyTitle: "One project leads, the others stay lighter.",
   whyBody:
-    "The page keeps one lead project up front, then compresses the rest into support evidence so the hierarchy is visible before the paragraphs are read.",
-  routeNoteTitle: "Quiet bridges",
+    "The first project gets more room so the page is easier to scan. The others stay visible without all asking for the same amount of attention.",
+  routeNoteTitle: "Related reading",
   routeNoteBody:
-    "Writing and Garden stay here as supporting routes around the project system, not as a second navigation layer.",
+    "Writing and Garden sit nearby for readers who want more context around the work.",
   emptyTitle: "No projects listed yet.",
   emptyBody: "This section will publish selected execution work once the first project entries are ready."
 } as const;
