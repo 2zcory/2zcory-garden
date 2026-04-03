@@ -18,29 +18,39 @@ const COPY = {
     description:
       "Selected projects from 2zcory Garden, focused on build decisions, tradeoffs, and outcomes.",
     eyebrow: "Projects",
-    heroTitle: "Execution evidence.",
+    heroTitle: "Start with Context OS.",
     heroBody:
-      "Selected projects that show build decisions, tradeoffs, and outcomes rather than just a stack of portfolio thumbnails. The point is evidence, not performance.",
-    signalEyebrow: "Route signal",
-    signalTitle: "Selected builds, ranked by real weight.",
-    signalBody:
-      "Projects should read like evidence with hierarchy, not like every entry deserves identical spotlight.",
+      "One project carries the system logic. The rest shows where that logic lands in public work.",
     metricEntries: "projects",
     metricShipped: "shipped",
     metricActive: "active",
-    ledgerEyebrow: "Current shape",
-    ledgerTitle: "Two projects, different weights.",
-    ledgerBody:
-      "The page should admit the real structure of the work: one lead project, then supporting proof. The list should not pretend every entry carries the same public weight.",
+    leadKick: "Start here",
+    leadTitle: "Context OS is the center of gravity.",
+    leadBody:
+      "The operating model comes first. Everything else is easier to read once that system is clear.",
     leadLabel: "Lead",
     supportLabel: "Support",
-    leadSummary: "Summary",
-    leadEvidence: "Evidence",
+    leadSignals: "What it does",
+    leadImpact: "Impact",
     relatedRoutes: "Related routes",
-    routeNoteTitle: "Route outward",
+    leadSignalsList: [
+      "Persistent AI collaboration",
+      "Workflow recovery across sessions",
+      "Private execution context with trust boundaries"
+    ],
+    supportTitle: "Supporting proof",
+    supportBody:
+      "These builds show the operating model in use. They support the lead project instead of competing with it.",
+    viewLeadProject: "Explore Context OS",
+    viewLeadProjectHint: "Start here",
+    viewSupportProject: "See supporting proof",
+    whyToggle: "Why this structure",
+    whyTitle: "Weighted structure, not equal spotlight.",
+    whyBody:
+      "The page keeps one lead project up front, then compresses the rest into support evidence so the hierarchy is visible before the paragraphs are read.",
+    routeNoteTitle: "Quiet bridges",
     routeNoteBody:
-      "Writing and Garden should appear here only as quiet bridges around the project evidence, not as a second navigation system.",
-    viewProject: "View project",
+      "Writing and Garden stay here as supporting routes around the project system, not as a second navigation layer.",
     emptyTitle: "No projects listed yet.",
     emptyBody: "This section will publish selected execution work once the first project entries are ready."
   },
@@ -49,29 +59,39 @@ const COPY = {
     description:
       "Các dự án được chọn từ 2zcory Garden, tập trung vào quyết định build, tradeoff và kết quả.",
     eyebrow: "Dự án",
-    heroTitle: "Bằng chứng thực thi.",
+    heroTitle: "Bắt đầu với Context OS.",
     heroBody:
-      "Các dự án được chọn để cho thấy quyết định build, tradeoff và kết quả, thay vì chỉ là một chồng portfolio thumbnail. Trọng tâm là bằng chứng, không phải trình diễn.",
-    signalEyebrow: "Tín hiệu lối vào",
-    signalTitle: "Các build được chọn, xếp theo trọng lượng thật.",
-    signalBody:
-      "Projects nên đọc như bằng chứng có thứ bậc, không phải như mọi mục đều xứng một mức spotlight ngang nhau.",
+      "Một dự án giữ logic của cả hệ thống. Phần còn lại cho thấy logic đó hạ xuống thành các bề mặt public như thế nào.",
     metricEntries: "dự án",
     metricShipped: "đã ship",
     metricActive: "đang active",
-    ledgerEyebrow: "Trạng thái hiện tại",
-    ledgerTitle: "Hai dự án, hai mức trọng lượng.",
-    ledgerBody:
-      "Trang nên thừa nhận đúng cấu trúc thật của phần việc: một dự án dẫn đầu, rồi tới các bằng chứng hỗ trợ. Danh sách không nên giả vờ mọi entry đều có cùng trọng lượng công khai.",
+    leadKick: "Bắt đầu ở đây",
+    leadTitle: "Context OS là trọng tâm của hệ thống.",
+    leadBody:
+      "Mô hình vận hành cần đứng trước. Khi hiểu nó rồi, các build công khai phía sau sẽ đọc nhanh và đúng hơn.",
     leadLabel: "Dẫn đầu",
     supportLabel: "Hỗ trợ",
-    leadSummary: "Tóm tắt",
-    leadEvidence: "Bằng chứng",
+    leadSignals: "Nó làm gì",
+    leadImpact: "Tác động",
     relatedRoutes: "Lối vào liên quan",
-    routeNoteTitle: "Lối đi tiếp",
+    leadSignalsList: [
+      "Cộng tác AI bền qua nhiều phiên",
+      "Khôi phục workflow khi quay lại việc cũ",
+      "Ngữ cảnh thực thi riêng với ranh giới tin cậy rõ ràng"
+    ],
+    supportTitle: "Bằng chứng hỗ trợ",
+    supportBody:
+      "Các build này cho thấy mô hình vận hành đang được dùng thật. Chúng hỗ trợ dự án dẫn đầu thay vì tranh spotlight với nó.",
+    viewLeadProject: "Khám phá Context OS",
+    viewLeadProjectHint: "Bắt đầu ở đây",
+    viewSupportProject: "Xem bằng chứng hỗ trợ",
+    whyToggle: "Vì sao cấu trúc này",
+    whyTitle: "Có trọng lượng rõ ràng, không chia spotlight đều.",
+    whyBody:
+      "Trang giữ một dự án dẫn đầu ở phía trước, rồi nén phần còn lại thành bằng chứng hỗ trợ để người xem thấy hierarchy trước khi phải đọc các đoạn giải thích.",
+    routeNoteTitle: "Những cây cầu yên hơn",
     routeNoteBody:
-      "Writing và Garden chỉ nên xuất hiện như những cây cầu yên hơn bao quanh bằng chứng dự án, không phải như một hệ điều hướng thứ hai.",
-    viewProject: "Xem dự án",
+      "Writing và Garden xuất hiện như các lối nối hỗ trợ quanh hệ dự án, không phải như một tầng điều hướng thứ hai.",
     emptyTitle: "Chưa có dự án nào được liệt kê.",
     emptyBody: "Khu vực này sẽ xuất bản các phần thực thi được chọn khi những mục dự án đầu tiên sẵn sàng."
   },
@@ -80,29 +100,39 @@ const COPY = {
     description:
       "2zcory Garden の選ばれたプロジェクト。ビルドの判断、tradeoff、結果に焦点を当てる。",
     eyebrow: "プロジェクト",
-    heroTitle: "実行の証拠。",
+    heroTitle: "まず Context OS から。",
     heroBody:
-      "単なる portfolio thumbnail の束ではなく、ビルドの判断、tradeoff、結果を見せるために選ばれたプロジェクトです。重要なのは演出ではなく証拠です。",
-    signalEyebrow: "ルートの信号",
-    signalTitle: "選ばれた build を、実際の重みで並べる。",
-    signalBody:
-      "Projects は同じ spotlight を配るのではなく、階層のある evidence として読めるべきです。",
+      "ひとつの project がシステムの核を持ち、残りがその考え方が public work にどう着地したかを見せます。",
     metricEntries: "projects",
     metricShipped: "shipped",
     metricActive: "active",
-    ledgerEyebrow: "現在の構造",
-    ledgerTitle: "二つのプロジェクト、違う重み。",
-    ledgerBody:
-      "このページは仕事の実際の構造をそのまま見せるべきです。ひとつが先頭に立ち、残りが支える。すべての entry が同じ重みを持つふりをしてはいけません。",
+    leadKick: "ここから始める",
+    leadTitle: "Context OS が重心です。",
+    leadBody:
+      "まず operating model を前に出します。それが見えれば、後ろの public build はずっと速く読めます。",
     leadLabel: "主軸",
     supportLabel: "補助",
-    leadSummary: "概要",
-    leadEvidence: "証拠",
+    leadSignals: "できること",
+    leadImpact: "インパクト",
     relatedRoutes: "関連ルート",
-    routeNoteTitle: "外へのルート",
+    leadSignalsList: [
+      "持続する AI collaboration",
+      "session をまたぐ workflow recovery",
+      "trust boundary を持つ private execution context"
+    ],
+    supportTitle: "補助となる証拠",
+    supportBody:
+      "これらの build は operating model が実際に使われていることを示します。主軸と競うのではなく、それを支える位置です。",
+    viewLeadProject: "Context OS を見る",
+    viewLeadProjectHint: "ここから始める",
+    viewSupportProject: "補助の証拠を見る",
+    whyToggle: "なぜこの構造か",
+    whyTitle: "均等な spotlight ではなく、重みづけされた構造。",
+    whyBody:
+      "最初に lead project を置き、残りは support evidence として圧縮することで、段落を読む前に hierarchy が見えるようにしています。",
+    routeNoteTitle: "静かな橋",
     routeNoteBody:
-      "Writing と Garden は、プロジェクトの証拠の周囲にある静かな橋としてだけ現れるべきで、第二の navigation system になるべきではありません。",
-    viewProject: "プロジェクトを見る",
+      "Writing と Garden は project system の周辺にある補助ルートとして置き、第二の navigation layer にはしません。",
     emptyTitle: "まだ掲載されたプロジェクトはありません。",
     emptyBody: "最初の project entry が整えば、このセクションに選ばれた execution work が公開されます。"
   }
@@ -141,23 +171,15 @@ export default async function LocalizedProjectsPage({params}: PageProps) {
         ]}
         aside={
           <>
-            <p className="eyebrow">{copy.signalEyebrow}</p>
-            <h2 className="section-heading">{copy.signalTitle}</h2>
-            <p className="muted">{copy.signalBody}</p>
+            <p className="eyebrow">{copy.leadKick}</p>
+            <h2 className="section-heading">{copy.leadTitle}</h2>
+            <p className="muted">{copy.leadBody}</p>
           </>
         }
       />
       <div className="projects-ledger-shell">
         {projects.length > 0 ? (
           <>
-            <div className="projects-ledger-head surface-card">
-              <div>
-                <p className="eyebrow">{copy.ledgerEyebrow}</p>
-                <h2 className="section-heading">{copy.ledgerTitle}</h2>
-              </div>
-              <p className="section-intro projects-ledger-copy">{copy.ledgerBody}</p>
-            </div>
-
             {leadProject ? (
               <article className="projects-entry projects-entry-lead">
                 <div className="projects-entry-rank">01</div>
@@ -175,11 +197,15 @@ export default async function LocalizedProjectsPage({params}: PageProps) {
 
                   <div className="projects-entry-grid">
                     <div className="projects-entry-column">
-                      <p className="eyebrow projects-entry-label">{copy.leadSummary}</p>
-                      <p className="muted">{leadProject.summary}</p>
+                      <p className="eyebrow projects-entry-label">{copy.leadSignals}</p>
+                      <ul className="projects-entry-points">
+                        {copy.leadSignalsList.map((signal) => (
+                          <li key={signal}>{signal}</li>
+                        ))}
+                      </ul>
                     </div>
                     <div className="projects-entry-column">
-                      <p className="eyebrow projects-entry-label">{copy.leadEvidence}</p>
+                      <p className="eyebrow projects-entry-label">{copy.leadImpact}</p>
                       <ul className="projects-entry-points">
                         {leadProject.outcomes.map((outcome) => (
                           <li key={outcome}>{outcome}</li>
@@ -202,18 +228,26 @@ export default async function LocalizedProjectsPage({params}: PageProps) {
                     <p className="locale-note projects-entry-note">{tCommon("englishOnly")}</p>
                   ) : null}
 
-                  <Link
-                    href={`/projects/${leadProject.slug}`}
-                    className="inline-link projects-entry-link"
-                  >
-                    {copy.viewProject}
-                  </Link>
+                  <div className="projects-entry-actions">
+                    <span className="projects-entry-hint">{copy.viewLeadProjectHint}</span>
+                    <Link
+                      href={`/projects/${leadProject.slug}`}
+                      className="inline-link projects-entry-link projects-entry-link-lead"
+                    >
+                      {copy.viewLeadProject}
+                    </Link>
+                  </div>
                 </div>
               </article>
             ) : null}
 
             {supportProjects.length > 0 ? (
-              <ol className="projects-support-list" start={leadProject ? 2 : 1}>
+              <section className="projects-support-shell">
+                <div className="projects-support-head">
+                  <p className="eyebrow">{copy.supportTitle}</p>
+                  <p className="muted">{copy.supportBody}</p>
+                </div>
+                <ol className="projects-support-list" start={leadProject ? 2 : 1}>
                 {supportProjects.map((project, index) => (
                   <li key={project.slug} className="projects-entry projects-entry-support">
                     <div className="projects-entry-rank">
@@ -241,18 +275,28 @@ export default async function LocalizedProjectsPage({params}: PageProps) {
                         href={`/projects/${project.slug}`}
                         className="inline-link projects-entry-link"
                       >
-                        {copy.viewProject}
+                        {copy.viewSupportProject}
                       </Link>
                     </div>
                   </li>
                 ))}
-              </ol>
+                </ol>
+              </section>
             ) : null}
 
-            <article className="projects-route-note">
-              <p className="eyebrow projects-entry-label">{copy.routeNoteTitle}</p>
-              <p className="muted">{copy.routeNoteBody}</p>
-            </article>
+            <details className="projects-why-card">
+              <summary>{copy.whyToggle}</summary>
+              <div className="projects-why-body">
+                <div>
+                  <p className="eyebrow projects-entry-label">{copy.whyTitle}</p>
+                  <p className="muted">{copy.whyBody}</p>
+                </div>
+                <div className="projects-route-note">
+                  <p className="eyebrow projects-entry-label">{copy.routeNoteTitle}</p>
+                  <p className="muted">{copy.routeNoteBody}</p>
+                </div>
+              </div>
+            </details>
           </>
         ) : (
           <article className="content-item">

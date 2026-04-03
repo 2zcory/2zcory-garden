@@ -994,20 +994,25 @@ main {
   gap: 1.25rem;
 }
 
-.projects-ledger-head {
-  display: grid;
-  gap: 0.65rem;
-}
-
-.projects-ledger-copy {
-  margin: 0;
-  max-width: 38rem;
-}
-
 .projects-entry,
 .projects-support-list {
   margin: 0;
   padding: 0;
+}
+
+.projects-support-shell {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.projects-support-head {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 40rem;
+}
+
+.projects-support-head p {
+  margin: 0;
 }
 
 .projects-support-list {
@@ -1025,10 +1030,13 @@ main {
 }
 
 .projects-entry-lead {
-  padding: 1.3rem;
+  padding: 1.45rem;
   border-top: 0;
-  border-radius: 24px;
-  background: linear-gradient(
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent-soft) 78%, transparent), transparent 34%),
+    linear-gradient(
     180deg,
     color-mix(in srgb, var(--accent-soft) 34%, var(--surface-strong) 66%),
     color-mix(in srgb, var(--surface) 92%, transparent)
@@ -1052,11 +1060,16 @@ main {
 
 .projects-entry-head h2 {
   margin: 0;
+  font-size: clamp(1.6rem, 3.6vw, 2.3rem);
 }
 
 .projects-entry-head > p {
   margin: 0;
   max-width: 42rem;
+}
+
+.projects-entry-support .projects-entry-head h2 {
+  font-size: clamp(1.18rem, 2.6vw, 1.45rem);
 }
 
 .projects-entry-grid {
@@ -1093,6 +1106,27 @@ main {
   width: fit-content;
 }
 
+.projects-entry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 0.9rem;
+  align-items: center;
+}
+
+.projects-entry-hint {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.projects-entry-link-lead {
+  padding: 0.72rem 1.05rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 44%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-strong) 90%, var(--accent-soft));
+}
+
 .projects-entry-note {
   margin: 0;
 }
@@ -1102,11 +1136,37 @@ main {
   color: var(--text);
 }
 
-.projects-route-note {
-  padding: 1rem 1.1rem;
+.projects-why-card {
   border: 1px solid var(--line);
   border-radius: 20px;
   background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
+}
+
+.projects-why-card summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem 1.1rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.projects-why-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.projects-why-body {
+  display: grid;
+  gap: 0.9rem;
+  padding: 0 1.1rem 1.1rem;
+}
+
+.projects-route-note {
+  padding: 1rem 1.1rem;
+  border: 1px dashed var(--line);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
 }
 
 .projects-route-note p {
@@ -1114,7 +1174,9 @@ main {
 }
 
 html[data-theme="dark"] .projects-entry-lead {
-  background: linear-gradient(
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent-soft) 62%, transparent), transparent 36%),
+    linear-gradient(
     180deg,
     color-mix(in srgb, var(--accent-soft) 30%, var(--surface-strong) 70%),
     color-mix(in srgb, var(--surface) 92%, transparent)
@@ -1378,6 +1440,10 @@ html[data-theme="dark"] .projects-badge-muted {
     padding: 1rem;
   }
 
+  .route-hero-aside {
+    padding: 0.9rem;
+  }
+
   .route-hero-metrics {
     gap: 0.5rem;
   }
@@ -1410,11 +1476,22 @@ html[data-theme="dark"] .projects-badge-muted {
   .projects-entry-lead {
     padding: 1rem;
   }
+
+  .projects-entry-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projects-entry-link-lead {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
   .site-shell {
     width: min(100% - 0.75rem, 1120px);
+    padding-top: 0.5rem;
   }
 
   .site-header {
@@ -1424,11 +1501,13 @@ html[data-theme="dark"] .projects-badge-muted {
       "nav"
       "locale"
       "theme";
-    gap: 0.5rem 0.4rem;
+    gap: 0.35rem;
+    padding: 0.45rem 0 0.65rem;
   }
 
   .brand-mark {
-    gap: 0.42rem;
+    gap: 0.36rem;
+    padding: 0;
   }
 
   .brand-copy strong {
@@ -1440,31 +1519,38 @@ html[data-theme="dark"] .projects-badge-muted {
   }
 
   .site-header-locale-panel {
-    padding: 0.28rem;
+    padding: 0.22rem;
   }
 
   .site-header-theme-panel {
     justify-self: stretch;
-    padding: 0.32rem 0.4rem 0.38rem;
+    padding: 0.24rem 0.32rem 0.28rem;
   }
 
   .nav-link {
-    min-height: 1.92rem;
-    padding: 0.32rem 0.6rem;
+    min-height: 1.78rem;
+    padding: 0.26rem 0.54rem;
+    font-size: 0.78rem;
   }
 
   .theme-switcher-option {
-    padding: 0.2rem 0.46rem;
-    font-size: 0.74rem;
+    min-height: 1.65rem;
+    padding: 0.16rem 0.42rem;
+    font-size: 0.7rem;
   }
 
   .theme-switcher-label {
     display: none;
   }
 
+  .theme-switcher-options {
+    gap: 0.22rem;
+  }
+
   .locale-switcher-option {
-    padding: 0.14rem 0.3rem;
-    font-size: 0.7rem;
+    min-height: 1.58rem;
+    padding: 0.12rem 0.28rem;
+    font-size: 0.68rem;
   }
 
   .hero-card {
@@ -1479,6 +1565,18 @@ html[data-theme="dark"] .projects-badge-muted {
   .badge {
     padding: 0.3rem 0.65rem;
     font-size: 0.76rem;
+  }
+
+  .route-hero-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .route-hero-metric {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .route-hero-aside {
+    padding: 0.8rem;
   }
 
   .home-atlas-title {
@@ -1499,8 +1597,24 @@ html[data-theme="dark"] .projects-badge-muted {
     font-size: 1rem;
   }
 
+  .projects-entry-head {
+    gap: 0.65rem;
+  }
+
+  .projects-entry-head > p,
+  .projects-support-head p {
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+
   .projects-route-note {
     padding: 0.9rem;
+  }
+
+  .projects-why-card summary,
+  .projects-why-body {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
   }
 }
 
