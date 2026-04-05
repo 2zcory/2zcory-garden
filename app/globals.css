@@ -1702,9 +1702,9 @@ html[data-theme="dark"] .projects-badge-muted {
   .site-header {
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
-      "brand brand"
+      "brand locale"
       "nav nav"
-      "locale theme";
+      "theme theme";
     gap: 0.55rem 0.45rem;
     padding: 0.7rem 0 0.9rem;
   }
@@ -1714,22 +1714,33 @@ html[data-theme="dark"] .projects-badge-muted {
     padding: 0;
   }
 
+  .brand-copy {
+    gap: 0.02rem;
+  }
+
   .brand-copy strong {
     font-size: 0.82rem;
   }
 
   .brand-copy span {
-    display: none;
+    font-size: 0.54rem;
   }
 
   .site-header-locale-panel {
-    justify-self: start;
+    justify-self: end;
+    align-self: center;
+    padding: 0.22rem;
+    border-radius: 999px;
   }
 
   .site-header-theme-panel {
     justify-self: end;
-    width: min(100%, 19rem);
-    padding: 0.32rem 0.4rem 0.38rem;
+    width: auto;
+    max-width: 100%;
+    padding: 0.26rem 0.36rem 0.3rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface) 54%, transparent);
+    border-color: color-mix(in srgb, var(--line) 72%, transparent);
   }
 
   .site-header-nav-row {
@@ -1754,6 +1765,22 @@ html[data-theme="dark"] .projects-badge-muted {
     padding: 0.36rem 0.68rem;
     background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
     border-color: var(--line);
+  }
+
+  .theme-switcher {
+    gap: 0.18rem;
+    align-items: flex-end;
+  }
+
+  .theme-switcher-label {
+    font-size: 0.5rem;
+    letter-spacing: 0.12em;
+    text-align: right;
+  }
+
+  .theme-switcher-options {
+    justify-content: flex-end;
+    gap: 0.22rem;
   }
 
   .hero-card,
@@ -1869,13 +1896,12 @@ html[data-theme="dark"] .projects-badge-muted {
   }
 
   .site-header {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
-      "brand"
-      "nav"
-      "locale"
-      "theme";
-    gap: 0.35rem;
+      "brand locale"
+      "nav nav"
+      "theme theme";
+    gap: 0.32rem 0.35rem;
     padding: 0.45rem 0 0.65rem;
   }
 
@@ -1889,16 +1915,20 @@ html[data-theme="dark"] .projects-badge-muted {
   }
 
   .brand-copy span {
-    font-size: 0.52rem;
+    display: none;
   }
 
   .site-header-locale-panel {
-    padding: 0.22rem;
+    padding: 0.16rem;
+    min-width: 0;
   }
 
   .site-header-theme-panel {
-    justify-self: stretch;
-    padding: 0.24rem 0.32rem 0.28rem;
+    grid-area: theme;
+    justify-self: end;
+    width: auto;
+    max-width: 100%;
+    padding: 0.22rem 0.28rem 0.24rem;
   }
 
   .nav-link {
@@ -1918,7 +1948,16 @@ html[data-theme="dark"] .projects-badge-muted {
   }
 
   .theme-switcher-options {
-    gap: 0.22rem;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 0.18rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    max-width: min(100%, 15.75rem);
+  }
+
+  .theme-switcher-options::-webkit-scrollbar {
+    display: none;
   }
 
   .locale-switcher-option {
