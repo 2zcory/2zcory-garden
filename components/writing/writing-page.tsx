@@ -31,6 +31,7 @@ type WritingCopy = {
   readArticle: string;
   emptyTitle: string;
   emptyBody: string;
+  supportEyebrow: string;
   supportRoleEditorial: string;
   supportRoleShorter: string;
 };
@@ -71,6 +72,7 @@ export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
     readArticle: "Read article",
     emptyTitle: "No writing published yet.",
     emptyBody: "This section is ready for essays, but the first shaped pieces have not been added yet.",
+    supportEyebrow: "Continue with",
     supportRoleEditorial: "Editorial boundary",
     supportRoleShorter: "Shorter shaped piece"
   },
@@ -109,6 +111,7 @@ export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
     readArticle: "Đọc bài viết",
     emptyTitle: "Chưa có bài viết nào được xuất bản.",
     emptyBody: "Khu vực này đã sẵn cho bài viết dài, nhưng những bài đã được gọt đầu tiên vẫn chưa được thêm vào.",
+    supportEyebrow: "Đọc tiếp",
     supportRoleEditorial: "Ranh giới biên tập",
     supportRoleShorter: "Bài ngắn đã được gọt"
   },
@@ -147,6 +150,7 @@ export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
     readArticle: "記事を読む",
     emptyTitle: "まだ公開された文章はありません。",
     emptyBody: "この場所は文章のために空けてありますが、最初の一本はまだ公開されていません。",
+    supportEyebrow: "続けて読む",
     supportRoleEditorial: "ゆっくり読む一本",
     supportRoleShorter: "短めの文章"
   }
@@ -195,19 +199,19 @@ export function WritingPage({locale, LinkComponent, englishOnlyNote}: WritingPag
             <div className="writing-entry-rank">01</div>
             <div className="writing-entry-body">
               <div className="writing-entry-head">
-                <div>
+                <div className="writing-entry-main">
                   <div className="meta-row writing-entry-meta">
                     <span className="badge">{copy.leadLabel}</span>
                     <span>{copy.leadTheme}</span>
                     <span>{formatDate(leadArticle.publishedAt, locale)}</span>
                   </div>
                   <h2>{leadArticle.title}</h2>
+                  <p className="muted writing-entry-excerpt">{leadArticle.excerpt}</p>
                 </div>
-                <p className="muted">{leadArticle.excerpt}</p>
               </div>
 
-              <div className="writing-entry-grid">
-                <section className="writing-entry-column">
+              <div className="writing-lead-notes">
+                <section className="writing-lead-note">
                   <p className="eyebrow writing-entry-label">{copy.leadWhy}</p>
                   <ul className="writing-entry-points">
                     {copy.leadWhyPoints.map((point) => (
@@ -215,7 +219,7 @@ export function WritingPage({locale, LinkComponent, englishOnlyNote}: WritingPag
                     ))}
                   </ul>
                 </section>
-                <section className="writing-entry-column">
+                <section className="writing-lead-note writing-lead-note-editorial">
                   <p className="eyebrow writing-entry-label">{copy.leadRole}</p>
                   <p className="muted">{copy.leadRoleBody}</p>
                 </section>
@@ -236,7 +240,8 @@ export function WritingPage({locale, LinkComponent, englishOnlyNote}: WritingPag
           {supportArticles.length > 0 ? (
             <section className="writing-support-shell">
               <div className="writing-support-head">
-                <p className="eyebrow">{copy.supportTitle}</p>
+                <p className="eyebrow">{copy.supportEyebrow}</p>
+                <h2 className="section-heading">{copy.supportTitle}</h2>
                 <p className="muted">{copy.supportBody}</p>
               </div>
 
@@ -248,7 +253,7 @@ export function WritingPage({locale, LinkComponent, englishOnlyNote}: WritingPag
                     </div>
                     <div className="writing-entry-body">
                       <div className="writing-entry-head">
-                        <div>
+                        <div className="writing-entry-main">
                           <div className="meta-row writing-entry-meta">
                             <span className="badge writing-badge-muted">{copy.supportLabel}</span>
                             <span>
@@ -256,10 +261,11 @@ export function WritingPage({locale, LinkComponent, englishOnlyNote}: WritingPag
                             </span>
                             <span>{formatDate(article.publishedAt, locale)}</span>
                           </div>
-                          <h2>{article.title}</h2>
+                          <h3>{article.title}</h3>
                         </div>
-                        <p className="muted">{article.excerpt}</p>
                       </div>
+
+                      <p className="muted writing-entry-excerpt">{article.excerpt}</p>
 
                       {locale !== "en" && !article.availableLocales.includes(locale) && englishOnlyNote ? (
                         <p className="locale-note writing-locale-note">{englishOnlyNote}</p>
