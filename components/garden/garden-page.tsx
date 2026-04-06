@@ -18,6 +18,7 @@ type GardenCopy = {
   metricTopics: string;
   metricLinks: string;
   leadLabel: string;
+  branchEyebrow: string;
   leadRole: string;
   leadBody: string;
   leadWhy: string;
@@ -51,6 +52,7 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
     metricTopics: "topic tags",
     metricLinks: "visible links",
     leadLabel: "Lead note",
+    branchEyebrow: "Follow the thread",
     leadRole: "What the lead is doing",
     leadBody:
       "The lead note gets more room because it helps you enter the route. It does not need to pretend it is finished.",
@@ -90,6 +92,7 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
     metricTopics: "nhãn chủ đề",
     metricLinks: "liên kết thấy được",
     leadLabel: "Note dẫn",
+    branchEyebrow: "Đi tiếp theo mạch này",
     leadRole: "Note dẫn đang làm gì",
     leadBody:
       "Note dẫn có thêm không gian vì nó giúp đi vào route này dễ hơn. Nó không cần giả vờ mình đã hoàn chỉnh.",
@@ -129,6 +132,7 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
     metricTopics: "topic tags",
     metricLinks: "visible links",
     leadLabel: "Lead note",
+    branchEyebrow: "この流れをたどる",
     leadRole: "先頭の役割",
     leadBody:
       "先頭のノートに少し余白があるのは、この route に入るための取っかかりになるからです。完成した文章のふりをする必要はありません。",
@@ -204,19 +208,19 @@ export function GardenPage({locale, LinkComponent, englishOnlyNote}: GardenPageP
             <div className="garden-entry-rank">01</div>
             <div className="garden-entry-body">
               <div className="garden-entry-head">
-                <div>
+                <div className="garden-entry-main">
                   <div className="meta-row garden-entry-meta">
                     <span className="badge">{copy.leadLabel}</span>
                     <span>{formatDate(leadNote.publishedAt, locale)}</span>
                     <span>{leadNote.topicLabels[0]}</span>
                   </div>
                   <h2>{leadNote.title}</h2>
+                  <p className="muted garden-entry-summary">{leadNote.summary}</p>
                 </div>
-                <p className="muted">{leadNote.summary}</p>
               </div>
 
-              <div className="garden-entry-grid">
-                <section className="garden-entry-column">
+              <div className="garden-lead-notes">
+                <section className="garden-lead-note">
                   <p className="eyebrow garden-entry-label">{copy.leadWhy}</p>
                   <ul className="garden-entry-points">
                     {copy.leadWhyPoints.map((point) => (
@@ -224,7 +228,7 @@ export function GardenPage({locale, LinkComponent, englishOnlyNote}: GardenPageP
                     ))}
                   </ul>
                 </section>
-                <section className="garden-entry-column">
+                <section className="garden-lead-note garden-lead-note-motion">
                   <p className="eyebrow garden-entry-label">{copy.leadRole}</p>
                   <p className="muted">{copy.leadBody}</p>
                 </section>
@@ -262,33 +266,41 @@ export function GardenPage({locale, LinkComponent, englishOnlyNote}: GardenPageP
           {branchNotes.length > 0 ? (
             <section className="garden-support-shell">
               <div className="garden-support-head">
-                <p className="eyebrow">{copy.branchTitle}</p>
+                <p className="eyebrow">{copy.branchEyebrow}</p>
+                <h2 className="section-heading">{copy.branchTitle}</h2>
                 <p className="muted">{copy.branchBody}</p>
               </div>
 
               <ol className="garden-support-list" start={2}>
                 {branchNotes.map((note, index) => {
-                  const branchLabel =
-                    note.relatedNoteSlugs.length > 0 ? copy.branchLabel : copy.openEdgeLabel;
+                  const branchLabel = index === 0 ? copy.branchLabel : copy.openEdgeLabel;
+                  const isPrimaryBranch = index === 0;
+                  const linksBackToLead = note.relatedNoteSlugs.includes(leadNote.slug);
 
                   return (
-                    <li key={note.slug} className="garden-entry garden-entry-support">
+                    <li
+                      key={note.slug}
+                      className={`garden-entry garden-entry-support${
+                        isPrimaryBranch ? " garden-entry-support-branch" : " garden-entry-support-loose"
+                      }`}
+                    >
                       <div className="garden-entry-rank">{String(index + 2).padStart(2, "0")}</div>
                       <div className="garden-entry-body">
                         <div className="garden-entry-head">
-                          <div>
+                          <div className="garden-entry-main">
                             <div className="meta-row garden-entry-meta">
                               <span className="badge garden-badge-muted">{branchLabel}</span>
                               <span>{formatDate(note.publishedAt, locale)}</span>
                               <span>{note.topicLabels[0]}</span>
                             </div>
-                            <h2>{note.title}</h2>
+                            <h3>{note.title}</h3>
                           </div>
-                          <p className="muted">{note.summary}</p>
                         </div>
 
+                        <p className="muted garden-entry-summary">{note.summary}</p>
+
                         <div className="garden-branch-notes">
-                          {note.relatedNoteSlugs.includes(leadNote.slug) ? (
+                          {linksBackToLead ? (
                             <p className="garden-branch-link-note">{copy.linkedFromLabel}</p>
                           ) : null}
                           <div className="meta-row garden-topic-row">
