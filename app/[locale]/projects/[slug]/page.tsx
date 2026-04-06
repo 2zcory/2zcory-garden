@@ -73,13 +73,17 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
   if (!project) {
     return buildPageMetadata({
       title: copy.fallbackTitle,
-      description: copy.fallbackDescription
+      description: copy.fallbackDescription,
+      locale,
+      pathname: `/projects/${slug}`
     });
   }
 
   return buildPageMetadata({
     title: project.name,
-    description: project.summary
+    description: project.summary,
+    locale,
+    pathname: `/projects/${slug}`
   });
 }
 

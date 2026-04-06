@@ -54,13 +54,17 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
   if (!article) {
     return buildPageMetadata({
       title: copy.fallbackTitle,
-      description: copy.fallbackDescription
+      description: copy.fallbackDescription,
+      locale,
+      pathname: `/writing/${slug}`
     });
   }
 
   return buildPageMetadata({
     title: article.title,
-    description: article.excerpt
+    description: article.excerpt,
+    locale,
+    pathname: `/writing/${slug}`
   });
 }
 

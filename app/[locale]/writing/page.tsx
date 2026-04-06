@@ -17,7 +17,9 @@ export async function generateMetadata({params}: PageProps): Promise<Metadata> {
 
   return buildPageMetadata({
     title: copy.title,
-    description: copy.description
+    description: copy.description,
+    locale,
+    pathname: "/writing"
   });
 }
 
