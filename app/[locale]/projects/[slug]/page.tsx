@@ -20,13 +20,17 @@ const COPY = {
     fallbackDescription: "Selected projects from 2zcory Garden.",
     eyebrow: "Project",
     signalEyebrow: "How to read this page",
-    signalTitle: "Start with the problem, then look at how it was handled.",
+    signalTitle: "Start with the pressure, then read what survived execution.",
     signalBody:
-      "This page is here to show what needed solving, what was built in response, and what changed because of it.",
-    problem: "Problem",
-    approach: "Approach",
-    outcomes: "Outcomes",
-    relatedLinks: "Related links",
+      "This page should read like one proof document: what was hard, how the work answered it, and what remained true after delivery.",
+    pressure: "What was hard",
+    pressureTitle: "The pressure this project had to answer",
+    handling: "Chosen move",
+    handlingTitle: "How the work responded",
+    proof: "What survived execution",
+    proofTitle: "Evidence that stayed true after delivery",
+    bridges: "Where to go next",
+    bridgesTitle: "Related reading around this project",
     noLinks: "No related links published yet."
   },
   vi: {
@@ -34,13 +38,17 @@ const COPY = {
     fallbackDescription: "Các dự án được chọn từ 2zcory Garden.",
     eyebrow: "Dự án",
     signalEyebrow: "Cách đọc trang này",
-    signalTitle: "Bắt đầu từ vấn đề, rồi nhìn cách nó được xử lý.",
+    signalTitle: "Bắt đầu từ áp lực thật, rồi đọc thứ gì đã sống sót sau phần thực thi.",
     signalBody:
-      "Trang này để cho thấy cần giải quyết điều gì, đã làm gì để đáp lại, và sau cùng điều gì thực sự thay đổi.",
-    problem: "Vấn đề",
-    approach: "Cách tiếp cận",
-    outcomes: "Kết quả",
-    relatedLinks: "Liên kết liên quan",
+      "Trang này nên đọc như một proof document: điều gì thật sự khó, công việc đã đáp lại ra sao, và điều gì còn đứng vững sau delivery.",
+    pressure: "Điều thật sự khó",
+    pressureTitle: "Áp lực mà dự án này phải đáp lại",
+    handling: "Cách xử lý",
+    handlingTitle: "Công việc đã đáp lại như thế nào",
+    proof: "Thứ còn đứng vững sau thực thi",
+    proofTitle: "Những dấu hiệu còn giữ được sau delivery",
+    bridges: "Đi tiếp từ đây",
+    bridgesTitle: "Những lối đọc tiếp quanh dự án này",
     noLinks: "Chưa có liên kết liên quan nào được publish."
   },
   ja: {
@@ -48,13 +56,17 @@ const COPY = {
     fallbackDescription: "2zcory Garden の選ばれたプロジェクト。",
     eyebrow: "プロジェクト",
     signalEyebrow: "このページの読み方",
-    signalTitle: "まず課題を見て、そのあとにどう扱ったかを見る。",
+    signalTitle: "まず本当の圧力を見て、そのあと実行を通って残ったものを読む。",
     signalBody:
-      "このページは、何を解く必要があったのか、どう応えたのか、そして何が変わったのかを見せるためにあります。",
-    problem: "課題",
-    approach: "アプローチ",
-    outcomes: "結果",
-    relatedLinks: "関連リンク",
+      "このページは一つの proof document として読むべきです。何が難しかったのか、その仕事がどう応えたのか、そして delivery のあとに何が残ったのかを見せます。",
+    pressure: "本当に難しかったこと",
+    pressureTitle: "このプロジェクトが受け止める必要のあった圧力",
+    handling: "選んだ動き",
+    handlingTitle: "その圧力にどう応えたか",
+    proof: "実行を通って残ったもの",
+    proofTitle: "delivery のあとでも残った証拠",
+    bridges: "ここから先へ",
+    bridgesTitle: "このプロジェクトの周りにある読みもの",
     noLinks: "まだ関連リンクは公開されていません。"
   }
 } as const;
@@ -123,46 +135,57 @@ export default async function LocalizedProjectDetailPage({params}: PageProps) {
           </>
         }
       />
-      <div className="detail-grid detail-grid-page">
-        <article className="surface-card detail-article-card">
+      <article className="surface-card project-detail-pressure-card">
+        <div className="project-detail-intro">
+          <p className="eyebrow">{copy.pressure}</p>
+          <h2 className="section-heading project-detail-heading">{copy.pressureTitle}</h2>
+        </div>
+        <p className="project-detail-lead">{project.problem}</p>
+      </article>
+
+      <div className="project-detail-grid">
+        <article className="surface-card project-detail-response-card">
+          <div className="project-detail-intro">
+            <p className="eyebrow">{copy.handling}</p>
+            <h2 className="section-heading project-detail-heading">{copy.handlingTitle}</h2>
+          </div>
           <div className="detail-body stack">
-            <div>
-              <h2 className="section-heading">{copy.problem}</h2>
-              <p className="muted">{project.problem}</p>
-            </div>
-            <div>
-              <h2 className="section-heading">{copy.approach}</h2>
-              <p className="muted">{project.approach}</p>
-            </div>
+            <p>{project.approach}</p>
           </div>
         </article>
-        <aside className="surface-card stack detail-side-card">
-          <div>
-          <h2 className="section-heading">{copy.outcomes}</h2>
-          <ul className="list-reset stack">
+
+        <aside className="surface-card project-detail-proof-card">
+          <div className="project-detail-intro">
+            <p className="eyebrow">{copy.proof}</p>
+            <h2 className="section-heading project-detail-heading">{copy.proofTitle}</h2>
+          </div>
+          <ul className="list-reset project-detail-proof-list">
             {project.outcomes.map((outcome) => (
-              <li key={outcome} className="muted">
+              <li key={outcome} className="project-detail-proof-item">
                 {outcome}
               </li>
             ))}
           </ul>
-        </div>
-        <div>
-          <h2 className="section-heading">{copy.relatedLinks}</h2>
-          <div className="aside-list">
-            {project.links.length > 0 ? (
-              project.links.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                </Link>
-              ))
-            ) : (
-              <p className="muted">{copy.noLinks}</p>
-            )}
-          </div>
-          </div>
         </aside>
       </div>
+
+      <section className="surface-card project-detail-bridges-card">
+        <div className="project-detail-intro">
+          <p className="eyebrow">{copy.bridges}</p>
+          <h2 className="section-heading project-detail-heading">{copy.bridgesTitle}</h2>
+        </div>
+        <div className="project-detail-bridges-list">
+          {project.links.length > 0 ? (
+            project.links.map((item) => (
+              <Link key={item.href} href={item.href} className="inline-link project-detail-bridge-link">
+                {item.label}
+              </Link>
+            ))
+          ) : (
+            <p className="muted">{copy.noLinks}</p>
+          )}
+        </div>
+      </section>
     </section>
   );
 }

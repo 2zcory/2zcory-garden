@@ -1453,6 +1453,90 @@ html[data-theme="dark"] .garden-entry-lead {
   background: color-mix(in srgb, var(--surface-strong) 78%, transparent);
 }
 
+.project-detail-pressure-card,
+.project-detail-response-card,
+.project-detail-proof-card,
+.project-detail-bridges-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-detail-pressure-card {
+  background:
+    radial-gradient(circle at top right, rgba(207, 157, 87, 0.16), transparent 28%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-strong) 82%, rgba(207, 157, 87, 0.08)),
+      var(--surface)
+    );
+}
+
+.project-detail-grid {
+  display: grid;
+  gap: 1rem;
+  align-items: start;
+}
+
+.project-detail-response-card {
+  background: color-mix(in srgb, var(--surface-strong) 84%, transparent);
+}
+
+.project-detail-proof-card {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-strong) 82%, rgba(207, 157, 87, 0.08)),
+      color-mix(in srgb, var(--surface) 90%, transparent)
+    );
+}
+
+.project-detail-bridges-card {
+  background: color-mix(in srgb, var(--surface-strong) 78%, transparent);
+}
+
+.project-detail-intro {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.project-detail-heading {
+  margin: 0;
+}
+
+.project-detail-lead {
+  margin: 0;
+  max-width: 54rem;
+  font-size: clamp(1.08rem, 1.4vw, 1.2rem);
+  line-height: 1.72;
+  color: color-mix(in srgb, var(--foreground) 90%, transparent);
+}
+
+.project-detail-proof-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.project-detail-proof-item {
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.project-detail-proof-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.project-detail-bridges-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.project-detail-bridge-link {
+  width: fit-content;
+}
+
 .projects-ledger-shell {
   display: grid;
   gap: 1.25rem;
@@ -1659,6 +1743,7 @@ html[data-theme="dark"] .projects-badge-muted {
 
   .hero-grid,
   .detail-grid,
+  .project-detail-grid,
   .contact-hero-grid,
   .contact-stage-grid,
   .route-hero-shell,
@@ -2186,6 +2271,10 @@ html[data-theme="dark"] .projects-badge-muted {
 }
 
 @media (min-width: 900px) {
+  .project-detail-grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+  }
+
   .projects-entry {
     grid-template-columns: 42px minmax(0, 1fr);
     align-items: start;
