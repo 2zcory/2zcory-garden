@@ -1,20 +1,20 @@
 const DEFAULT_BASE_URL = "https://2zcory-garden.vercel.app";
 
 const checks = [
-  { path: "/", marker: "Một nơi cho note, bài viết và những dự án đã thành hình." },
-  { path: "/vi", marker: "Một nơi cho note, bài viết và những dự án đã thành hình." },
-  { path: "/en", marker: "A place for notes, essays, and shipped work." },
-  { path: "/ja", marker: "ノートと文章と、形になった仕事のための場所。" },
+  { path: "/", marker: "Xem cách một ý đi thành bài viết và phần việc đã ship." },
+  { path: "/vi", marker: "Xem cách một ý đi thành bài viết và phần việc đã ship." },
+  { path: "/en", marker: "See how thought turns into writing and shipped work." },
+  { path: "/ja", marker: "考えが文章や実際の仕事になる流れを見せる場所です。" },
   { path: "/vi/about", marker: "Site này giữ những gì" },
   { path: "/en/about", marker: "What this site holds" },
   { path: "/ja/about", marker: "このサイトにあるもの" },
-  { path: "/vi/projects", marker: "Khám phá Context OS" },
-  { path: "/en/projects", marker: "Explore Context OS" },
+  { path: "/vi/projects", marker: "Nơi ý đã thật sự gặp phần thực thi." },
+  { path: "/en/projects", marker: "Where the thinking has already met execution." },
   { path: "/vi/projects/context-os", marker: "Context OS" },
   { path: "/en/projects/2zcory-garden", marker: "2zcory Garden" },
-  { path: "/vi/writing", marker: "Những bài đã lắng đủ để tự đứng thành một bài." },
-  { path: "/en/writing", marker: "Essays that have settled enough to stand on their own." },
-  { path: "/ja/writing", marker: "ひとつの文章として読めるところまで落ち着いたもの。" },
+  { path: "/vi/writing", marker: "Nơi một đường suy nghĩ thành một ý rõ hơn." },
+  { path: "/en/writing", marker: "Where a line of thought becomes a clearer position." },
+  { path: "/ja/writing", marker: "ひとつの考えが、より明確な立場になる場所。" },
   {
     path: "/vi/writing/building-a-personal-site-as-an-operating-system",
     marker: "Xây Một Personal Site Như Một Operating System"
@@ -31,9 +31,9 @@ const checks = [
     path: "/en/writing/when-writing-should-not-start-as-an-essay",
     marker: "When Writing Should Not Start As An Essay"
   },
-  { path: "/vi/garden", marker: "Những note vẫn còn đang chuyển động." },
-  { path: "/en/garden", marker: "Notes that are still moving." },
-  { path: "/ja/garden", marker: "まだ動いているノート。" },
+  { path: "/vi/garden", marker: "Nơi ý còn mở đủ để thay đổi tiếp." },
+  { path: "/en/garden", marker: "Where the thinking stays open enough to change." },
+  { path: "/ja/garden", marker: "考えがまだ変わり続けている場所。" },
   {
     path: "/vi/garden/notes-that-grow-into-products",
     marker: "Những Ghi Chú Lớn Dần Thành Sản Phẩm"
@@ -54,9 +54,9 @@ const checks = [
     path: "/vi/projects/2zcory-garden",
     marker: "Một ngôi nhà công khai cho note, bài viết, và dự án thuộc cùng một mạch công việc."
   },
-  { path: "/vi/contact", marker: "Một cách liên hệ rõ ràng." },
-  { path: "/en/contact", marker: "A clear way to reach out." },
-  { path: "/ja/contact", marker: "明確な連絡のしかた。" }
+  { path: "/vi/contact", marker: "Hãy liên hệ khi phần việc đã cho mình một chỗ để bắt đầu." },
+  { path: "/en/contact", marker: "Reach out when the work already gives us a place to start." },
+  { path: "/ja/contact", marker: "まず work が出発点を作っているときに連絡する。" }
 ];
 
 function getBaseUrl() {
