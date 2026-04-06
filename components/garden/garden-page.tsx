@@ -39,15 +39,15 @@ type GardenCopy = {
 export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
   en: {
     title: "Garden",
-    description: "Notes from 2zcory Garden, kept open enough to show how one thought branches into another.",
+    description: "Notes from 2zcory Garden that keep the thinking visible before it settles into writing or shipped work.",
     eyebrow: "Garden",
-    heroTitle: "Notes that are still moving.",
+    heroTitle: "Where the thinking stays open enough to change.",
     heroBody:
-      "This part of the site keeps the thinking closer to the surface: fragments, turns, and partial answers that are not ready to behave like essays yet.",
+      "Garden keeps the live edge of the work visible: fragments, turns, and partial answers that have not settled into essays or execution yet.",
     asideEyebrow: "How to read it",
-    asideTitle: "Follow the lead note, then the nearby branches.",
+    asideTitle: "Start where the thinking is alive, then follow the nearby branches.",
     asideBody:
-      "One note gives the route a starting point. The others stay nearby as connected turns, side notes, or unfinished edges.",
+      "One note gives the route a real starting point. The others stay nearby as connected turns, side notes, or open edges that may later become writing or projects.",
     metricEntries: "entries",
     metricTopics: "topic tags",
     metricLinks: "visible links",
@@ -55,7 +55,7 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
     branchEyebrow: "Follow the thread",
     leadRole: "What the lead is doing",
     leadBody:
-      "The lead note gets more room because it helps you enter the route. It does not need to pretend it is finished.",
+      "The lead note gets more room because it helps you enter the live problem, not because it needs to pretend it is finished.",
     leadWhy: "Why start here",
     leadWhyPoints: [
       "it gives the page a clear place to begin",
@@ -64,12 +64,12 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
     ],
     branchTitle: "Nearby notes",
     branchBody:
-      "These notes stay close to the lead without needing to resolve into a single argument.",
+      "These notes stay close to the lead without needing to resolve into a single argument yet.",
     branchLabel: "Connected note",
     openEdgeLabel: "Loose edge",
     routeDistinction: "What makes this route different",
     routeDistinctionBody:
-      "Writing is for pieces that have settled. Garden keeps more of the unfinished movement visible.",
+      "Writing is where the thinking becomes clearer. Projects are where it meets execution. Garden keeps the unfinished movement visible before either of those happens.",
     relatedLabel: "Related notes",
     linkedFromLabel: "Points back to the lead note",
     readNote: "Read note",
@@ -79,15 +79,15 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
   },
   vi: {
     title: "Garden",
-    description: "Những note của 2zcory Garden, đủ mở để thấy một ý rẽ nhánh sang ý khác như thế nào.",
+    description: "Những note của 2zcory Garden giữ phần suy nghĩ còn đang sống trước khi nó lắng xuống thành bài viết hay phần việc đã ship.",
     eyebrow: "Garden",
-    heroTitle: "Những note vẫn còn đang chuyển động.",
+    heroTitle: "Nơi ý còn mở đủ để thay đổi tiếp.",
     heroBody:
-      "Phần này giữ suy nghĩ ở gần bề mặt hơn: mảnh rời, khúc rẽ, và các câu trả lời còn dở, chưa cần khép lại thành một bài viết hoàn chỉnh.",
+      "Garden giữ phần sống của công việc ở gần bề mặt: mảnh rời, khúc rẽ, và câu trả lời còn dở, trước khi nó lắng xuống thành bài viết hay đi vào phần thực thi.",
     asideEyebrow: "Cách đọc",
-    asideTitle: "Đi theo note dẫn trước, rồi nhìn sang các nhánh gần đó.",
+    asideTitle: "Bắt đầu từ chỗ ý còn đang sống, rồi đi tiếp sang các nhánh gần đó.",
     asideBody:
-      "Một note cho trang điểm bắt đầu. Các note còn lại nằm quanh đó như chỗ rẽ, ghi chú bên lề, hay phần còn đang bỏ ngỏ.",
+      "Một note cho trang điểm bắt đầu. Các note còn lại nằm quanh đó như chỗ rẽ, ghi chú bên lề, hay phần còn bỏ ngỏ có thể đi tiếp thành bài viết hoặc dự án.",
     metricEntries: "mục",
     metricTopics: "nhãn chủ đề",
     metricLinks: "liên kết thấy được",
@@ -95,7 +95,7 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
     branchEyebrow: "Đi tiếp theo mạch này",
     leadRole: "Note dẫn đang làm gì",
     leadBody:
-      "Note dẫn có thêm không gian vì nó giúp đi vào route này dễ hơn. Nó không cần giả vờ mình đã hoàn chỉnh.",
+      "Note dẫn có thêm không gian vì nó giúp đi vào phần việc đang sống, không phải vì nó cần giả vờ mình đã hoàn chỉnh.",
     leadWhy: "Vì sao bắt đầu từ đây",
     leadWhyPoints: [
       "nó cho trang một điểm bắt đầu rõ ràng",
@@ -104,12 +104,12 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
     ],
     branchTitle: "Những note ở gần",
     branchBody:
-      "Các note này đứng gần note dẫn nhưng không cần gom lại thành một lập luận duy nhất.",
+      "Các note này đứng gần note dẫn nhưng chưa cần gom lại thành một lập luận duy nhất.",
     branchLabel: "Note nối tiếp",
     openEdgeLabel: "Phần còn mở",
     routeDistinction: "Điểm khác của route này",
     routeDistinctionBody:
-      "Writing dành cho những bài đã lắng xuống. Garden giữ lại nhiều hơn phần chuyển động còn dang dở.",
+      "Writing là lúc ý đã rõ hơn. Projects là lúc ý đó đã chạm phần thực thi. Garden giữ lại phần chuyển động còn dang dở trước hai trạng thái đó.",
     relatedLabel: "Các note liên quan",
     linkedFromLabel: "Có nối lại với note dẫn",
     readNote: "Đọc ghi chú",
@@ -119,15 +119,15 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
   },
   ja: {
     title: "ガーデン",
-    description: "ひとつの考えが別の考えへ枝分かれしていく様子を残したノートの面。",
+    description: "文章や実際の仕事に固まる前の思考を、そのまま見えるように残すノートの面。",
     eyebrow: "ガーデン",
-    heroTitle: "まだ動いているノート。",
+    heroTitle: "考えがまだ変わり続けている場所。",
     heroBody:
-      "ここでは、考えを表面に近いまま残します。断片や曲がり角、まだ文章として閉じていない答えが見える場所です。",
+      "ここでは、思考の生きた端を表面近くに残します。断片や曲がり角、まだ文章や実行に固まっていない答えが見える場所です。",
     asideEyebrow: "読み方",
-    asideTitle: "先頭のノートから入り、その近くの枝をたどる。",
+    asideTitle: "まず生きている考えから入り、その近くの枝をたどる。",
     asideBody:
-      "一本のノートが入口になり、ほかのノートはその近くで枝や脇道として残ります。",
+      "一本のノートが入口になり、ほかのノートはその近くで枝や脇道として残ります。あとで文章や project へ伸びる可能性も含んだままです。",
     metricEntries: "entries",
     metricTopics: "topic tags",
     metricLinks: "visible links",
@@ -135,7 +135,7 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
     branchEyebrow: "この流れをたどる",
     leadRole: "先頭の役割",
     leadBody:
-      "先頭のノートに少し余白があるのは、この route に入るための取っかかりになるからです。完成した文章のふりをする必要はありません。",
+      "先頭のノートに少し余白があるのは、この route の生きた問題に入るための取っかかりになるからです。完成した文章のふりをする必要はありません。",
     leadWhy: "ここから始める理由",
     leadWhyPoints: [
       "ページに入り口をつくれる",
@@ -144,12 +144,12 @@ export const GARDEN_COPY: Record<AppLocale, GardenCopy> = {
     ],
     branchTitle: "近くのノート",
     branchBody:
-      "これらのノートは先頭の近くに置かれますが、ひとつの結論にまとめる必要はありません。",
+      "これらのノートは先頭の近くに置かれますが、まだひとつの結論にまとめる必要はありません。",
     branchLabel: "つながるノート",
     openEdgeLabel: "まだ開いた端",
     routeDistinction: "この route の違い",
     routeDistinctionBody:
-      "Writing が落ち着いた文章のための場所だとすれば、Garden はまだ動きの残っている部分をそのまま見せる場所です。",
+      "Writing がより明確になった考えの場所で、Projects が実行に着地した場所だとすれば、Garden はその手前の動きそのものを見せる場所です。",
     relatedLabel: "関連するノート",
     linkedFromLabel: "先頭のノートにつながる",
     readNote: "ノートを読む",

@@ -14,15 +14,15 @@ const COPY = {
   en: {
     title: "Contact",
     description:
-      "A clear contact page for collaboration, project discussion, and replies that already have context.",
+      "A clear contact page for collaboration or replies that already connect to the work published here.",
     eyebrow: "Contact",
-    heroTitle: "A clear way to reach out.",
+    heroTitle: "Reach out when the work already gives us a place to start.",
     heroBody:
-      "Collaboration, project discussion, and thoughtful replies are welcome. The best messages usually start from something already published here.",
+      "The strongest messages usually begin from something already visible on the site: a note in motion, a clearer piece of writing, or a project that has already landed.",
     signalEyebrow: "How to use this page",
-    signalTitle: "Reach out when there is already a real starting point.",
+    signalTitle: "The best contact starts from the work, not around it.",
     signalBody:
-      "A note, an essay, or a project usually makes the conversation sharper from the first message.",
+      "Garden, Writing, and Projects already show different states of the same public practice. Starting there usually makes the conversation sharper from the first message.",
     metricPaths: "next moves",
     metricChannels: "open channels",
     metricIntent: "contact mode",
@@ -34,9 +34,9 @@ const COPY = {
     policyBody:
       "A direct inbox only belongs here if there is a reply path that can actually be maintained. Until then, it is better to stay clear than to imply more access than exists.",
     fitEyebrow: "Good Fit",
-    fitTitle: "Reach out when the context is already there.",
+    fitTitle: "Reach out when there is already a shared point of contact.",
     fitBody:
-      "The strongest messages usually follow something already published here: a note in the garden, a piece of writing, or a project that gives the conversation a real place to begin.",
+      "The strongest messages usually follow something already published here: a note still being worked through, a piece of writing with a clearer claim, or a project that gives the conversation a real proof point.",
     goodReasons: "Good reasons to contact",
     goodReasonsBody:
       "Collaboration, project discussion, responses to a specific piece of writing, or a concrete follow-up to published work.",
@@ -48,9 +48,9 @@ const COPY = {
     directBody:
       "For collaboration, project discussion, or a thoughtful reply, use the address below.",
     nextMove: "Best Next Move",
-    nextMoveTitle: "Start with the work, then come back.",
+    nextMoveTitle: "Start with the part of the work closest to your reason for writing.",
     nextMoveBody:
-      "If a direct message is not possible yet, the best next step is to read the material closest to what you want to talk about.",
+      "If a direct message is not possible yet, the best next step is to start from the route closest to what you want to talk about, then come back with that context in hand.",
     readWriting: "Read writing",
     viewProjects: "View projects",
     browseGarden: "Browse garden notes",
@@ -61,15 +61,15 @@ const COPY = {
   },
   vi: {
     title: "Liên hệ",
-    description: "Một trang liên hệ rõ ràng cho hợp tác, trao đổi dự án, và những phản hồi đã có sẵn ngữ cảnh.",
+    description: "Một trang liên hệ rõ ràng cho hợp tác hoặc phản hồi đã thật sự nối được với phần việc được xuất bản ở đây.",
     eyebrow: "Liên hệ",
-    heroTitle: "Một cách liên hệ rõ ràng.",
+    heroTitle: "Hãy liên hệ khi phần việc đã cho mình một chỗ để bắt đầu.",
     heroBody:
-      "Hợp tác, trao đổi dự án và phản hồi có chiều sâu đều được hoan nghênh. Những tin nhắn tốt nhất thường bắt đầu từ một thứ đã có trên site này.",
+      "Những tin nhắn mạnh nhất thường bắt đầu từ một thứ đã thấy được trên site này: một note còn đang mở, một bài viết đã rõ ý hơn, hoặc một dự án đã chạm phần thực thi.",
     signalEyebrow: "Cách dùng trang này",
-    signalTitle: "Hãy liên hệ khi đã có một điểm bắt đầu thật.",
+    signalTitle: "Cuộc liên hệ tốt nhất bắt đầu từ phần việc, không phải đi vòng ngoài nó.",
     signalBody:
-      "Một note, một bài viết, hay một dự án thường giúp cuộc trò chuyện đi đúng trọng tâm ngay từ tin đầu.",
+      "Garden, Writing và Projects đã cho thấy những trạng thái khác nhau của cùng một practice công khai. Bắt đầu từ đó thường làm cuộc trò chuyện sắc hơn ngay từ tin đầu.",
     metricPaths: "bước tiếp theo",
     metricChannels: "kênh mở",
     metricIntent: "chế độ liên hệ",
@@ -81,9 +81,9 @@ const COPY = {
     policyBody:
       "Một inbox trực tiếp chỉ nên nằm ở đây khi thật sự có đường phản hồi có thể duy trì. Nếu chưa có, tốt hơn là nói rõ thay vì gợi cảm giác rằng quyền truy cập luôn đang mở.",
     fitEyebrow: "Phù hợp",
-    fitTitle: "Liên hệ khi ngữ cảnh đã có sẵn.",
+    fitTitle: "Liên hệ khi đã có một điểm chạm chung.",
     fitBody:
-      "Những tin nhắn mạnh nhất thường đi sau một thứ đã được xuất bản ở đây: một ghi chú trong Garden, một bài viết, hoặc một dự án cho cuộc trò chuyện một chỗ bắt đầu thật.",
+      "Những tin nhắn mạnh nhất thường đi sau một thứ đã được xuất bản ở đây: một note còn đang được nghĩ tiếp, một bài viết đã có ý rõ hơn, hoặc một dự án cho cuộc trò chuyện một proof point thật.",
     goodReasons: "Những lý do phù hợp để liên hệ",
     goodReasonsBody:
       "Hợp tác, trao đổi dự án, phản hồi về một bài viết cụ thể, hoặc một trao đổi tiếp nối đủ cụ thể tới phần công việc đã được xuất bản.",
@@ -94,9 +94,9 @@ const COPY = {
     directTitle: "Email đang mở cho những liên hệ có cân nhắc.",
     directBody: "Nếu muốn bàn về hợp tác, dự án, hay phản hồi nghiêm túc, hãy dùng địa chỉ bên dưới.",
     nextMove: "Bước đi phù hợp nhất",
-    nextMoveTitle: "Bắt đầu từ phần việc, rồi quay lại đây.",
+    nextMoveTitle: "Bắt đầu từ phần việc gần nhất với lý do bạn muốn viết.",
     nextMoveBody:
-      "Nếu chưa thể nhắn trực tiếp, bước đi tốt nhất là đọc phần nội dung gần nhất với thứ bạn muốn bàn.",
+      "Nếu chưa thể nhắn trực tiếp, bước đi tốt nhất là đi vào route gần nhất với thứ bạn muốn bàn, rồi quay lại với phần ngữ cảnh đó trong tay.",
     readWriting: "Đọc bài viết",
     viewProjects: "Xem dự án",
     browseGarden: "Xem ghi chú Garden",
@@ -107,15 +107,15 @@ const COPY = {
   },
   ja: {
     title: "連絡",
-    description: "協業やプロジェクト相談、すでに文脈のある返信のための連絡ページ。",
+    description: "協業や返信が、すでにここで公開された work とつながっているときのための連絡ページ。",
     eyebrow: "連絡",
-    heroTitle: "明確な連絡のしかた。",
+    heroTitle: "まず work が出発点を作っているときに連絡する。",
     heroBody:
-      "協業、プロジェクト相談、考え抜かれた返信は歓迎します。いちばんよい連絡は、すでにここにある何かから始まります。",
+      "いちばん強いメッセージは、すでにこのサイトで見えている何かから始まります。まだ動いているノート、より明確な文章、あるいはすでに着地したプロジェクトです。",
     signalEyebrow: "このページの使い方",
-    signalTitle: "ちゃんとした出発点があるときに連絡する。",
+    signalTitle: "よい連絡は、work から始まります。",
     signalBody:
-      "ノート、文章、プロジェクトのどれかがあると、最初のメッセージから話がずっと通りやすくなります。",
+      "Garden、Writing、Projects は、同じ公開された実践の別の状態です。そこから始めると、最初のメッセージから話が通りやすくなります。",
     metricPaths: "next moves",
     metricChannels: "open channels",
     metricIntent: "contact mode",
@@ -127,9 +127,9 @@ const COPY = {
     policyBody:
       "直接の inbox は、実際に維持できる返信経路があるときだけ置くべきです。まだそこまで整っていないなら、その制約をそのまま示すほうが正直です。",
     fitEyebrow: "向いている連絡",
-    fitTitle: "文脈がすでにつながっているときに連絡する。",
+    fitTitle: "すでに共有された接点があるときに連絡する。",
     fitBody:
-      "いちばん強いメッセージは、すでにここで公開されている素材のあとに来ます。たとえばガーデンのノート、文章、あるいは会話の出発点になるプロジェクトです。",
+      "いちばん強いメッセージは、すでにここで公開されている素材のあとに来ます。たとえば、まだ動いているノート、より明確な文章、あるいは conversation の proof point になる project です。",
     goodReasons: "連絡する良い理由",
     goodReasonsBody:
       "協業、プロジェクト相談、特定の文章への返信、または公開済みの仕事への具体的な follow-up。",
@@ -141,9 +141,9 @@ const COPY = {
     directBody:
       "協業、プロジェクト相談、または丁寧な返信のためには、以下のアドレスを使ってください。",
     nextMove: "最適な次の一歩",
-    nextMoveTitle: "まず仕事を読み、それから戻る。",
+    nextMoveTitle: "書きたい理由にいちばん近い work から始める。",
     nextMoveBody:
-      "まだ直接メッセージができないなら、まず話したい内容にいちばん近い素材を読むのが次のよい一歩です。",
+      "まだ直接メッセージができないなら、まず話したい内容にいちばん近い route から入り、その文脈を持ってここへ戻るのが次のよい一歩です。",
     readWriting: "文章を読む",
     viewProjects: "プロジェクトを見る",
     browseGarden: "ガーデンノートを見る",

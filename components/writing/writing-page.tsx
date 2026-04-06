@@ -39,15 +39,15 @@ type WritingCopy = {
 export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
   en: {
     title: "Writing",
-    description: "Essays from 2zcory Garden, arranged with a clearer sense of weight and pace.",
+    description: "Essays from 2zcory Garden where a line of thought has tightened into a clearer position.",
     eyebrow: "Writing",
-    heroTitle: "Essays that have settled enough to stand on their own.",
+    heroTitle: "Where a line of thought becomes a clearer position.",
     heroBody:
-      "This is where a line of thought has slowed down, found its shape, and become something you can read straight through.",
+      "Writing is where the work stops branching for a while, finds its shape, and becomes something you can read straight through.",
     asideEyebrow: "How to read it",
-    asideTitle: "Start with the lead essay, then drift outward.",
+    asideTitle: "Start with the clearest position, then drift outward.",
     asideBody:
-      "The opening piece carries the most weight. The rest stay nearby as shorter or lighter companions.",
+      "The opening piece carries the strongest claim. The rest stay nearby as shorter or lighter companions around that clearer center.",
     metricEntries: "pieces",
     metricThemes: "themes",
     metricLocales: "active locales",
@@ -62,13 +62,13 @@ export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
     ],
     leadRole: "What the lead is doing",
     leadRoleBody:
-      "The lead piece gets more room because it asks for a slower read, not because it needs a louder introduction.",
+      "The lead piece gets more room because it carries the clearest position on the page, not because it needs a louder introduction.",
     supportTitle: "Supporting pieces",
     supportBody:
-      "These pieces stay finished and deliberate, but they move faster than the lead essay.",
+      "These pieces stay finished and deliberate, but they move faster than the lead essay and keep the route from collapsing into one single voice.",
     routeDistinction: "What makes this route different",
     routeDistinctionBody:
-      "Garden stays open and provisional. Writing is quieter, more deliberate, and easier to read in one sitting.",
+      "Garden keeps more of the unfinished movement visible. Projects show what survived execution. Writing is the middle state: the thinking has become clearer, but it is still being read primarily as thought.",
     readArticle: "Read article",
     emptyTitle: "No writing published yet.",
     emptyBody: "This section is ready for essays, but the first shaped pieces have not been added yet.",
@@ -78,15 +78,15 @@ export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
   },
   vi: {
     title: "Bài viết",
-    description: "Các bài viết từ 2zcory Garden, được sắp lại để thấy rõ trọng lượng và nhịp đọc hơn.",
+    description: "Những bài viết từ 2zcory Garden nơi một đường suy nghĩ đã gọn lại thành một ý rõ hơn.",
     eyebrow: "Bài viết",
-    heroTitle: "Những bài đã lắng đủ để tự đứng thành một bài.",
+    heroTitle: "Nơi một đường suy nghĩ thành một ý rõ hơn.",
     heroBody:
-      "Đây là nơi một đường suy nghĩ chậm lại, có hình, và thành thứ có thể đọc một mạch từ đầu tới cuối.",
+      "Writing là lúc phần việc ngừng rẽ nhánh thêm một chút, có hình hơn, và thành thứ có thể đọc một mạch từ đầu tới cuối.",
     asideEyebrow: "Cách đọc",
-    asideTitle: "Bắt đầu từ bài dẫn, rồi đi dần ra ngoài.",
+    asideTitle: "Bắt đầu từ ý rõ nhất, rồi đi dần ra ngoài.",
     asideBody:
-      "Bài đầu giữ trọng lượng chính. Những bài còn lại vẫn ở gần, nhưng nhẹ hơn và đi nhanh hơn.",
+      "Bài đầu giữ ý rõ nhất. Những bài còn lại vẫn ở gần, nhưng nhẹ hơn và đi nhanh hơn quanh điểm trung tâm đó.",
     metricEntries: "bài",
     metricThemes: "chủ đề",
     metricLocales: "ngôn ngữ hoạt động",
@@ -101,13 +101,13 @@ export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
     ],
     leadRole: "Bài dẫn đang làm gì",
     leadRoleBody:
-      "Bài dẫn có thêm không gian vì nó cần nhịp đọc chậm hơn, không phải vì nó cần phần giới thiệu lớn hơn.",
+      "Bài dẫn có thêm không gian vì nó giữ ý rõ nhất của trang này, không phải vì nó cần phần giới thiệu lớn hơn.",
     supportTitle: "Các bài hỗ trợ",
     supportBody:
-      "Các bài này vẫn là bài đã hoàn thành, nhưng đọc nhanh và nhẹ hơn bài dẫn.",
+      "Các bài này vẫn là bài đã hoàn thành, nhưng đọc nhanh và nhẹ hơn bài dẫn, để route này không co lại thành một giọng duy nhất.",
     routeDistinction: "Điểm khác của route này",
     routeDistinctionBody:
-      "Garden còn mở và tạm thời hơn. Writing yên hơn, gọn hơn, và dễ đọc thành một mạch hơn.",
+      "Garden giữ lại phần chuyển động còn dang dở. Projects cho thấy thứ gì đã qua được phần thực thi. Writing là phần ở giữa: ý đã rõ hơn, nhưng vẫn chủ yếu được đọc như thought.",
     readArticle: "Đọc bài viết",
     emptyTitle: "Chưa có bài viết nào được xuất bản.",
     emptyBody: "Khu vực này đã sẵn cho bài viết dài, nhưng những bài đã được gọt đầu tiên vẫn chưa được thêm vào.",
@@ -117,15 +117,15 @@ export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
   },
   ja: {
     title: "文章",
-    description: "2zcory Garden の文章を、重さと読みの流れが見えやすい形で並べたページ。",
+    description: "2zcory Garden の中で、ひとつの考えがより明確な立場へまとまった文章の面。",
     eyebrow: "文章",
-    heroTitle: "ひとつの文章として読めるところまで落ち着いたもの。",
+    heroTitle: "ひとつの考えが、より明確な立場になる場所。",
     heroBody:
-      "ここでは、考えが少し遅くなり、形を持ち、最初から最後まで通して読めるものになっています。",
+      "ここでは、考えが少し枝分かれをやめ、形を持ち、最初から最後まで通して読めるものになっています。",
     asideEyebrow: "読み方",
-    asideTitle: "まず先頭の一本から入り、そのあと外へ広がる。",
+    asideTitle: "まずいちばん明確な一本から入り、そのあと外へ広がる。",
     asideBody:
-      "先頭の文章がいちばん重く、残りはその近くで少し軽く並びます。",
+      "先頭の文章がいちばん明確な立場を持ち、残りはその近くで少し軽く並びます。",
     metricEntries: "pieces",
     metricThemes: "themes",
     metricLocales: "active locales",
@@ -140,13 +140,13 @@ export const WRITING_COPY: Record<AppLocale, WritingCopy> = {
     ],
     leadRole: "先頭の役割",
     leadRoleBody:
-      "先頭の文章に広さがあるのは、ゆっくり読む必要があるからであって、派手な導入が必要だからではありません。",
+      "先頭の文章に広さがあるのは、このページでいちばん明確な立場を担っているからであって、派手な導入が必要だからではありません。",
     supportTitle: "周りの文章",
     supportBody:
-      "こちらも完成した文章ですが、先頭の一本よりは軽く、速く読めます。",
+      "こちらも完成した文章ですが、先頭の一本よりは軽く、速く読めます。この route が一つの声だけにならないようにする役割もあります。",
     routeDistinction: "この route の違い",
     routeDistinctionBody:
-      "Garden がまだ開いたままなのに対して、Writing はもう少し静かで、まとまりのある読み心地になります。",
+      "Garden がまだ動きを見せる場所で、Projects が実行に着地した場所だとすれば、Writing はその中間です。考えはより明確になっていますが、まだ主に思考として読まれます。",
     readArticle: "記事を読む",
     emptyTitle: "まだ公開された文章はありません。",
     emptyBody: "この場所は文章のために空けてありますが、最初の一本はまだ公開されていません。",
