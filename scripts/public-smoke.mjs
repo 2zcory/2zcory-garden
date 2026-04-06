@@ -1,10 +1,10 @@
 const DEFAULT_BASE_URL = "https://2zcory-garden.vercel.app";
 
 const checks = [
-  { path: "/", marker: "Xem cách một ý đi thành bài viết và phần việc đã ship." },
-  { path: "/vi", marker: "Xem cách một ý đi thành bài viết và phần việc đã ship." },
-  { path: "/en", marker: "See how thought turns into writing and shipped work." },
-  { path: "/ja", marker: "考えが文章や実際の仕事になる流れを見せる場所です。" },
+  { path: "/", marker: "Product judgment được mang từ ý còn mở tới những hệ thống đã ship." },
+  { path: "/vi", marker: "Product judgment được mang từ ý còn mở tới những hệ thống đã ship." },
+  { path: "/en", marker: "Product judgment carried from rough thought to shipped systems." },
+  { path: "/ja", marker: "product judgment を、粗い思考から ship された system まで運ぶ場所です。" },
   { path: "/vi/about", marker: "Site này giữ những gì" },
   { path: "/en/about", marker: "What this site holds" },
   { path: "/ja/about", marker: "このサイトにあるもの" },
